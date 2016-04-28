@@ -24,14 +24,7 @@
                     <div class="col-md-6 padd0">
                         <div class="footer-nav">
                             <nav class="">
-                                <ul>
-                                    <li><a href="">About</a></li>
-                                    <li><a href="">contact</a></li>
-                                    <li><a href="">FAQ</a></li>
-                                    <li><a href="">blog</a></li>
-                                    <li><a href="">terms & condition</a></li>
-                                    <li><a href="">Privacy policy</a></li>
-                                </ul>
+                                <?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>                                
                             </nav>
                             <div class="copyright">
                                 <p>Copyright &copy; salarywinners.com<a href=""></a> All Right Reserved</p>
