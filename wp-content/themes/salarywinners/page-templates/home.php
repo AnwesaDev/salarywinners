@@ -1,19 +1,18 @@
 <?php
 
-/* 
+/*
+ * Template Name: Home
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- * Template Name : Home
+ * and open the template in the editor. 
  */
 ?>
 <!doctype html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<title>Salarywinners</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">	
+	<?php wp_head();?>
 </head>
 <body>
 	<div class="main-wrapper">
@@ -38,14 +37,14 @@
             	<div class="primery-nav" id="navigation">
                 	<div class="col-md-4 col-sm-12 col-xs-8">
                     	<div class="logo">
-                        	<a href=""><img src="images/logo.png" alt="" title="" class="img-responsive"></a>
+                            <a href=""><img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" title="" class="img-responsive"></a>
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-12 col-xs-4" id="navigaition">
                     <button class="button" id="btn-s-nav"><span class="fa fa-navicon"></span></button>
                     	<nav class="nav-right">
                         <button id="hide-nav" class="button"><span class="fa fa-times"></span></button>
-                        <a class="on-mobile" href=""><img src="images/logo.png" alt="" title="" class="img-responsive"></a>
+                        <a class="on-mobile" href=""><img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" title="" class="img-responsive"></a>
                             <ul class="">
                                 <li><a href=""><span class="h-wrk"></span>How it works</a></li>
                                 <li><a href=""><span class="br-job"></span>browse job</a></li>
@@ -64,7 +63,7 @@
         <section class="banner-section">
         	<div class="row">
             	<div class="banner">
-                	<img class="img-responsive" src="images/banner1.jpg" alt="" title="">
+                	<img class="img-responsive" src="<?php echo get_template_directory_uri();?>/images/banner1.jpg" alt="" title="">
                 </div>
             </div>
         </section>
@@ -110,7 +109,7 @@
         	<div class="row">
             	<div class="container">
                 	<div class="col-md-3 col-sm-6 col-xs-12">
-                    	<div class="icon-holder"><img src="images/big-icon1.png" class="img-responsive" alt="" title=""></div>
+                    	<div class="icon-holder"><img src="<?php echo get_template_directory_uri();?>/images/big-icon1.png" class="img-responsive" alt="" title=""></div>
                         <div class="content">
                         	<h3>Search</h3>
                             <p>
@@ -119,7 +118,7 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
-                    	<div class="icon-holder"><img src="images/big-icon2.png" class="img-responsive" alt="" title=""></div>
+                    	<div class="icon-holder"><img src="<?php echo get_template_directory_uri();?>/images/big-icon2.png" class="img-responsive" alt="" title=""></div>
                         <div class="content">
                         	<h3>Review</h3>
                             <p>
@@ -128,7 +127,7 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
-                    	<div class="icon-holder"><img src="images/big-icon3.png" class="img-responsive" alt="" title=""></div>
+                    	<div class="icon-holder"><img src="<?php echo get_template_directory_uri();?>/images/big-icon3.png" class="img-responsive" alt="" title=""></div>
                         <div class="content">
                         	<h3>Select</h3>
                             <p>
@@ -137,7 +136,7 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
-                    	<div class="icon-holder"><img src="images/big-icon4.png" class="img-responsive" alt="" title=""></div>
+                    	<div class="icon-holder"><img src="<?php echo get_template_directory_uri();?>/images/big-icon4.png" class="img-responsive" alt="" title=""></div>
                         <div class="content">
                         	<h3>Purchase</h3>
                             <p>
@@ -154,7 +153,7 @@
           <div class="row">
               <div class="gallery-box">
                   <div class="thumb">
-                  	<img src="images/img-thumb1.jpg" alt="" title="">
+                  	<img src="<?php echo get_template_directory_uri();?>/images/img-thumb1.jpg" alt="" title="">
                   </div>
                   <div class="thumb-content">
                   	<h3 class="title">Hi, this is title</h3>
@@ -167,7 +166,7 @@
               
               <div class="gallery-box">
                   <div class="thumb">
-                  	<img src="images/img-thumb2.jpg" alt="" title="">
+                  	<img src="<?php echo get_template_directory_uri();?>/images/img-thumb2.jpg" alt="" title="">
                   </div>
                   <div class="thumb-content">
                   	<h3 class="title">Hi, this is title</h3>
@@ -187,7 +186,7 @@
                     <i></i>
                   </div>
                    <div class="thumb">
-                  	<img src="images/img-thumb3.jpg" alt="" title="">
+                  	<img src="<?php echo get_template_directory_uri();?>/images/img-thumb3.jpg" alt="" title="">
                   </div>
               </div>
               
@@ -200,7 +199,7 @@
                     <i></i>
                   </div>
                    <div class="thumb">
-                  	<img src="images/img-thumb4.jpg" alt="" title="">
+                  	<img src="<?php echo get_template_directory_uri();?>/images/img-thumb4.jpg" alt="" title="">
                   </div>
               </div>
             
@@ -215,7 +214,7 @@
                     
                 	<div class="col-md-4 col-sm-6 col-xs-12">
                     	<div class="list-group-item box">
-                        	<img src="images/clients-pic1.png" alt="" title="">
+                        	<img src="<?php echo get_template_directory_uri();?>/images/clients-pic1.png" alt="" title="">
                             <h3 class="name">thomas</h3>
                         	<P>
                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna risus, congue quis nisi eu, condimentum condimentum ex."
@@ -224,7 +223,7 @@
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
                     	<div class="list-group-item box">
-                        	<img src="images/clients-pic2.png" alt="" title="">
+                        	<img src="<?php echo get_template_directory_uri();?>/images/clients-pic2.png" alt="" title="">
                             <h3 class="name">thomas</h3>
                         	<P>
                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna risus, congue quis nisi eu, condimentum condimentum ex."
@@ -233,7 +232,7 @@
                     </div>
                     <div class="col-md-4 col-sm-6 col-xs-12">
                     	<div class="list-group-item box">
-                        	<img src="images/clients-pic3.png" alt="" title="">
+                        	<img src="<?php echo get_template_directory_uri();?>/images/clients-pic3.png" alt="" title="">
                             <h3 class="name">thomas</h3>
                         	<P>
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna risus, congue quis nisi eu, condimentum condimentum ex."
@@ -275,10 +274,10 @@
                     </div>
                     <div class="col-md-6">
                        <div class="payment">
-                       		<a href=""><img src="images/visa.png" alt="" title=""></a>
-                            <a href=""><img src="images/master.png" alt="" title=""></a>
-                            <a href=""><img src="images/payple.png" alt="" title=""></a>
-                            <a href=""><img src="images/american.png" alt="" title=""></a>
+                       		<a href=""><img src="<?php echo get_template_directory_uri();?>/images/visa.png" alt="" title=""></a>
+                            <a href=""><img src="<?php echo get_template_directory_uri();?>/images/master.png" alt="" title=""></a>
+                            <a href=""><img src="<?php echo get_template_directory_uri();?>/images/payple.png" alt="" title=""></a>
+                            <a href=""><img src="<?php echo get_template_directory_uri();?>/images/american.png" alt="" title=""></a>
                        </div>
                     </div>
                 </div>
@@ -287,14 +286,11 @@
         
         <div class="navbar-fixed-bottom">
         	<div class="back-to-top">
-            	<a href=""><img src="images/top.png" alt="" title=""></a>
+            	<a href=""><img src="<?php echo get_template_directory_uri();?>/images/top.png" alt="" title=""></a>
             </div>
         </div>
         
 	</div> <!-- end main Wrapper class -->
-<!-- java Script -->
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
+<?php wp_footer();?>
 </body>
 </html>
