@@ -6,59 +6,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor. 
  */
+get_header();
 ?>
-<!doctype html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">	
-	<?php wp_head();?>
-</head>
-<body>
-	<div class="main-wrapper">
-    	<!--Header Section-->
-		<header class="header-section">
-        	<!--To Navigaion Section-->
-            
-        	<div class="row"> 
-                <div class="top-nav">
-                	<nav class="navbar-right">
-                        <ul>
-                            <li><a href=""><span class="user"></span>Providers</a></li>
-                            <li><a href=""><span class="login"></span>Login</a></li>
-                            <li><a href=""><span class="join-now"></span>Join Now</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            
-            <!--Primery Navigaion Section-->
-            <div class="row">
-            	<div class="primery-nav" id="navigation">
-                	<div class="col-md-4 col-sm-12 col-xs-8">
-                    	<div class="logo">
-                            <a href=""><img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" title="" class="img-responsive"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-sm-12 col-xs-4" id="navigaition">
-                    <button class="button" id="btn-s-nav"><span class="fa fa-navicon"></span></button>
-                    	<nav class="nav-right">
-                        <button id="hide-nav" class="button"><span class="fa fa-times"></span></button>
-                        <a class="on-mobile" href=""><img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" title="" class="img-responsive"></a>
-                            <ul class="">
-                                <li><a href=""><span class="h-wrk"></span>How it works</a></li>
-                                <li><a href=""><span class="br-job"></span>browse job</a></li>
-                                <li><a href=""><span class="prdct"></span>products</a></li>
-                                <li><a href=""><span class="job"></span>post a job</a></li>
-                                <li><a href=""><span class="cart"></span>cart</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </header>
-        
-        
         <!--Banner Section-->
         <section class="banner-section">
         	<div class="row">
@@ -243,54 +192,5 @@
                 </div>
             </div>
         </section>
-        
-        <!--Footer Section-->
-        <footer class="footer-section">
-        	<div class="row">
-            	<div class="social">
-                	<a href=""><span class="fa fa-facebook"></span></a>
-                    <a href=""><span class="fa fa-twitter"></span></a>
-                    <a href=""><span class="fa fa-linkedin"></span></a>
-                    <a href=""><span class="fa fa-instagram"></span></a>
-                    <a href=""><span class="fa fa-pinterest"></span></a>
-                </div>
-                <div class="container">
-                    <div class="col-md-6 padd0">
-                        <div class="footer-nav">
-                            <nav class="">
-                                <ul>
-                                    <li><a href="">About</a></li>
-                                    <li><a href="">contact</a></li>
-                                    <li><a href="">FAQ</a></li>
-                                    <li><a href="">blog</a></li>
-                                    <li><a href="">terms & condition</a></li>
-                                    <li><a href="">Privacy policy</a></li>
-                                </ul>
-                            </nav>
-                            <div class="copyright">
-                                <p>Copyright &copy; salarywinners.com<a href=""></a> All Right Reserved</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                       <div class="payment">
-                       		<a href=""><img src="<?php echo get_template_directory_uri();?>/images/visa.png" alt="" title=""></a>
-                            <a href=""><img src="<?php echo get_template_directory_uri();?>/images/master.png" alt="" title=""></a>
-                            <a href=""><img src="<?php echo get_template_directory_uri();?>/images/payple.png" alt="" title=""></a>
-                            <a href=""><img src="<?php echo get_template_directory_uri();?>/images/american.png" alt="" title=""></a>
-                       </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        
-        <div class="navbar-fixed-bottom">
-        	<div class="back-to-top">
-            	<a href=""><img src="<?php echo get_template_directory_uri();?>/images/top.png" alt="" title=""></a>
-            </div>
-        </div>
-        
-	</div> <!-- end main Wrapper class -->
-<?php wp_footer();?>
-</body>
-</html>
+<?php 
+get_footer();

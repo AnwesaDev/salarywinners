@@ -12,39 +12,52 @@
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
-<?php wp_head(); ?>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">	
+        <link rel="profile" href="http://gmpg.org/xfn/11">
+        <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<?php wp_head();?>
 </head>
-
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'salarywinners' ); ?></a>
-
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<?php
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
-
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'salarywinners' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
+	<div class="main-wrapper">
+    	<!--Header Section-->
+		<header class="header-section">
+        	<!--To Navigaion Section-->
+            
+        	<div class="row"> 
+                <div class="top-nav">
+                	<nav class="navbar-right">
+                        <ul>
+                            <li><a href=""><span class="user"></span>Providers</a></li>
+                            <li><a href=""><span class="login"></span>Login</a></li>
+                            <li><a href=""><span class="join-now"></span>Join Now</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <!--Primery Navigaion Section-->
+            <div class="row">
+            	<div class="primery-nav" id="navigation">
+                	<div class="col-md-4 col-sm-12 col-xs-8">
+                    	<div class="logo">
+                            <a href=""><img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" title="" class="img-responsive"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-12 col-xs-4" id="navigaition">
+                    <button class="button" id="btn-s-nav"><span class="fa fa-navicon"></span></button>
+                    	<nav class="nav-right">
+                        <button id="hide-nav" class="button"><span class="fa fa-times"></span></button>
+                        <a class="on-mobile" href=""><img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" title="" class="img-responsive"></a>
+                            <ul class="">
+                                <li><a href=""><span class="h-wrk"></span>How it works</a></li>
+                                <li><a href=""><span class="br-job"></span>browse job</a></li>
+                                <li><a href=""><span class="prdct"></span>products</a></li>
+                                <li><a href=""><span class="job"></span>post a job</a></li>
+                                <li><a href=""><span class="cart"></span>cart</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
