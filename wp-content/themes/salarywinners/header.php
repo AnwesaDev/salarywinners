@@ -41,14 +41,14 @@
             	<div class="primery-nav" id="navigation">
                 	<div class="col-md-4 col-sm-12 col-xs-8">
                     	<div class="logo">
-                            <a href=""><img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" title="" class="img-responsive"></a>
+                            <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" title="" class="img-responsive"></a>
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-12 col-xs-4" id="navigaition">
                     <button class="button" id="btn-s-nav"><span class="fa fa-navicon"></span></button>
                     	<nav class="nav-right">
                         <button id="hide-nav" class="button"><span class="fa fa-times"></span></button>
-                        <a class="on-mobile" href=""><img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" title="" class="img-responsive"></a>
+                        <a class="on-mobile" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" title="" class="img-responsive"></a>
                             <ul class="">
                                 <li><a href=""><span class="h-wrk"></span>How it works</a></li>
                                 <li><a href=""><span class="br-job"></span>browse job</a></li>

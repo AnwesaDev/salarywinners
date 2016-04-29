@@ -22,13 +22,15 @@ get_header();
         	<div class="row">
             	<form method="" action="" id="search-frm" name="">
                     <div class="input-group search-box">
+                        <form class="" action="<?php echo home_url(); ?>" method="get">
                     	<span class="larg">Search</span>
-                        <input type="search" placeholder="Enter your Search keywords" >
+                        <input type="search" name="s" placeholder="Enter your Search keywords" >
                        <span class="input-group-btn">
                            <button class="btn btn-submit" type="button">
                               <span class="fa fa-search"></span>
                             </button>
                         </span>
+                        </form>
                     </div>
                 </form>
             </div>
@@ -98,63 +100,7 @@ get_header();
             </div>
         </section>
         
-        <section class="gallery">
-          <div class="row">
-              <div class="gallery-box">
-                  <div class="thumb">
-                  	<img src="<?php echo get_template_directory_uri();?>/images/img-thumb1.jpg" alt="" title="">
-                  </div>
-                  <div class="thumb-content">
-                  	<h3 class="title">Hi, this is title</h3>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus neque.
-                    </p>
-                    <i></i>
-                  </div>
-              </div>
-              
-              <div class="gallery-box">
-                  <div class="thumb">
-                  	<img src="<?php echo get_template_directory_uri();?>/images/img-thumb2.jpg" alt="" title="">
-                  </div>
-                  <div class="thumb-content">
-                  	<h3 class="title">Hi, this is title</h3>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus neque.
-                    </p>
-                    <i></i>
-                  </div>
-              </div>
-              
-              <div class="gallery-box">
-                  <div class="thumb-content">
-                  	<h3 class="title">Hi, this is title</h3>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus neque.
-                    </p>
-                    <i></i>
-                  </div>
-                   <div class="thumb">
-                  	<img src="<?php echo get_template_directory_uri();?>/images/img-thumb3.jpg" alt="" title="">
-                  </div>
-              </div>
-              
-              <div class="gallery-box">
-                  <div class="thumb-content">
-                  	<h3 class="title">Hi, this is title</h3>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus neque.
-                    </p>
-                    <i></i>
-                  </div>
-                   <div class="thumb">
-                  	<img src="<?php echo get_template_directory_uri();?>/images/img-thumb4.jpg" alt="" title="">
-                  </div>
-              </div>
-            
-              
-           </div>
-        </section>
+        <?php get_template_part('template-parts/block', 'post-gallery'); ?>
         <!--Clients Sectoin-->
         <section class="clients">
         	<div class="row">
