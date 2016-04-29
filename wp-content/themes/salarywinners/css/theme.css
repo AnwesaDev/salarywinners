@@ -18,11 +18,11 @@ body{overflow-x:hidden; background:#fff !important;}
 .header-section .primery-nav ul li{float:left; margin:8px 15px 15px;}
 .header-section .primery-nav ul li a{color:#363636; text-transform:uppercase; text-decoration:none; outline:none;}
 .header-section .primery-nav ul li a span{display:block;width: 33px;height: 32px; margin:10px auto;}
-.header-section .primery-nav ul li a span.h-wrk{background:url(../images/h-wrk.png) 0% 0% no-repeat}
-.header-section .primery-nav ul li a span.br-job{background:url(../images/brws-job.png) 0% 0% no-repeat}
-.header-section .primery-nav ul li a span.prdct{background:url(../images/product.png) 0% 0% no-repeat}
-.header-section .primery-nav ul li a span.job{background:url(../images/job.png) 0% 0% no-repeat}
-.header-section .primery-nav ul li a span.cart{background:url(../images/cart.png) 0% 0% no-repeat}
+.header-section .primery-nav ul li.h-wrk a span{background:url(../images/h-wrk.png) 0% 0% no-repeat}
+.header-section .primery-nav ul li.br-job a span{background:url(../images/brws-job.png) 0% 0% no-repeat}
+.header-section .primery-nav ul li.prdct a span{background:url(../images/product.png) 0% 0% no-repeat}
+.header-section .primery-nav ul li.job a span{background:url(../images/job.png) 0% 0% no-repeat}
+.header-section .primery-nav ul li.cart a span{background:url(../images/cart.png) 0% 0% no-repeat}
 
 /* Banner Section */
 .banner-section{}
