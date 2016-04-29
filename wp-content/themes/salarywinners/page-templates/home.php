@@ -45,42 +45,46 @@ get_header();
         <section class="big-icon">
         	<div class="row">
             	<div class="container">
-                	<div class="col-md-3 col-sm-6 col-xs-12">
+                    <?php if(have_posts()): ?>
+                    <?php while(have_posts()): the_post(); ?>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
                     	<div class="icon-holder"><img src="<?php echo get_template_directory_uri();?>/images/big-icon1.png" class="img-responsive" alt="" title=""></div>
                         <div class="content">
-                        	<h3>Search</h3>
+                            <h3><?php echo get_post_meta(get_the_ID(), '_sw_icon_title_1', true)?></h3>
                             <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus neque.
+                            <?php echo get_post_meta(get_the_ID(), '_sw_icon_description_1', true)?>
                             </p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
                     	<div class="icon-holder"><img src="<?php echo get_template_directory_uri();?>/images/big-icon2.png" class="img-responsive" alt="" title=""></div>
                         <div class="content">
-                        	<h3>Review</h3>
+                        	<h3><?php echo get_post_meta(get_the_ID(), '_sw_icon_title_2', true)?></h3>
                             <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus neque.
+                            <?php echo get_post_meta(get_the_ID(), '_sw_icon_description_2', true)?>
                             </p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
                     	<div class="icon-holder"><img src="<?php echo get_template_directory_uri();?>/images/big-icon3.png" class="img-responsive" alt="" title=""></div>
                         <div class="content">
-                        	<h3>Select</h3>
+                        	<h3><?php echo get_post_meta(get_the_ID(), '_sw_icon_title_3', true)?></h3>
                             <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus neque.
+                            <?php echo get_post_meta(get_the_ID(), '_sw_icon_description_3', true)?>
                             </p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
                     	<div class="icon-holder"><img src="<?php echo get_template_directory_uri();?>/images/big-icon4.png" class="img-responsive" alt="" title=""></div>
                         <div class="content">
-                        	<h3>Purchase</h3>
+                        	<h3><?php echo get_post_meta(get_the_ID(), '_sw_icon_title_4', true)?></h3>
                             <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus neque.
+                            <?php echo get_post_meta(get_the_ID(), '_sw_icon_description_4', true)?>
                             </p>
                         </div>
                     </div>
+                    <?php endwhile; ?>
+                    <?php endif; ?>
                     <div class="thik-border"></div>
                 </div>
             </div>
