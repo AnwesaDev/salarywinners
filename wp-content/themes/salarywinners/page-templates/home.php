@@ -41,10 +41,9 @@ get_header();
         	<div class="row">
             	<div class="container">
                 	<div class="normal">
-                    	<h2 class="title">how it work</h2>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus neque, aliquet ut interdum nec, tristique non felis. Duis posuere congue nunc, quis consequat metus fermentum quis. Nulla interdum auctor nulla, vitae fringilla justo blandit in. Aenean non augue interdum, luctus urna ac, posuere dui.
-                        </p>
+                            
+                    	<h2 class="title"><?php the_title();?></h2>
+                        <p><?php the_content();?></p>
                     </div>
                     
                     <div class="normal">
