@@ -12,7 +12,8 @@ get_header();
         <section class="banner-section">
         	<div class="row">
             	<div class="banner">
-                	<img class="img-responsive" src="<?php echo get_template_directory_uri();?>/images/banner1.jpg" alt="" title="">
+                        <?php putRevSlider( "homeslider" ) ?>
+                	<!--<img class="img-responsive" src="<?php echo get_template_directory_uri();?>/images/banner1.jpg" alt="" title="">-->
                 </div>
             </div>
         </section>

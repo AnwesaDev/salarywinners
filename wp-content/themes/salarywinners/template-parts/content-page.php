@@ -9,33 +9,30 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
 
-	<div class="entry-content">
-		<?php
-			the_content();
-
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'salarywinners' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php
-			edit_post_link(
-				sprintf(
-					/* translators: %s: Name of current post */
-					esc_html__( 'Edit %s', 'salarywinners' ),
-					the_title( '<span class="screen-reader-text">"', '"</span>', false )
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-		?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+<section class="content-body">
+        	<div class="container">
+            	<div class="row">
+                	<!--Main Conatent section-->
+                	<div class="col-md-8 col-sm-8">
+                            
+                        <div class="content">
+                            <h2 class="title"><?php the_title();?></h2>
+                            <?php the_content();?>
+                        </div>
+                    </div>
+                    
+                    <!--Side Bar-->
+                    <div class="col-md-4 col-sm-4">
+                    	<div class="sidebar">
+                        	<ul>
+                            	<li><span class="fa fa-question"></span>FAQ</li>
+                                <li><span class="fa fa-mobile-phone"></span>02 3000 1234</li>
+                                <li><span class="fa fa-envelope"></span>hello@asallerywiners.com</li>
+                                <li><span class="fa fa-headphones"></span>Online chat and ask us to call you</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
