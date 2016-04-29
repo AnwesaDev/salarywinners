@@ -49,13 +49,7 @@
                     	<nav class="nav-right">
                         <button id="hide-nav" class="button"><span class="fa fa-times"></span></button>
                         <a class="on-mobile" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri();?>/images/logo.png" alt="" title="" class="img-responsive"></a>
-<!--                            <ul class="">
-                                <li><a href=""><span class="h-wrk"></span>How it works</a></li>
-                                <li><a href=""><span class="br-job"></span>browse job</a></li>
-                                <li><a href=""><span class="prdct"></span>products</a></li>
-                                <li><a href=""><span class="job"></span>post a job</a></li>
-                                <li><a href=""><span class="cart"></span>cart</a></li>
-                            </ul>-->
+
                             <?php wp_nav_menu(
                                     array(
                                         'theme_location'=>'primary',
