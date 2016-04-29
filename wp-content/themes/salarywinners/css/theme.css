@@ -91,7 +91,7 @@ position: absolute;left: 80%;height: 40px; width: 41px;top: 60px;}
 .clients h2.title{text-align:center; margin:60px 0px 100px 00px; color:#666666; font-size:300%;}
 .clients .list-group-item.box{border-width:2px;}
 .clients .box{ text-align:center;}
-.clients .box img{margin: -60px 0 0px;}
+.clients .box img{margin: -60px 0 0px; width:96px; height:96px; border-radius:50%;}
 .clients .box h3.name{margin:10px 0; text-transform:uppercase; color:#40bac5;}
 .clients .box p{line-height: 1.5; font-size: 16px; color:#7b7b7b; font-style:italic;}
 /* footer */
@@ -115,6 +115,35 @@ position: absolute;left: 80%;height: 40px; width: 41px;top: 60px;}
 .back-to-top a img{border-radius:4px; }
 
 .nav-right{float: right;}
+
+/* page Section */
+.content-body{padding-top:50px; padding-bottom:50px; background:#f6f6f6}
+
+/* Side Bar */
+.sidebar{border:solid 1px transparent; background:#8bd0bd;}
+.sidebar ul{ list-style:none; padding:20px 20px;}
+.sidebar ul li{ margin:10px 0 10px 0; display:inline-block;width: 100%; line-height: 34px; color:#fff;}
+.sidebar ul li span{ border:solid 1px #fff; border-radius:50%; text-align:center; display:table-cell; vertical-align:middle; width:34px; height:34px; color:#fff; font-size:20px; float:left; margin-right: 12px; line-height: 34px;}
+
+/* contact Form */
+.contact-frm{ border:solid 1px #e8e8e8; background:#fff; padding-bottom:40px;}
+.contact-frm h2.title{border-bottom:1px solid #E5E5E5; padding-top:30px; padding-bottom:20px;}
+.contact-frm form{display: inline-block; margin-top:30px; padding-left:15px; width: 100%;}
+.contact-frm form input, .contact-frm form textarea{border:solid 1px #e8e8e8; margin:10px 0 10px 0; width:60%; border-radius:3px;}
+.contact-frm form input{height:34px;}
+.contact-frm form input[type="submit"]{width: 120px;height: 45px;font-size: 20px; margin-left: 25%; margin-top:30px;background: #f67c3d;padding: 10px;font-size: 20px;color: #fff;border: solid 2px;border-color: transparent #b0501e #b0501e #e8e8e8;outline: none; border-left:none;}
+.contact-frm form input[type="checkbox"]{margin-left: 25%;display:inline-block;-webkit-appearance: none;-moz-appearance: none;-o-appearance:none;appearance: none;width:20px;height:20px; background:url(../images/checkbox.png) no-repeat 15% 5%; cursor:pointer; border:none; outline:none;}
+.contact-frm form input[type="checkbox"]:checked {background:url(../images/checkbox.png) no-repeat 15% 94%;}
+.contact-frm form .input-box.btn-submit{ border-bottom:1px solid #e8e8e8; margin-right:15px; padding-bottom:20px;}
+.contact-frm form span{position: absolute;margin:12px 10px;}
+.contact-frm form label{ width:25%;float:left; color:#363636;}
+
+/* main Body */
+.content-body{}
+.content-body h2.title{ width:100%; border-bottom:1px solid #e8e8e8; padding-bottom:20px; color:#363636}
+.content-body .content{ margin:20px 0;}
+.content-body .content p{ line-height:25px; font-size:17px; color:#363636; font-weight:lighter;}
+
 /* Responsive */
 @media (max-width:991px){
 	.gallery .gallery-box{width:50%;}
@@ -167,5 +196,4 @@ a.on-mobile{display:none;}
 	#navigaition ul.show-nav{padding-top: 80px;}
 	#navigaition button#btn-s-nav, #navigaition nav button#hide-nav{margin: 0px 0 0 40px; height: 41px; width:50px;}
 }
-.padd0{padding:0;}
 
