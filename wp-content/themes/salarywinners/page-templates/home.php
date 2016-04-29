@@ -19,10 +19,9 @@ get_header();
         
         <!--Section-->
         <section class="search-section">
-        	<div class="row">
-            	<form method="" action="" id="search-frm" name="">
+            <div class="row">
+            	<form method="" action="<?php echo home_url(); ?>" id="search-frm" name="">
                     <div class="input-group search-box">
-                        <form class="" action="<?php echo home_url(); ?>" method="get">
                     	<span class="larg">Search</span>
                         <input type="search" name="s" placeholder="Enter your Search keywords" >
                        <span class="input-group-btn">
@@ -30,7 +29,6 @@ get_header();
                               <span class="fa fa-search"></span>
                             </button>
                         </span>
-                        </form>
                     </div>
                 </form>
             </div>
@@ -38,12 +36,14 @@ get_header();
         
         <!--Section-->
         <section class="how-to-work">
-        	<div class="row">
+            <div class="row">
             	<div class="container">
-                	<div class="normal">
+                    <?php if(have_posts()): ?>
+                    <?php while(have_posts()): the_post(); ?>
+                    <div class="normal">
                             
                     	<h2 class="title"><?php the_title();?></h2>
-                        <p><?php the_content();?></p>
+                        <p><?php the_content(); ?></p>
                     </div>
                     
                     <div class="normal">
@@ -51,6 +51,8 @@ get_header();
                         <button class="btn vedio-btn">Watch Vedio</button>
                         </div>
                     </div>
+                    <?php endwhile; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
