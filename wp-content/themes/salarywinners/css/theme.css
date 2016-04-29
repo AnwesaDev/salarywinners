@@ -135,7 +135,7 @@ position: absolute;left: 80%;height: 40px; width: 41px;top: 60px;}
 .contact-frm form input[type="checkbox"]{margin-left: 25%;display:inline-block;-webkit-appearance: none;-moz-appearance: none;-o-appearance:none;appearance: none;width:20px;height:20px; background:url(../images/checkbox.png) no-repeat 15% 5%; cursor:pointer; border:none; outline:none;}
 .contact-frm form input[type="checkbox"]:checked {background:url(../images/checkbox.png) no-repeat 15% 94%;}
 .contact-frm form .input-box.btn-submit{ border-bottom:1px solid #e8e8e8; margin-right:15px; padding-bottom:20px;}
-.contact-frm form span{position: absolute;margin:12px 10px;}
+.contact-frm form b{position: absolute;margin:12px 10px;}
 .contact-frm form label{ width:25%;float:left; color:#363636;}
 
 /* main Body */
