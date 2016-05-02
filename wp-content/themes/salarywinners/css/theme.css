@@ -126,7 +126,16 @@ position: absolute;left: 80%;height: 40px; width: 41px;top: 60px;}
 .content-body.blog-details .sidebar .catagory h2.title{text-transform:uppercase; font-weight:bold; color:#363636; padding-left:15px;}
 .content-body.blog-details .sidebar .catagory ul li{margin:0;line-height: 25px;}
 .content-body.blog-details .sidebar .catagory ul li a{color:#58c3cb; font-size:17px; text-decoration:none; color:#363636; text-transform:capitalize;}
-
+/*Recomanded Post*/
+.content-body.blog-details .content.footer-content{ margin-top:40px; padding-bottom:40px; display: inline-block; width:100%;}
+.content-body.blog-details .content.footer-content .blog-title h2.title{color:#333; text-transform:uppercase; font-weight:bold; font-size:150%;padding-left:15px;}
+.content-body.blog-details .content.footer-content .recom-post .post{border:solid 1px #e8e8e8; -webkit-box-shadow: 2px 4px 5px -2px rgba(0,0,0,0.3);-moz-box-shadow: 2px 4px 5px -2px rgba(0,0,0,0.3);box-shadow: 2px 4px 5px -2px rgba(0,0,0,0.3);}
+.content-body.blog-details .content.footer-content .recom-post .thumb-content{ padding-bottom:20px;}
+.content-body.blog-details .content.footer-content .recom-post .thumb-content p{margin:0 0 20px 0; text-transform:capitalize; color:#363636; padding-bottom:20px; border:none; padding:0px 6px 0px 7px;}
+.content-body.blog-details .content.footer-content .recom-post .thumb-content a{ color:#f87c32; text-decoration:none; padding:0px 6px 0px 7px;}
+.content-body.blog-details .content.footer-content .recom-post .thumb h3.title{position:absolute; top:30px; background:#f67b3f; width:50%; padding:7px 10px; color:#fff; font-size:150%; height:40px;}
+.content-body.blog-details .content.footer-content .recom-post .thumb span{ background:url(../images/x.png) no-repeat;    width: 30px;height: 40px;position: absolute;top: 30px;right: 38%;}
+.content-body.blog-details .content.footer-content .recom-post .thumb-content h4.title{ color:#3fb9c4; text-transform:capitalize; font-size: 150%; padding:0px 6px 0px 7px;}
 /* contact Form */
 .contact-frm{ border:solid 1px #e8e8e8; background:#fff; padding-bottom:40px;}
 .contact-frm h2.title{border-bottom:1px solid #E5E5E5; padding-top:30px; padding-bottom:20px;}
@@ -166,6 +175,11 @@ position: absolute;left: 80%;height: 40px; width: 41px;top: 60px;}
 .content-body.blog-details .tags span{ float:left; line-height:45px;}
 .content-body.blog-details .tags ul{ list-style:none;}
 .content-body.blog-details .tags ul li{ float:left; padding:5px; margin:10px 5px 0 5px; background:#f3f3f3; border:solid 1px #e8e8e8; border-radius:3px;}
+
+/*user sing up and login*/
+.content-body.sing-login .normal h2.title{ text-align:center; border:none;}
+.content-body.sing-login .img-or{text-align:center;}
+.content-body.sing-login .c-box{text-align:center; border:solid;}
 /* footer */
 .footer-section{}
 .footer-section .social{ min-height:60px; background:#3fbac2;text-align: center; padding: 15px 15px;}
