@@ -3,58 +3,9 @@
 /* 
  * Template Name: Signup Seller
  */
-wp_insert_user( $userdata );
-
-$err = '';
-$success = '';
-
-global $wpdb, $PasswordHash, $current_user, $user_ID;
-
-if(isset($_POST['task']) && $_POST['task'] == 'registered' ) {
-    
-	$pwd = $wpdb->escape(trim($_POST['pwd']));
-	$cpwd = $wpdb->escape(trim($_POST['cpwd']));
-	$fname = $wpdb->escape(trim($_POST['fname']));
-	$lname = $wpdb->escape(trim($_POST['lname']));
-	$email = $wpdb->escape(trim($_POST['email']));
-	$company = $wpdb->escape(trim($_POST['company']));
-        $phone = $wpdb->escape(trim($_POST['phone']));
-        $country = $wpdb->escape(trim($_POST['country']));
-        $category = $wpdb->escape(trim($_POST['category']));
-        $specialized = $wpdb->escape(trim($_POST['specialized']));
-	
-	if( $email == "" || $pwd == "" || $cpwd == "" || $fname == "" || $lname == ""  || $phone == ""  || $country == ""  || $category == ""  || $specialized == "" ) {
-		$err = 'Please don\'t leave the required fields.';
-                echo $err;exit;
-	} else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		$err = 'Invalid email address.';
-                echo $err;exit;
-	} else if(email_exists($email) ) {
-		$err = 'Email already exist.';
-                echo $err;exit;
-	} else if($pwd != $cpwd){
-		$err = 'Password do not match.';
-                echo $err;exit;
-	} else {
-                //echo 'hi';exit;
-		$user_id = wp_insert_user( array ('first_name' => $fname, 'last_name' => $lname, 'user_login' => $email, 'user_pass' => $pwd, 'user_email' => $email, 'role' => 'subscriber' ) );
-		if( is_wp_error($user_id) ) {
-			$err = 'Error on user creation.';
-		} else {
-			do_action('user_register', $user_id);
-			
-			$success = 'You\'re successfully register';
-		}
-		
-	}
-	
-}
-
 get_header();
 ?>
-
         <?php get_template_part('template-parts/block', 'search'); ?>
-
         <section class="content-body registration">
         	<div class="container">
             	<div class="row">
@@ -66,27 +17,26 @@ get_header();
                     	<div class="col-md-12">
                         	<h2 class="title">Create a Account</h2>
                          </div>
-                         <form action="" method="POST">
-                              
+                         <form action="" method="">
                             <div class="input-box">
                                <label for=""><star>*</star>First Name</label>
-                               <input type="text" name="fname" id="fname" placeholder="First Name">
+                               <input type="text" placeholder="First Name">
                             </div>
                             <div class="input-box">
                                <label for=""><star>*</star>Last Name</label>
-                               <input type="text" name="lname" id="lname" placeholder="Last Name">
+                               <input type="text" placeholder="Last Name">
                             </div>
                             <div class="input-box">
                                <label for="">Company Name</label>
-                               <input type="text" name="company" id="company" placeholder="Company Name">
+                               <input type="text" placeholder="Company Name">
                             </div>
                             <div class="input-box">
                                <label for=""><star>*</star>Phone Number</label>
-                               <input type="text" name="phone" id="phone" placeholder="Phone Number">
+                               <input type="text" placeholder="Phone Number">
                             </div>
                             <div class="input-box">
                                <label for=""><star>*</star>Country</label>
-                               <select name="country" id="country">
+                               <select>
                                     <option selected>Choose Country</option>
                                     <option>Afghanistan</option>
                                     <option>Albania</option>
@@ -327,19 +277,19 @@ get_header();
                             </div>
                             <div class="input-box">
                                <label for=""><star>*</star>Email Address</label>
-                               <input type="email" name="email" id="email" placeholder="Email Address">
+                               <input type="email" placeholder="Email Address">
                             </div>
                             <div class="input-box">
                                <label for=""><star>*</star>Password</label>
-                               <input type="text" name="pwd" id="pwd" placeholder="Password">
+                               <input type="text" placeholder="Password">
                             </div>
                             <div class="input-box end-section">
                                <label for=""><star>*</star>Confirm Password</label>
-                               <input type="text" name="cpwd" id="cpwd" placeholder="Confirm Password">
+                               <input type="text" placeholder="Confirm Password">
                             </div>
                             <div class="input-box second-section">
                                <label for=""><star>*</star>Category</label>
-                               <select name="category" id="category">
+                               <select>
                                		<option selected>Web Design</option>
                                     <option>Adobe Photoshop</option>
                                     <option>Grapic Desing</option>
@@ -350,7 +300,7 @@ get_header();
                             </div>
                             <div class="input-box">
                                <label for=""><star>*</star>Specialized in</label>
-                               <input type="text" name="specialized" id="specialized" placeholder="specialized in">
+                               <input type="text" placeholder="specialized in">
                             </div>
                             <div class="input-box">
                                <input type="checkbox">
@@ -361,7 +311,7 @@ get_header();
                                <b><star>*</star>newsletter subscription</b>
                             </div>
                             <div class="input-box btn-submit">
-                            	<input type="submit" name="task" value="registered">
+                            	<input type="submit" value="registered">
                             </div>
                         </form>
                     </div>
