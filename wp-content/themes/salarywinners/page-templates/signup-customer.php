@@ -1,7 +1,7 @@
 <?php
 
 /* 
- * Template Name: Signup Seller
+ * Template Name: Signup Customer
  */
 wp_insert_user( $userdata );
 
@@ -20,8 +20,7 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
 	$company = $wpdb->escape(trim($_POST['company']));
         $phone = $wpdb->escape(trim($_POST['phone']));
         $country = $wpdb->escape(trim($_POST['country']));
-        $category = $wpdb->escape(trim($_POST['category']));
-        $specialized = $wpdb->escape(trim($_POST['specialized']));
+        
 	
 	if (empty($pwd)) {
 		$error = true;
@@ -48,8 +47,7 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
                     update_user_meta($user_id, 'company', $company);                    
                     update_user_meta($user_id, 'phone',   $phone);
                     update_user_meta($user_id, 'country', $country);
-                    update_user_meta($user_id, 'category', $category);
-                    update_user_meta($user_id, 'specialized', $specialized);
+                   
                     
                     
 //                 <--------- Resistration Mail----------->
@@ -368,22 +366,7 @@ get_header();
                                <input type="password" name="cpwd" id="cpwd" class="form-control" placeholder="Confirm Password" data-match="#pwd" data-match-error="Password do not match" required="">
                                <div class="help-block with-errors"></div>
                             </div>
-                            <div class="form-group input-box has-feedback second-section">
-                               <label for="" class="control-label"><star>*</star>Category</label>
-                               <select name="category" id="category" class="form-control">
-                               		<option selected>Web Design</option>
-                                    <option>Adobe Photoshop</option>
-                                    <option>Grapic Desing</option>
-                                    <option>Print Media</option>
-                                    <option>Video Editing</option>
-                                    <option>Multimedia</option>
-                               </select>
-                            </div>
-                            <div class="form-group input-box has-feedback">
-                               <label for="" class="control-label"><star>*</star>Specialized in</label>
-                               <input type="text" name="specialized" id="specialized" class="form-control" placeholder="specialized in" data-error="Specialized in is required" required="">
-                               <div class="help-block with-errors"></div>
-                            </div>
+                            
                             <div class="form-group input-box has-feedback">
                                <input type="checkbox" name="tnc" id="tnc" class="form-control" data-error="You must agree to the Terms and Conditions" required="">
                                <b><star>*</star>terms and conditions</b>

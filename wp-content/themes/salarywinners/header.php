@@ -29,8 +29,12 @@
                 	<nav class="navbar-right">
                         <ul>
                             <li><a href=""><span class="user"></span>Providers</a></li>
-                            <li><a href=""><span class="login"></span>Login</a></li>
-                            <li><a href=""><span class="join-now"></span>Join Now</a></li>
+                            <?php if(is_user_logged_in()): ?>
+                            <li><a href="<?php echo esc_url(wp_logout_url(get_bloginfo('siteurl').'/login/')); ?>"><span class="login"></span>Logout</a></li>
+                            <?php else: ?>
+                            <li><a href="<?php echo esc_url(get_bloginfo('siteurl').'/login/'); ?>"><span class="login"></span>Login</a></li>
+                            <?php endif; ?>
+                            <li><a href="<?php echo esc_url(get_bloginfo('siteurl').'/join-now/'); ?>"><span class="join-now"></span>Join Now</a></li>
                         </ul>
                     </nav>
                 </div>
