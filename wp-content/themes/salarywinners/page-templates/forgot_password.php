@@ -22,10 +22,10 @@
             } else {
                                
                  // <-----------Mail Part----------------->
-                $token = mt_rand(00000, 99999);
-                $token = md5($token);
-                $token = substr($token, 0, 10); 
-                $link  = add_query_arg(array('token'=>$token), get_bloginfo('siteurl').'/reset-password/');
+                $user_data = get_user_by('email', $email);
+                $token = get_password_reset_key( $user_data );
+                
+                $link  = add_query_arg(array('token'=>$token,'email'=>$email), get_bloginfo('siteurl').'/reset-password/');
                     $to = $email;
                     $subject = 'Reset Password';
                     $sender = get_option('name');
@@ -36,8 +36,9 @@
                     $headers[] = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
                     $headers[] = "X-Mailer: PHP \r\n";
                     $headers[] = 'From: '.$sender.' < '.$email.'>' . "\r\n";
-                    echo $message;exit();
+                    
                     $mail = wp_mail( $to, $subject, $message, $headers );
+                    echo $message;exit();
                     if( $mail ){
                         $success = 'A reset password link has been sent to you. Please check your email.';
                         

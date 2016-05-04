@@ -27,21 +27,22 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
 		$error = true;
 		$error_type = 'password';
 		$message = 'Please enter your password';
-                
+                //echo '$message';die();
 	} else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		$err = 'Invalid email address.';
-               
+                //echo $err;die();
 	} else if(email_exists($email) ) {
 		$err = 'Email already exist.';
-               
+                //echo $err;die();
 	} else if($pwd != $cpwd){
 		$err = 'Password do not match.';
-               
+                //echo $err;die();
 	} else {
                
 		$user_id = wp_insert_user( array ('first_name' => $fname, 'last_name' => $lname, 'user_login' => $email, 'user_pass' => $pwd, 'user_email' => $email, 'role' => 'subscriber' ) );
 		if( is_wp_error($user_id) ) {
 			$err = 'Error on user creation.';
+                         //echo $err;die();
 		} else {
 			do_action('user_register', $user_id);
                         
