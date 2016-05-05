@@ -54,7 +54,7 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
                     
                     
 //                 <--------- Resistration Mail----------->
-                        $mail->userRegistration(array('user_id'=>$user_id));
+                        $mail->userRegistration($user_id);
                       
 //                        $to         = $email;
 //                        $subject    = 'Registration successful on '.get_bloginfo('name');

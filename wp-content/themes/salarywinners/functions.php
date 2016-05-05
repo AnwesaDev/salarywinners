@@ -7,6 +7,11 @@
  * @package Salary_Winners
  */
 show_admin_bar(false);
+require get_template_directory() . '/class/mail.php';
+
+global $mail;
+$mail = new mail();
+
 if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/inc/vendor/ReduxFramework/ReduxCore/framework.php' ) ) {
     require_once( dirname( __FILE__ ) . '/inc/vendor/ReduxFramework/ReduxCore/framework.php' );
 }
