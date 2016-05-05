@@ -353,7 +353,7 @@ i.location{width: 30px; height: 28px;display: inline-block;float: left;backgroun
 .submit-proposal .dollar input[type="text"]{ padding-left:10px; width:30%; height:37px; border:solid #e2e2e2; border-width:3px 1px 1px 3px; border-radius:6px;}
 h4.title b{color:#f87c32;}
 .submit-proposal form input[type="submit"]{ width:auto; margin: 30px 0; border-radius:6px;}
-.submit-proposal form .input-box:nth-last-child(1) {border-top: solid 1px #e8e8e8;margin-top: 30px}
+.submit-proposal form .input-box:nth-last-child(1) {border-top: solid 1px #e8e8e8;margin-top: 30px;}
 input:focus{ outline:none;}
 a:hover{text-decoration:none !important;}
 .product-details-page .product-details .button .btn-work{margin-top:5px;clear: both; padding: 7px 15px;}
@@ -378,6 +378,8 @@ h3.price b{color:#f87c32; padding-left:10px; font-size:16px;vertical-align: top;
 
 .wpcf7-form-control-wrap span{margin-left:25%;}
 .contact-frm .has-feedback .form-control{padding-right:0;}
+
+.error{display: block;width: 100%;clear: both; margin-left:20%; padding-top: 10px;}
 /* footer */
 .footer-section{}
 .footer-section .social{ min-height:60px; background:#3fbac2;text-align: center; padding: 15px 15px;}
@@ -433,13 +435,18 @@ h3.price b{color:#f87c32; padding-left:10px; font-size:16px;vertical-align: top;
 	.search-section form#search-frm input{width:100%;}
 	.search-section form#search-frm .btn-submit{margin-top:30px;}
 	.contact-frm form label, .content-body.registration .contact-frm form label{width:100%; display:block; line-height: normal;}
-	.contact-frm form input, .contact-frm form textarea,  .contact-frm form select{width:100%;}
+	.contact-frm form input[type="text"],
+	.contact-frm form input[type="tel"],
+	.contact-frm form input[type="email"],
+	.contact-frm form input[type="number"],
+	.contact-frm form input[type="password"], .contact-frm form textarea,  .contact-frm form select{width:100%;}
 /*	.content-body.registration .contact-frm form input[type="checkbox"], .content-body.registration .contact-frm form input[type="submit"]{margin:0;}*/
 	.contact-frm form .input-box, .sidebar{margin-top:15px;}
 	.contact-frm form b{margin: 0px 10px;}
 	.login-box{width:90%;}
 	.login-box form input{width:100%;}
 	form input[type="checkbox"]{width: 20px;}
+	.contact-frm form b{position:relative;}
 }
 @keyframes showing-nav{
 0%{ left:200%}

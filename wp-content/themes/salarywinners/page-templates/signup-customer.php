@@ -375,7 +375,7 @@ get_header();
                                 </div>
                                 <div class="form-group input-box has-feedback">
                                    <label for="" class="control-label"><star>*</star>Password</label>
-                                   <input type="password" name="pwd" id="pwd" class="form-control" placeholder="Password" data-error="Password is required" required="">
+                                   <input type="password" name="pwd" id="pwd" class="form-control" placeholder="Password" data-error="Password is required" required"">
                                 </div>
                                 <div class="form-group input-box has-feedback end-section">
                                    <label for="" class="control-label"><star>*</star>Confirm Password</label>
@@ -387,7 +387,7 @@ get_header();
                                     <label></label>
                                    <input type="checkbox" name="tnc" id="tnc" class="form-control" data-error="You must agree to the Terms and Conditions" required="">
                                    <b><star>*</star>terms and conditions</b>
-                                   <div class="help-block with-errors"></div>
+                                   <div class="help-block with-errors error"></div>
                                 </div>
                                 <div class="input-box">
                                     <label></label>
