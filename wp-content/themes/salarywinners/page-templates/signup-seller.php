@@ -73,7 +73,7 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
                         
  //    <------------------------Registration Mail End-------------------->
 			
-			$message = 'Your acount has been registered successfully';
+			$message = 'Your account has been registered successfully';
                         $wp_session['reg_msg'] = $message;
                         
                         wp_redirect(get_bloginfo('siteurl').'/login/');
