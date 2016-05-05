@@ -7,6 +7,12 @@
  * @package Salary_Winners
  */
 show_admin_bar(false);
+if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/inc/vendor/ReduxFramework/ReduxCore/framework.php' ) ) {
+    require_once( dirname( __FILE__ ) . '/inc/vendor/ReduxFramework/ReduxCore/framework.php' );
+}
+if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/theme-options.php' ) ) {
+    require_once( dirname( __FILE__ ) . '/inc/theme-options.php' );
+}
 if ( ! function_exists( 'salarywinners_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
