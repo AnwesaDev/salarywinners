@@ -73,7 +73,7 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
                         
  //    <------------------------Registration Mail End-------------------->
 			
-			$message = 'You\'re successfully register';
+			$message = 'Your acount has been registered successfully';
                         $wp_session['reg_msg'] = $message;
                         
                         wp_redirect(get_bloginfo('siteurl').'/login/');
@@ -86,7 +86,8 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
 get_header();
 ?>
 
-        <?php get_template_part('template-parts/block', 'search'); ?>
+        <?php //get_template_part('template-parts/block', 'search'); ?>
+        <div id="show_msg"><?php echo $wp_session['reg_msg']?></div>
 
         <section class="content-body registration">
         	<div class="container">

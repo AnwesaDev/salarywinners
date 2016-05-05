@@ -3,7 +3,7 @@
 /* 
  * Template Name: Login
  */
-global $wpdb;
+global $wpdb, $wp_session;
         
         $err = '';
         $success = '';
@@ -39,6 +39,9 @@ global $wpdb;
 get_header();
 ?>
         <?php //get_template_part('template-parts/block', 'search'); ?>
+        <?php if($wp_session['reg_msg']!=''){  ?>
+        <div id="show_msg"><?php echo $wp_session['reg_msg']?></div>
+        <?php } ?>
      <section class="content-body login-page">
         	<div class="container">
             	<div class="row">
