@@ -8,7 +8,7 @@ wp_insert_user( $userdata );
 $err = '';
 $success = '';
 
-global $wpdb, $PasswordHash, $current_user, $user_ID;
+global $wpdb, $mail;
 
 if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
     
@@ -54,17 +54,17 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
                     
                     
 //                 <--------- Resistration Mail----------->
-                        
+                        $mail->userRegistration(array('user_id'=>$user_id));
                       
-                        $to         = $email;
-                        $subject    = 'Registration successful on '.get_bloginfo('name');
-                                $message    = 'Thank you for signing up with'.get_bloginfo('name');
-                               
-
-                        $headers = array('Content-Type: text/html; charset=UTF-8');
-                        $headers[] = 'From: '.get_bloginfo('name').' <' . get_bloginfo('admin_email') . '>';
-
-                        wp_mail( $to, $subject, $message, $headers);
+//                        $to         = $email;
+//                        $subject    = 'Registration successful on '.get_bloginfo('name');
+//                                $message    = 'Thank you for signing up with'.get_bloginfo('name');
+//                               
+//
+//                        $headers = array('Content-Type: text/html; charset=UTF-8');
+//                        $headers[] = 'From: '.get_bloginfo('name').' <' . get_bloginfo('admin_email') . '>';
+//
+//                        wp_mail( $to, $subject, $message, $headers);
                         
  //    <------------------------Registration Mail End-------------------->
 			wp_redirect(get_bloginfo('siteurl').'/login/');
