@@ -7,12 +7,23 @@
  * @package Salary_Winners
  */
 show_admin_bar(false);
+require get_template_directory() . '/class/mail.php';
+
+global $mail;
+$mail = new mail();
+
 if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/inc/vendor/ReduxFramework/ReduxCore/framework.php' ) ) {
     require_once( dirname( __FILE__ ) . '/inc/vendor/ReduxFramework/ReduxCore/framework.php' );
 }
 if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/theme-options.php' ) ) {
     require_once( dirname( __FILE__ ) . '/inc/theme-options.php' );
 }
+
+// WP_Session by Eric https://github.com/ericmann/wp-session-manager
+require get_template_directory() . '/inc/vendor/wp-session-manager/wp-session-manager.php';
+global $wp_session, $sortlistedNameIDs;
+$wp_session = WP_Session::get_instance(); //now $wp_session can be used anywhere
+
 if ( ! function_exists( 'salarywinners_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
