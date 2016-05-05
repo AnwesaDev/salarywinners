@@ -48,11 +48,14 @@ get_header();
                             	<h2 class="title">Log in and get to work</h2>
                             </div>
                             <form id="sign-in" data-toggle="validator" role="form" method="post">
-                            	<div class="input-box form-group">
+                            	<div class="input-box form-group has-feedback">
                                     <input type="text" placeholder="Username or Email" name="email" id="email" class="form-control" pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$" data-error="Please enter a valid email address" required="">
+                                    <div class="help-block with-errors"></div>
                                 </div>
-                                <div class="input-box form-group">
+                                
+                                <div class="input-box form-group has-feedback">
                                     <input type="password" placeholder="Password" name="pwd" id="pwd" class="form-control" required="">
+                                    <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="input-box form-group">
                                     <input type="checkbox" class="form-control" name="remember" id="remember" value="true">
