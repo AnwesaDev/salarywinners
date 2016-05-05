@@ -21,13 +21,15 @@
                     <a href=""><span class="fa fa-pinterest"></span></a>
                 </div>
                 <div class="container">
-                    <div class="col-md-6 padd0">
-                        <div class="footer-nav">
-                            <nav class="">
-                                <?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>                                
-                            </nav>
-                            <div class="copyright">
-                                <p>Copyright &copy; salarywinners.com<a href=""></a> All Right Reserved</p>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="footer-nav">
+                                <nav class="">
+                                    <?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>                                
+                                </nav>
+                                <div class="copyright">
+                                    <p>Copyright &copy; salarywinners.com<a href=""></a> All Right Reserved</p>
+                                </div>
                             </div>
                         </div>
                     </div>

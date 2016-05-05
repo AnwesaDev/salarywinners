@@ -276,11 +276,12 @@ small.f-left{line-height: 6; color:#999999;}
 .content-body.sing-login .c-box{text-align:center; border:solid 1px #BFBFBF; padding-bottom:40px; padding-top:40px; background:#fff;}
 .content-body.sing-login .c-box .descrption{padding-top:30px; padding-bottom:30px;}
 .content-body.sing-login .c-box .descrption h2.title{ border:none; padding:0; color:#363636; font-weight:lighter;}
-.btn-work{font-size: 20px;margin-top: 30px;background: #f67c3d;padding: 10px;font-size: 20px;color: #fff;border: solid 2px;border-color: transparent #b0501e #b0501e #e8e8e8;outline: none;border-left: none;text-transform: capitalize; letter-spacing:1px;}
+.btn-work{font-size: 20px;margin-top: 30px;background: #f67c3d;font-size: 20px;color: #fff;border: solid 2px;border-color: transparent #b0501e #b0501e #e8e8e8;outline: none;border-left: none;text-transform: capitalize; letter-spacing:1px;}
 form input[type="checkbox"]{ width:20px; -webkit-appearance:none; border:none; height: 20px; float: left; background:url(../images/checkbox.png) no-repeat; outline:none; box-shadow:none; -moz-appearance:none;}
 form input[type="checkbox"]:checked {background:url(../images/checkbox.png) no-repeat 0% 100%;}
 .login-box form .input-box b{float:left; line-height: 5.3; margin-left: 10px;}
 .btn-work:hover{ color:#fff !important;}
+.c-box .btn-work{padding:5px 35px;}
 /*Job Listing*/
 .filter-section{width:100%; background:#fff; border:solid 1px #e8e8e8; display:inline-block;}
 .filter-tab{ width:20%; float:left; border-right:solid 1px #e8e8e8; height:45px; position:relative; padding: 5px;}
@@ -375,7 +376,7 @@ h3.price b{color:#f87c32; padding-left:10px; font-size:16px;vertical-align: top;
 .product-details .social a{ text-align:center; color:#fff;}
 .product-details .social a span{  background:#3fbac2; border-radius:50%; width:30px; height:30px; padding:7px;}
 
-
+.wpcf7-form-control-wrap span{margin-left:25%;}
 /* footer */
 .footer-section{}
 .footer-section .social{ min-height:60px; background:#3fbac2;text-align: center; padding: 15px 15px;}
