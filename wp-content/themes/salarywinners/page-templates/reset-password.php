@@ -79,8 +79,7 @@ get_header();
                                     <input type="submit" value="Get New Password" id="task" name="task" class="form-control">
                                 </div>
                             </form>
-                           <?php else: ?>
-                            <?php echo $message;?>
+                           
                             <?php endif;?>
                         </div>
                     </div>

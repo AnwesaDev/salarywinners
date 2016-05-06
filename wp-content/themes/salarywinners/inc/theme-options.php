@@ -196,7 +196,7 @@
                 'id'               => 'email-user-registration',
                 'type'             => 'editor',
                 'title'            => __('User Registration', 'salarywinners'), 
-                'subtitle'         => __('Registration <br /> {{firstname}} {{lastname}} {{company}} {{email}}{{phone}} ', 'salarywinners'),
+                'subtitle'         => __('Registration <br /> {{firstname}} {{lastname}} {{company}} {{email}}{{phone}}{{activationlink}} ', 'salarywinners'),
                 'default'          => '',
                 'args'   => array(
                     'teeny'            => true,

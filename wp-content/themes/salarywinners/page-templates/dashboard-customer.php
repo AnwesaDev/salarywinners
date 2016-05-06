@@ -6,7 +6,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-if(is_user_logged_in()) {
+if(!is_user_logged_in()) {
         wp_redirect(get_bloginfo('siteurl'));
     }
 $user_id = get_current_user_id();
@@ -61,29 +61,29 @@ get_header();
                             	<div id="profile-setting" class="tab-pane active">
                                 	<div class="content-head">
                                         <div class="col-xs-8"><h2 class="title">Profile Setting</h2></div>
-                                        <div class="col-xs-4"><button class="btn btn-edit pull-right">edit</button></div>
+                                        <div class="col-xs-4"><button class="btn btn-edit pull-right" id="btn-profile-edit">edit</button></div>
                                     </div>
                                     <div class="contact-frm">
                                         <form action="" method="">
                                             <div class="input-box form-group">
                                                 <label>First name</label>
-                                                <input type="text" placeholder="" class="form-control">
+                                                <input type="text" placeholder="" class="form-control" name="profile-fname" id="profile-fname" value="<?php echo $user_meta['first_name'][0] ;?>" readonly="">
                                             </div>
                                             <div class="input-box form-group">
                                                 <label>Last name</label>
-                                                <input type="text" placeholder="" class="form-control">
+                                                <input type="text" placeholder="" class="form-control" name="profile-lname" id="profile-lname" value="<?php echo $user_meta['last_name'][0] ;?>" readonly="">
                                             </div>
                                             <div class="input-box form-group">
                                                 <label>Email Address</label>
-                                                <input type="email" placeholder="" class="form-control">
+                                                <input type="email" placeholder="" class="form-control" name="profile-email" id="profile-email" value="<?php echo $user->user_email;?>" readonly="">
                                             </div>
                                             <div class="input-box form-group">
-                                                <label>password</label>
-                                                <input type="password" placeholder="" class="form-control">
+                                                <label>Password</label>
+                                                <input type="password" placeholder="" class="form-control" name="profile-password" id="profile-password" value="<?php echo $user->user_pass;?>" readonly="">
                                             </div>
-                                            <div class="input-box form-group">
+                                            <div class="input-box form-group" style="display: none" id="div-profile-confirm-password">
                                                 <label>confirm password</label>
-                                                <input type="password" placeholder="" class="form-control">
+                                                <input type="password" placeholder="" class="form-control" name="profile-confirm-password" id="profile-confirm-password" >
                                             </div>
 
                                             <div class="input-box end-section form-group">
@@ -229,6 +229,24 @@ get_header();
                 </div>
             </div>
         </section>
-
+<script>
+jQuery(document).ready(function($){
+    $('#btn-profile-edit').click(function(){
+	$("#profile-fname").attr("readonly", false);			
+	$("#profile-lname").attr("readonly", false); 
+        $("#profile-email").attr("readonly", false);
+        $("#profile-password").attr("readonly", false);
+        $("#div-profile-confirm-password").css("display", "block");
+    });
+    
+    $('#btn-profile-edit').click(function(){
+	$("#profile-fname").attr("readonly", false);			
+	$("#profile-lname").attr("readonly", false); 
+        $("#profile-email").attr("readonly", false);
+        $("#profile-password").attr("readonly", false);
+        $("#div-profile-confirm-password").css("display", "block");
+    });
+});
+</script>
 <?php
 get_footer();

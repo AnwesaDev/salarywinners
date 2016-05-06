@@ -4,10 +4,12 @@ class mail {
     public function userRegistration($user_id) {
        $user = get_user_by('id', $user_id);
        $meta = get_user_meta($user_id); 
+       $token = $meta['activation_token'][0];
        $to         = $user->user_email;
        $subject    = 'Registration successful on '.get_bloginfo('name');	
 		
-		
+	$link  = add_query_arg(array('token'=>$token), get_bloginfo('siteurl').'/login/');
+        $activationlink = '<a href="'.$link.'">'.$link.'</a>';
         $message   = $salarywinnersOptions['email-user-registration'];
         
 		
@@ -16,8 +18,8 @@ class mail {
             'lastname' => $user->last_name,
             'company'  => $meta['company'][0],
             'phone'  => $meta['phone'][0],
-            'email' => $user->user_email
-            
+            'email' => $user->user_email,
+            'activationlink' => $activationlink
         );
 
         foreach ($emailVars as $key => $value) {

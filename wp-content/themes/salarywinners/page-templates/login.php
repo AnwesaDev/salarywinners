@@ -3,10 +3,8 @@
 /* 
  * Template Name: Login
  */
+
 global $wpdb, $wp_session;
-        
-        $err = '';
-        $success = '';
         
         if(isset($_POST['task']) && $_POST['task'] == 'login' )
         {
@@ -15,8 +13,10 @@ global $wpdb, $wp_session;
             $password = $wpdb->escape($_POST['pwd']);
             $remember = $wpdb->escape($_POST['remember']);
             
-            
-            
+            $user_details = $user = get_user_by('email', $email);
+            $meta = get_user_meta($user_details->ID); 
+            if($meta['status'][0]=='active')
+            {
                 $user_data = array();
                 $user_data['user_login'] = $username;
                 $user_data['user_password'] = $password;
@@ -30,9 +30,15 @@ global $wpdb, $wp_session;
                     wp_set_current_user( $user->ID, $username );
                     do_action('set_current_user');
                     $message = 'Logged in successfully';
-                    
-                }
-                if($error){
+                }    
+             }
+            else {
+                $message = 'Your Status is not active.';
+                $error = true;
+            }
+                
+        }
+       if($error){
                 $notifyClass = 'error';
             } else {
                 $notifyClass = 'success';
@@ -46,8 +52,6 @@ global $wpdb, $wp_session;
                 wp_redirect(get_bloginfo('siteurl'));
                 exit();
              }
-        }
-       
 get_header();
 ?>
 
@@ -57,6 +61,7 @@ get_header();
         	<div class="container">
             	<div class="row">
                 	<div class="login-box">
+                           
                         <div class="content">
                         	<div class="normal">
                             	<h2 class="title">Log in and get to work</h2>
@@ -81,6 +86,7 @@ get_header();
                             </form>
                             <a class="text-left" href="<?php echo esc_url( get_bloginfo('siteurl').'/forgot-password' ); ?>">Forgot Password</a>
                         </div>
+                           
                     </div>
                 </div>
             </div>
