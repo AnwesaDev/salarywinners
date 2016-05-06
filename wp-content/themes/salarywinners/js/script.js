@@ -18,5 +18,12 @@ jQuery(document).ready(function($) {
     });
 
     console.log(sw);
-    
+    if(sw.notify != '' && sw.notify != 'undefined'){
+        console.log(sw);
+        $.notifyBar({
+            cssClass: "success",
+            html: sw.notify.message
+        });
+        
+    }
 });
