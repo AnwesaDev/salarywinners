@@ -379,7 +379,7 @@ h3.price b{color:#f87c32; padding-left:10px; font-size:16px;vertical-align: top;
 .wpcf7-form-control-wrap span{margin-left:25%;}
 .contact-frm .has-feedback .form-control{padding-right:0;}
 
-.error{display: block;width: 100%;clear: both; margin-left:20%; padding-top: 10px;}
+.with-errors.error{display: block;width: 100%;clear: both; margin-left:20%; padding-top: 10px;}
 .login-page .text-left{ text-align: left;}
 /* footer */
 .footer-section{}
