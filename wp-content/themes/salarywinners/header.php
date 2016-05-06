@@ -30,8 +30,8 @@
 						<?php if(!is_front_page()): ?>
                     	<div class="col-md-6 hidden-xs">
                             <div class="top-search">
-                               <form method="" action="">
-                                   <input type="search" placeholder="Search">
+                               <form method="" action="<?php echo home_url(); ?>">
+                                   <input type="search" name="s" placeholder="Search">
                                     <i class="fa fa-search"></i>
                                </form>
                             </div>
