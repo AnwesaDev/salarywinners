@@ -17,6 +17,8 @@ jQuery(document).ready(function($) {
             }
     });
 
+    $('#select-country, #select-category').select2();
+    
     if(sw.notify != '' && sw.notify != 'undefined'){
         console.log(sw);
         $.notifyBar({

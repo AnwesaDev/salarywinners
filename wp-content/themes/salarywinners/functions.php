@@ -143,12 +143,14 @@ function salarywinners_scripts() {
         wp_enqueue_style('salarywinners-style-bootstrap', get_template_directory_uri().'/css/bootstrap.css');
         wp_enqueue_style('salarywinners-style-fontawesome', get_template_directory_uri().'/css/font-awesome.css');
         wp_enqueue_style('salarywinners-style-notifyBar', get_template_directory_uri().'/css/jquery.notifyBar.css');
+        wp_enqueue_style('salarywinners-style-select2', get_template_directory_uri().'/css/jquery.select2.css');
         wp_enqueue_style('salarywinners-style-theme', get_template_directory_uri().'/css/theme.css');
 	wp_enqueue_style( 'salarywinners-style', get_stylesheet_uri() );
         
         wp_enqueue_script('jquery');
         wp_enqueue_script('salarywinners-script-bootstrap', get_template_directory_uri().'/js/bootstrap.min.js', 'jquery', '20160428', true);
         wp_enqueue_script('salarywinners-script-notifyBar', get_template_directory_uri().'/js/jquery.notifyBar.js', 'jquery', '20160428', true);
+        wp_enqueue_script('salarywinners-script-select2', get_template_directory_uri().'/js/select2.full.js', 'jquery', '20160428', true);
         wp_enqueue_script('salarywinners-script-bootstrap-validator', get_template_directory_uri().'/js/validator.js', 'jquery', '20160428', true);
 	//wp_enqueue_script( 'salarywinners-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 

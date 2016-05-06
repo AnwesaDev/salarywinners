@@ -120,7 +120,7 @@ get_header();
                                 </div>
                                 <div class="form-group input-box has-feedback">
                                    <label for="" class="control-label"><star>*</star>Country</label>
-                                   <select name="country" id="country" class="form-control" required>
+                                   <select name="country" id="select-country" class="form-control" required>
                                         <option selected value="">Choose Country</option>
                                         <option value="AFG">Afghanistan</option>
                                         <option value="ALA">Åland Islands</option>
@@ -390,7 +390,7 @@ get_header();
                                 </div>
                                 <div class="form-group input-box has-feedback second-section">
                                    <label for="" class="control-label"><star>*</star>Category</label>
-                                   <select name="category" id="category" class="form-control">
+                                   <select name="category" id="select-category" class="form-control" multiple="multiple">
                                         <option selected>Web Design</option>
                                         <option>Adobe Photoshop</option>
                                         <option>Grapic Desing</option>
