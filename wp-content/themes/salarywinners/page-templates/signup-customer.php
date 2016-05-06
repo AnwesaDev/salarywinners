@@ -35,7 +35,7 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
 		$message = 'Password do not match.';
                 $error = true;
 	} else {
-               
+               //echo 'niii';exit;
 		$user_id = wp_insert_user( array ('first_name' => $fname, 'last_name' => $lname, 'user_login' => $email, 'user_pass' => $pwd, 'user_email' => $email, 'role' => 'customer' ) );
 		if( is_wp_error($user_id) ) {
 			$message = 'Error on user creation.';
@@ -56,9 +56,8 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
                         $mail->userRegistration($user_id);
                       
  //    <------------------------Registration Mail End-------------------->
-                        $message = 'Your account has been registered successfully';                        
-			
-			
+                        $message = 'Your account has been registered successfully'; 
+                        //echo 'wiii';exit;
 		}
                 
             }
@@ -74,7 +73,7 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
                 'message' => $message,
             );
             if(!$error){
-                wp_redirect(get_bloginfo('siteurl').'/login/');
+                wp_redirect(get_bloginfo('siteurl'));
                 exit();
              }
 }
