@@ -125,6 +125,56 @@
     Redux::setArgs( $opt_name, $args );
 
     // -> START Basic Fields
+    
+    Redux::setSection( $opt_name, array(
+        'title'            => __( 'Special Pages', 'salarywinners' ),
+        'id'               => 'salarywinners-options',
+        'desc'             => __( 'Special pages used by the theme for specific functions', 'salarywinners' ),
+        'customizer_width' => '400px',
+        'icon'             => 'el el-file',
+        'fields'           => array(
+            array(
+                'id'       => 'page-customer-register',
+                'type'     => 'select',
+                'data'     => 'pages',
+                'title'    => __( 'Customer Register', 'salarywinners' ),
+                'subtitle' => __( 'New Customer Registration page', 'salarywinners' ),
+                'desc'     => __( 'Select the page for displaying Customer sign-up form', 'salarywinners' ),
+            ),
+            array(
+                'id'       => 'page-provider-register',
+                'type'     => 'select',
+                'data'     => 'pages',
+                'title'    => __( 'Provider Register', 'salarywinners' ),
+                'subtitle' => __( 'New Provider Registration page', 'salarywinners' ),
+                'desc'     => __( 'Select the page for displaying Provider sign-up form', 'salarywinners' ),
+            ),
+            array(
+                'id'       => 'page-login',
+                'type'     => 'select',
+                'data'     => 'pages',
+                'title'    => __( 'Login', 'salarywinners' ),
+                'subtitle' => __( 'User Login page', 'salarywinners' ),
+                'desc'     => __( 'Select the page for login and frogot password form', 'salarywinners' ),
+            ),
+            array(
+                'id'       => 'page-forgot-password',
+                'type'     => 'select',
+                'data'     => 'pages',
+                'title'    => __( 'Forgot Password', 'salarywinners' ),
+                'subtitle' => __( 'User Forgot Passowrd', 'salarywinners' ),
+                'desc'     => __( 'Select the page for forgot password', 'salarywinners' ),
+            ),          
+            array(
+                'id'       => 'page-reset-password',
+                'type'     => 'select',
+                'data'     => 'pages',
+                'title'    => __( 'Reset Password', 'salarywinners' ),
+                'subtitle' => __( 'User Reset Passowrd', 'salarywinners' ),
+                'desc'     => __( 'Select the page for reseting password', 'salarywinners' ),
+            ), 
+        )
+    ) );
     Redux::setSection( $opt_name, array(
         'title'            => __( 'Email Templates', 'salarywinners' ),
         'id'               => 'salarywinners-email',

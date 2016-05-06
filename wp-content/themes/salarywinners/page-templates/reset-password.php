@@ -9,7 +9,7 @@
     
     if(is_wp_error($user)){
         $message = 'Invalid token';
-        //echo $error;
+        $error = true;
     }
     else
     {
@@ -34,16 +34,23 @@ global $wpdb, $wp_session;
                 $user = get_user_by( 'email', $email );
                 reset_password($user,$npassword);
                 $message = 'Password reset successfully.';
-                $wp_session['reset_msg'] = $message;
+                
                 wp_redirect(get_bloginfo('siteurl').'/login/');
             }
         }
+        if($error){
+                $notifyClass = 'error';
+            } else {
+                $notifyClass = 'success';
+            }
+            
+            $wp_session['notify'] = array(
+                'class' => $notifyClass,
+                'message' => $message,
+            );
 get_header();
 ?>
-<?php if($wp_session['reset_msg']!=''){  ?> 
-<div id="show_msg" ><?php echo $wp_session['reset_msg']?></div><?php $wp_session['reset_msg']='';
 
-} ?>
         <?php //get_template_part('template-parts/block', 'search'); ?>
      <section class="content-body login-page">
         	<div class="container">

@@ -24,30 +24,23 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
         $specialized = $wpdb->escape(trim($_POST['specialized']));
 	
 	if (empty($pwd)) {
-		$error = true;
-		$error_type = 'password';
 		$message = 'Please enter your password';
-                $wp_session['reg_msg'] = $message;
-                //echo '$message';die();
+                $error = true;
 	} else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		$message = 'Invalid email address.';
-                $wp_session['reg_msg'] = $message;
-                //echo $err;die();
+                $error = true;
 	} else if(email_exists($email) ) {
 		$message = 'Email already exist.';
-                $wp_session['reg_msg'] = $message;
-                //echo $err;die();
+                $error = true;
 	} else if($pwd != $cpwd){
 		$message = 'Password do not match.';
-                $wp_session['reg_msg'] = $message;
-                //echo $err;die();
+                $error = true;
 	} else {
                
-		$user_id = wp_insert_user( array ('first_name' => $fname, 'last_name' => $lname, 'user_login' => $email, 'user_pass' => $pwd, 'user_email' => $email, 'role' => 'subscriber' ) );
+		$user_id = wp_insert_user( array ('first_name' => $fname, 'last_name' => $lname, 'user_login' => $email, 'user_pass' => $pwd, 'user_email' => $email, 'role' => 'provider' ) );
 		if( is_wp_error($user_id) ) {
 			$message = 'Error on user creation.';
-                        $wp_session['reg_msg'] = $message;
-                         //echo $err;die();
+                        $error = true;
 		} else {
 			do_action('user_register', $user_id);
                         
@@ -61,34 +54,32 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
 //                 <--------- Resistration Mail----------->
                         $mail->userRegistration($user_id);
                       
-//                        $to         = $email;
-//                        $subject    = 'Registration successful on '.get_bloginfo('name');
-//                                $message    = 'Thank you for signing up with'.get_bloginfo('name');
-//                               
-//
-//                        $headers = array('Content-Type: text/html; charset=UTF-8');
-//                        $headers[] = 'From: '.get_bloginfo('name').' <' . get_bloginfo('admin_email') . '>';
-//
-//                        wp_mail( $to, $subject, $message, $headers);
-                        
+//                       
  //    <------------------------Registration Mail End-------------------->
 			
 			$message = 'Your account has been registered successfully';
-                        $wp_session['reg_msg'] = $message;
-                        
-                        wp_redirect(get_bloginfo('siteurl').'/login/');
+                       
 		}
 		
 	}
-	
+        if($error){
+                $notifyClass = 'error';
+            } else {
+                $notifyClass = 'success';
+            }
+            
+            $wp_session['notify'] = array(
+                'class' => $notifyClass,
+                'message' => $message,
+            );
+	if(!$error){
+                wp_redirect(get_bloginfo('siteurl').'/login/');
+             }
 }
 
 get_header();
 ?>
- <?php if($wp_session['reg_msg']!=''){  ?> 
-<div id="show_msg" ><?php echo $wp_session['reg_msg']?></div><?php $wp_session['reg_msg']='';
-
-} ?>
+ 
         <?php //get_template_part('template-parts/block', 'search'); ?>
         
 

@@ -25,40 +25,33 @@ global $wpdb, $wp_session;
                 
                 if ( is_wp_error($user) ) {
                     $message = $user->get_error_message();
-                    $wp_session['login_msg'] = $message;
+                    $error = true;
                 } else {
                     wp_set_current_user( $user->ID, $username );
                     do_action('set_current_user');
+                    $message = 'Logged in successfully';
                     
-                    wp_redirect(get_bloginfo('siteurl'));
                 }
+                if($error){
+                $notifyClass = 'error';
+            } else {
+                $notifyClass = 'success';
+            }
+            
+            $wp_session['notify'] = array(
+                'class' => $notifyClass,
+                'message' => $message,
+            );
+             if(!$error){
+                wp_redirect(get_bloginfo('siteurl'));
+             }
         }
        
 get_header();
 ?>
 
-        <?php //get_template_part('template-parts/block', 'search'); ?>
-       <?php if($wp_session['reg_msg']!=''){  ?> 
-<div id="show_msg" ><?php echo $wp_session['reg_msg']?></div><?php $wp_session['reg_msg']='';
-
-} ?>
- <?php if($wp_session['reset_msg']!=''){  ?> 
-<div id="show_msg" ><?php echo $wp_session['reset_msg']?></div><?php $wp_session['reset_msg']='';
-
-} ?>
- <?php if($wp_session['login_msg']!=''){  ?> 
-<div id="show_msg" ><?php echo $wp_session['login_msg']?></div><?php $wp_session['login_msg']='';
-
-} ?>
-
-<script type="text/javascript">
-
- jQuery( "#show_msg" ).addClass( "showmsg" );  
-//document.getElementById('show_msg').style.display = 'block';
-
-</script>
-
         
+      
      <section class="content-body login-page">
         	<div class="container">
             	<div class="row">

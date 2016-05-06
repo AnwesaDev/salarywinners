@@ -64,7 +64,12 @@ function salarywinners_setup() {
 		'primary' => esc_html__( 'Primary', 'salarywinners' ),
                 'footer' => esc_html__( 'Footer', 'salarywinners' ),
 	) );
-
+        // Add a custom user role
+ 
+        $result = add_role( 'provider', __(
+        'Provider' ),
+        array( ) );
+        
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
