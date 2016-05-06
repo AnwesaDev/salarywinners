@@ -84,8 +84,6 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
 get_header();
 ?>
  
-        <?php //get_template_part('template-parts/block', 'search'); ?>
-        
 
         <section class="content-body registration">
         	<div class="container">
@@ -394,7 +392,7 @@ get_header();
                                 <div class="form-group input-box has-feedback second-section">
                                    <label for="" class="control-label"><star>*</star>Category</label>
                                    <select name="category" id="select-category" class="form-control" multiple="multiple">
-                                        <option selected>Web Design</option>
+                                        <option>Web Design</option>
                                         <option>Adobe Photoshop</option>
                                         <option>Grapic Desing</option>
                                         <option>Print Media</option>
