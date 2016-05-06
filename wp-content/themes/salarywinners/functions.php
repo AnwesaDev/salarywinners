@@ -143,7 +143,7 @@ function salarywinners_scripts() {
         wp_enqueue_style('salarywinners-style-bootstrap', get_template_directory_uri().'/css/bootstrap.css');
         wp_enqueue_style('salarywinners-style-fontawesome', get_template_directory_uri().'/css/font-awesome.css');
         wp_enqueue_style('salarywinners-style-notifyBar', get_template_directory_uri().'/css/jquery.notifyBar.css');
-        wp_enqueue_style('salarywinners-style-select2', get_template_directory_uri().'/css/jquery.select2.css');
+        wp_enqueue_style('salarywinners-style-select2', get_template_directory_uri().'/css/select2.css');
         wp_enqueue_style('salarywinners-style-theme', get_template_directory_uri().'/css/theme.css');
 	wp_enqueue_style( 'salarywinners-style', get_stylesheet_uri() );
         
