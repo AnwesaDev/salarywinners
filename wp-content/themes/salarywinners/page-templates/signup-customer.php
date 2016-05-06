@@ -82,12 +82,10 @@ get_header();
 ?>
 
  
-        <?php //get_template_part('template-parts/block', 'search'); ?>
-
         <section class="content-body registration">
         	<div class="container">
             	<div class="row">
-                	<!--Main Conatent section-->
+                	<!--Main Content section-->
                     <div class="col-md-10 col-xs-offset-1">
                         <div class="page-main-title">
                             <h2 class="title">Create a Customer Account</h2>
