@@ -407,13 +407,13 @@ get_header();
                                 <div class="form-group input-box has-feedback">
                                    <label for="" class="control-label"><star>*</star>Specialized in</label>
                                    <input type="text" name="specialized" id="specialized" class="form-control" placeholder="specialized in" data-error="Specialized in is required" required="">
-                                   <div class="help-block with-errors"></div>
+                                   <div class="help-block with-errors error"></div>
                                 </div>
                                 <div class="form-group input-box has-feedback">
                                     <label></label>
                                    <input type="checkbox" name="tnc" id="tnc" class="form-control" data-error="You must agree to the Terms and Conditions" required="">
                                    <b><star>*</star>terms and conditions</b>
-                                   <div class="help-block with-errors"></div>
+                                   <div class="help-block with-errors error"></div>
                                 </div>
                                 <div class="input-box">
                                     <label></label>

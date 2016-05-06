@@ -68,7 +68,7 @@ get_header();
                                     <input type="submit" value="login" id="task" name="task" class="form-control">
                                 </div>
                             </form>
-                            <a href="<?php echo esc_url( get_bloginfo('siteurl').'/forgot-password' ); ?>">Forgot Password</a>
+                            <a class="text-left"> href="<?php echo esc_url( get_bloginfo('siteurl').'/forgot-password' ); ?>">Forgot Password</a>
                         </div>
                     </div>
                 </div>
