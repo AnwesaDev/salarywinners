@@ -97,7 +97,7 @@ get_header();
                     <div class="col-md-10 col-xs-offset-1">
                         <div class="contact-frm">
                             <div class="col-md-12">
-                                <h2 class="title">Create a Account</h2>
+                                <h2 class="title">I'm a Seller</h2>
                              </div>
                              <form action="" method="POST" id="sign-in" data-toggle="validator" role="form">
                                   
@@ -412,11 +412,6 @@ get_header();
                                    <input type="checkbox" name="tnc" id="tnc" class="form-control" data-error="You must agree to the Terms and Conditions" required="">
                                    <b><star>*</star>terms and conditions</b>
                                    <div class="help-block with-errors error"></div>
-                                </div>
-                                <div class="input-box">
-                                    <label></label>
-                                   <input type="checkbox">
-                                   <b>newsletter subscription</b>
                                 </div>
                                 <div class="input-box btn-submit">
                                     <label></label>
