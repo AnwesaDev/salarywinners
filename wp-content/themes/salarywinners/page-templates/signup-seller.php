@@ -27,15 +27,15 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
 		$error = true;
 		$error_type = 'password';
 		$message = 'Please enter your password';
-                $wp_session = $message;
+                $wp_session['reg_msg'] = $message;
                 //echo '$message';die();
 	} else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		$message = 'Invalid email address.';
-                $wp_session = $message;
+                $wp_session['reg_msg'] = $message;
                 //echo $err;die();
 	} else if(email_exists($email) ) {
 		$message = 'Email already exist.';
-                $wp_session = $message;
+                $wp_session['reg_msg'] = $message;
                 //echo $err;die();
 	} else if($pwd != $cpwd){
 		$message = 'Password do not match.';
@@ -85,9 +85,12 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
 
 get_header();
 ?>
+ <?php if($wp_session['reg_msg']!=''){  ?> 
+<div id="show_msg" ><?php echo $wp_session['reg_msg']?></div><?php $wp_session['reg_msg']='';
 
+} ?>
         <?php //get_template_part('template-parts/block', 'search'); ?>
-        <div id="show_msg"><?php echo $wp_session['reg_msg']?></div>
+        
 
         <section class="content-body registration">
         	<div class="container">
@@ -396,15 +399,18 @@ get_header();
                                    <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="form-group input-box has-feedback">
+                                    <label></label>
                                    <input type="checkbox" name="tnc" id="tnc" class="form-control" data-error="You must agree to the Terms and Conditions" required="">
                                    <b><star>*</star>terms and conditions</b>
-                                   <div class="help-block with-errors"></div>
+                                   <div class="help-block with-errors error"></div>
                                 </div>
                                 <div class="input-box">
+                                    <label></label>
                                    <input type="checkbox">
                                    <b><star>*</star>newsletter subscription</b>
                                 </div>
                                 <div class="input-box btn-submit">
+                                    <label></label>
                                     <input type="submit" name="task" value="register">
                                 </div>
                             </form>

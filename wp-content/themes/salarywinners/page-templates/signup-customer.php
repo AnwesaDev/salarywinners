@@ -8,9 +8,9 @@ wp_insert_user( $userdata );
 $err = '';
 $success = '';
 
-global $wpdb, $mail;
+global $wpdb, $mail, $wp_session;
 
-if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
+if(isset($_POST['task']) && $_POST[' task'] == 'register' ) {
     
 	$pwd = $wpdb->escape(trim($_POST['pwd']));
 	$cpwd = $wpdb->escape(trim($_POST['cpwd']));
@@ -26,21 +26,26 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
 		$error = true;
 		$error_type = 'password';
 		$message = 'Please enter your password';
-                
+                $wp_session['reg_msg'] = $message;
+                //echo '$message';die();
 	} else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		$err = 'Invalid email address.';
-               
+		$message = 'Invalid email address.';
+                $wp_session['reg_msg'] = $message;
+                //echo $err;die();
 	} else if(email_exists($email) ) {
-		$err = 'Email already exist.';
-               
+		$message = 'Email already exist.';
+                $wp_session['reg_msg'] = $message;
+                //echo $err;die();
 	} else if($pwd != $cpwd){
-		$err = 'Password do not match.';
-               
+		$message = 'Password do not match.';
+                $wp_session['reg_msg'] = $message;
+                //echo $err;die();
 	} else {
                
 		$user_id = wp_insert_user( array ('first_name' => $fname, 'last_name' => $lname, 'user_login' => $email, 'user_pass' => $pwd, 'user_email' => $email, 'role' => 'subscriber' ) );
 		if( is_wp_error($user_id) ) {
-			$err = 'Error on user creation.';
+			$message = 'Error on user creation.';
+                        $wp_session['reg_msg'] = $message;
 		} else {
 			do_action('user_register', $user_id);
                         
@@ -64,8 +69,10 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
 //                        wp_mail( $to, $subject, $message, $headers);
                         
  //    <------------------------Registration Mail End-------------------->
+                        $message = 'Your account has been registered successfully';
+                        $wp_session['reg_msg'] = $message;
 			wp_redirect(get_bloginfo('siteurl').'/login/');
-			$success = 'You\'re successfully register';
+			
 		}
 		
 	}
@@ -75,7 +82,11 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
 get_header();
 ?>
 
-        <?php get_template_part('template-parts/block', 'search'); ?>
+ <?php if($wp_session['reg_msg']!=''){  ?> 
+<div id="show_msg" ><?php echo $wp_session['reg_msg']?></div><?php $wp_session['reg_msg']='';
+
+} ?>
+        <?php //get_template_part('template-parts/block', 'search'); ?>
 
         <section class="content-body registration">
         	<div class="container">

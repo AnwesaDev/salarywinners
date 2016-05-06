@@ -16,9 +16,7 @@ global $wpdb, $wp_session;
             $remember = $wpdb->escape($_POST['remember']);
             
             
-            if( $username == "" || $password == "" ) {
-                $err = 'Please don\'t leave the required field.';
-            } else {
+            
                 $user_data = array();
                 $user_data['user_login'] = $username;
                 $user_data['user_password'] = $password;
@@ -26,22 +24,41 @@ global $wpdb, $wp_session;
                 $user = wp_signon( $user_data, false );
                 
                 if ( is_wp_error($user) ) {
-                    $err = $user->get_error_message();
-                    
+                    $message = $user->get_error_message();
+                    $wp_session['login_msg'] = $message;
                 } else {
                     wp_set_current_user( $user->ID, $username );
                     do_action('set_current_user');
                     
                     wp_redirect(get_bloginfo('siteurl'));
                 }
-            }
         }
+       
 get_header();
 ?>
+
         <?php //get_template_part('template-parts/block', 'search'); ?>
-        <?php if($wp_session['reg_msg']!=''){  ?>
-        <div id="show_msg"><?php echo $wp_session['reg_msg']?></div>
-        <?php } ?>
+       <?php if($wp_session['reg_msg']!=''){  ?> 
+<div id="show_msg" ><?php echo $wp_session['reg_msg']?></div><?php $wp_session['reg_msg']='';
+
+} ?>
+ <?php if($wp_session['reset_msg']!=''){  ?> 
+<div id="show_msg" ><?php echo $wp_session['reset_msg']?></div><?php $wp_session['reset_msg']='';
+
+} ?>
+ <?php if($wp_session['login_msg']!=''){  ?> 
+<div id="show_msg" ><?php echo $wp_session['login_msg']?></div><?php $wp_session['login_msg']='';
+
+} ?>
+
+<script type="text/javascript">
+
+ jQuery( "#show_msg" ).addClass( "showmsg" );  
+//document.getElementById('show_msg').style.display = 'block';
+
+</script>
+
+        
      <section class="content-body login-page">
         	<div class="container">
             	<div class="row">
@@ -53,12 +70,12 @@ get_header();
                             <form id="sign-in" data-toggle="validator" role="form" method="post">
                             	<div class="input-box form-group has-feedback">
                                     <input type="text" placeholder="Username or Email" name="email" id="email" class="form-control" pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$" data-error="Please enter a valid email address" required="">
-                                    <div class="help-block with-errors"></div>
+                                    <div class="help-block with-errors text-left"></div>
                                 </div>
                                 
                                 <div class="input-box form-group has-feedback">
                                     <input type="password" placeholder="Password" name="pwd" id="pwd" class="form-control" required="">
-                                    <div class="help-block with-errors"></div>
+                                    <div class="help-block with-errors text-left"></div>
                                 </div>
                                 <div class="input-box form-group">
                                     <input type="checkbox" class="form-control" name="remember" id="remember" value="true">

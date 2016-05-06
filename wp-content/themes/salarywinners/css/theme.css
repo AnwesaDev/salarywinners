@@ -375,7 +375,7 @@ h3.price b{color:#f87c32; padding-left:10px; font-size:16px;vertical-align: top;
 .product-details .social a{ text-align:center; color:#fff;}
 .product-details .social a span{  background:#3fbac2; border-radius:50%; width:30px; height:30px; padding:7px;}
 
-
+.login-page .text-left{ text-align: left;}
 /* footer */
 .footer-section{}
 .footer-section .social{ min-height:60px; background:#3fbac2;text-align: center; padding: 15px 15px;}
@@ -464,3 +464,16 @@ a.on-mobile img{width:70%;}
 #navigaition nav button#hide-nav,  #navigaition button#btn-s-nav{display:none;}
 #navigaition ul.show-nav{ display:block; animation:showing-nav linear .3s alternate; padding-top: 100px;}
 #navigaition ul.hiding-nav{display:none; animation:showing-nav linear .3s alternate;}
+.showmsg {
+    animation: ani .78s linear;
+    display:block;
+}
+@keyframes ani{
+    0%{top: -1000px;}
+    100%{top: 0px;}
+}
+.contact-frm .has-feedback .form-control{padding: 0;}
+.error {
+    display: block; padding-top: 10px; width: 100%; margin-left: 20%;
+    
+}
