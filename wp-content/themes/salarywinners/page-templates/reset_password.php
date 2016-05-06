@@ -18,7 +18,7 @@
 /* 
  * Template Name: Reset Password
  */
-global $wpdb;
+global $wpdb, $wp_session;
         
         $err = '';
         $success = '';
@@ -33,11 +33,17 @@ global $wpdb;
             if( $npassword == $cpassword ){
                 $user = get_user_by( 'email', $email );
                 reset_password($user,$npassword);
+                $message = 'Password reset successfully.';
+                $wp_session['reset_msg'] = $message;
                 wp_redirect(get_bloginfo('siteurl').'/login/');
             }
         }
 get_header();
 ?>
+<?php if($wp_session['reset_msg']!=''){  ?> 
+<div id="show_msg" ><?php echo $wp_session['reset_msg']?></div><?php $wp_session['reset_msg']='';
+
+} ?>
         <?php //get_template_part('template-parts/block', 'search'); ?>
      <section class="content-body login-page">
         	<div class="container">
