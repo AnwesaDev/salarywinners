@@ -24,7 +24,7 @@ global $wpdb, $wp_session;
                 $user = wp_signon( $user_data, false );
                 
                 if ( is_wp_error($user) ) {
-                    $message = $user->get_error_message();
+                    $message = __('Invalid username or password.','salarywinners');
                     $error = true;
                 } else {
                     wp_set_current_user( $user->ID, $username );
