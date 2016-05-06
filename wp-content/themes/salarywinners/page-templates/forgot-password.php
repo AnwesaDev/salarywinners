@@ -1,12 +1,10 @@
 <?php
-
 /* 
  * Template Name: Forgot Password
  */
  global $wpdb, $mail, $wp_session;
         
-        $error = '';
-        $success = '';
+        $error = false;
         
         // check if we're in reset form
         if( isset( $_POST['task'] ) && $_POST['task'] == 'Get New Password') 
@@ -14,54 +12,39 @@
             $email = trim($_POST['email']);
             
             if( empty( $email ) ) {
-                $message = 'Enter a username or e-mail address..';
-                $wp_session['forgot_msg'] = $message;
+                $message = __('Enter a username or e-mail address..','salarywinners');
+                $error = true;
+                
             } else if( ! is_email( $email )) {
                 $message = 'Invalid username or e-mail address.';
-                $wp_session['forgot_msg'] = $message;
+                $error = TRUE;
+                
             } else if( ! email_exists( $email ) ) {
                 $message = 'There is no user registered with that email address.';
-                $wp_session['forgot_msg'] = $message;
+                $error = true;
             } else {
-                               
                  // <-----------Mail Part----------------->
                  $message = 'A reset password link has been sent to you. Please check your email.';
-                 $wp_session['forgot_msg'] = $message;
-                 $mail->forgotPassword(array('user_id'=>$user_id, 'email'=>$email));
-//                $user_data = get_user_by('email', $email);
-//                $token = get_password_reset_key( $user_data );
-//                
-//                $link  = add_query_arg(array('token'=>$token,'email'=>$email), get_bloginfo('siteurl').'/reset-password/');
-//                    $to = $email;
-//                    $subject = 'Reset Password';
-//                    $sender = get_option('name');
-//                    
-//                    $message = '<a href="'.$link.'">'.$link.'</a>';
-//                    
-//                    $headers[] = 'MIME-Version: 1.0' . "\r\n";
-//                    $headers[] = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-//                    $headers[] = "X-Mailer: PHP \r\n";
-//                    $headers[] = 'From: '.$sender.' < '.$email.'>' . "\r\n";
-//                    
-//                    $mail = wp_mail( $to, $subject, $message, $headers );
-//                    echo $message;exit();
-//                    if( $mail ){
-//                        $success = 'A reset password link has been sent to you. Please check your email.';
-//                        
-//                } else {
-//                    $error = 'Oops something went wrong.Please try again';
-//                }
+                 
+                $mail->forgotPassword(array('user_id'=>$user_id, 'email'=>$email));
                 
-            }           
+            }
+            
+            if($error){
+                $notifyClass = 'error';
+            } else {
+                $notifyClass = 'success';
+            }
+            
+            $wp_session['notify'] = array(
+                'class' => $notifyClass,
+                'message' => $message,
+            );
            
         }
 get_header();
 ?>
-<?php if($wp_session['forgot_msg']!=''){  ?> 
-<div id="show_msg" ><?php echo $wp_session['forgot_msg']?></div><?php $wp_session['forgot_msg']='';
-
-} ?>
-        <?php //get_template_part('template-parts/block', 'search'); ?>
+       
      <section class="content-body login-page">
         	<div class="container">
             	<div class="row">

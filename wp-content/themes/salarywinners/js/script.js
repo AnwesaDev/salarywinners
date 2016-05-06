@@ -1,4 +1,4 @@
-jQuery(document).ready(function($) {   
+jQuery(document).ready(function($) {
 
     var body = $("body, html");
     
@@ -17,19 +17,6 @@ jQuery(document).ready(function($) {
             }
     });
 
-    $("#navigaition button#btn-s-nav").click( function (){
-            $("#navigaition ul").addClass("show-nav");
-            $("#navigaition nav ul").removeClass("hiding-nav");
-            $("#navigaition nav button#hide-nav").css("display", "block");
-            $("#navigaition nav a.on-mobile").css("display", "block");
-            return true;
-    });
-    $("#navigaition nav button#hide-nav").click( function (){
-            $("#navigaition ul").addClass("show-nav");
-            $("#navigaition nav ul").addClass("hiding-nav");
-            $("#navigaition nav ul").removeClass("show-nav");
-            $("#navigaition nav button#hide-nav").css("display", "none");
-            $("#navigaition nav a.on-mobile").css("display", "none");
-            return true;
-    });
+    console.log(sw);
+    
 });
