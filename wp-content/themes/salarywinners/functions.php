@@ -69,7 +69,9 @@ function salarywinners_setup() {
         $result = add_role( 'provider', __(
         'Provider' ),
         array( ) );
-        
+        $result = add_role( 'customer', __(
+        'Customer' ),
+        array( ) );
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.

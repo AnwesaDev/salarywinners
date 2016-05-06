@@ -74,6 +74,7 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
             );
 	if(!$error){
                 wp_redirect(get_bloginfo('siteurl').'/login/');
+                exit();
              }
 }
 

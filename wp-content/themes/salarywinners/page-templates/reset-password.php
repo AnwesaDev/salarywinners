@@ -35,7 +35,6 @@ global $wpdb, $wp_session;
                 reset_password($user,$npassword);
                 $message = 'Password reset successfully.';
                 
-                wp_redirect(get_bloginfo('siteurl').'/login/');
             }
         }
         if($error){
@@ -48,6 +47,10 @@ global $wpdb, $wp_session;
                 'class' => $notifyClass,
                 'message' => $message,
             );
+            if(!$error){
+                wp_redirect(get_bloginfo('siteurl').'/login/');
+                exit();
+             }
 get_header();
 ?>
 

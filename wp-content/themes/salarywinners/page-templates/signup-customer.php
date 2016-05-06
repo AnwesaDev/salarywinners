@@ -9,9 +9,9 @@ $err = '';
 $success = '';
 
 global $wpdb, $mail, $wp_session;
-
-if(isset($_POST['task']) && $_POST[' task'] == 'register' ) {
-    
+//echo 'hiii';exit;
+if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
+    //echo 'hiii';exit;
 	$pwd = $wpdb->escape(trim($_POST['pwd']));
 	$cpwd = $wpdb->escape(trim($_POST['cpwd']));
 	$fname = $wpdb->escape(trim($_POST['fname']));
@@ -59,6 +59,7 @@ if(isset($_POST['task']) && $_POST[' task'] == 'register' ) {
 		}
                 
             }
+            
 	if($error){
                 $notifyClass = 'error';
             } else {
@@ -71,6 +72,7 @@ if(isset($_POST['task']) && $_POST[' task'] == 'register' ) {
             );
             if(!$error){
                 wp_redirect(get_bloginfo('siteurl').'/login/');
+                exit();
              }
 }
 
@@ -86,7 +88,7 @@ get_header();
                 	<!--Main Conatent section-->
                     <div class="col-md-10 col-xs-offset-1">
                         <div class="page-main-title">
-                            <h2 class="title">Create a service providers / sellers Account</h2>
+                            <h2 class="title">Create a Customer Account</h2>
                         </div>
                         <div class="contact-frm">
                             <div class="col-md-12">

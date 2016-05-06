@@ -44,6 +44,7 @@ global $wpdb, $wp_session;
             );
              if(!$error){
                 wp_redirect(get_bloginfo('siteurl'));
+                exit();
              }
         }
        

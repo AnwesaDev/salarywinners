@@ -6,6 +6,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+if(is_user_logged_in()) {
+        wp_redirect(get_bloginfo('siteurl'));
+    }
+$user_id = get_current_user_id();
+$user = get_user_by('id', $user_id);
+$user_meta = get_user_meta($user_id);
 
 get_header();
 ?>
