@@ -26,17 +26,29 @@
             
         	<div class="row"> 
                 <div class="top-nav">
-                	<nav class="navbar-right">
-                        <ul>
-                            <li><a href=""><span class="user"></span>Providers</a></li>
-                            <?php if(is_user_logged_in()): ?>
-                            <li><a href="<?php echo esc_url(wp_logout_url(get_bloginfo('siteurl').'/login/')); ?>"><span class="login"></span>Logout</a></li>
-                            <?php else: ?>
-                            <li><a href="<?php echo esc_url(get_bloginfo('siteurl').'/login/'); ?>"><span class="login"></span>Login</a></li>
-                            <?php endif; ?>
-                            <li><a href="<?php echo esc_url(get_bloginfo('siteurl').'/join-now/'); ?>"><span class="join-now"></span>Join Now</a></li>
-                        </ul>
-                    </nav>
+					<div class="">
+						<?php if(true): ?>
+                    	<div class="col-md-6 hidden-xs">
+                            <div class="top-search">
+                               <form method="" action="">
+                                   <input type="search" placeholder="Search">
+                                    <i class="fa fa-search"></i>
+                               </form>
+                            </div>
+                        </div>
+						<?php endif; ?>
+						<nav class="col-md-6">
+							<ul class="navbar-right">
+								<li><a href=""><span class="user"></span>Providers</a></li>
+								<?php if(is_user_logged_in()): ?>
+								<li><a href="<?php echo esc_url(wp_logout_url(get_bloginfo('siteurl').'/login/')); ?>"><span class="login"></span>Logout</a></li>
+								<?php else: ?>
+								<li><a href="<?php echo esc_url(get_bloginfo('siteurl').'/login/'); ?>"><span class="login"></span>Login</a></li>
+								<?php endif; ?>
+								<li><a href="<?php echo esc_url(get_bloginfo('siteurl').'/join-now/'); ?>"><span class="join-now"></span>Join Now</a></li>
+							</ul>
+						</nav>
+					</div>
                 </div>
             </div>
             
