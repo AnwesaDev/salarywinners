@@ -416,7 +416,7 @@ get_header();
                                 <div class="input-box">
                                     <label></label>
                                    <input type="checkbox">
-                                   <b><star>*</star>newsletter subscription</b>
+                                   <b>newsletter subscription</b>
                                 </div>
                                 <div class="input-box btn-submit">
                                     <label></label>

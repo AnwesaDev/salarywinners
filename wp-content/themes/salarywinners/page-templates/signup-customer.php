@@ -120,7 +120,7 @@ get_header();
                                 </div>
                                 <div class="form-group input-box has-feedback">
                                    <label for="" class="control-label"><star>*</star>Country</label>
-                                   <select name="country" id="country" class="form-control" required>
+                                   <select name="country" id="select-country" class="form-control" required>
                                         <option selected value="">Choose Country</option>
                                         <option value="AFG">Afghanistan</option>
                                         <option value="ALA">Åland Islands</option>
@@ -398,7 +398,7 @@ get_header();
                                 <div class="input-box">
                                     <label></label>
                                    <input type="checkbox">
-                                   <b><star>*</star>newsletter subscription</b>
+                                   <b>newsletter subscription</b>
                                 </div>
                                 <div class="input-box btn-submit">
                                     <label></label>

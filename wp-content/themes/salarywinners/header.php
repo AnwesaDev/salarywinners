@@ -27,7 +27,7 @@
         	<div class="row"> 
                 <div class="top-nav">
 					<div class="">
-						<?php if(true): ?>
+						<?php if(!is_front_page()): ?>
                     	<div class="col-md-6 hidden-xs">
                             <div class="top-search">
                                <form method="" action="">
