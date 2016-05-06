@@ -3,7 +3,7 @@
 /* 
  * Template Name: Forgot Password
  */
- global $wpdb, $mail;
+ global $wpdb, $mail, $wp_session;
         
         $error = '';
         $success = '';
@@ -14,14 +14,19 @@
             $email = trim($_POST['email']);
             
             if( empty( $email ) ) {
-                $error = 'Enter a username or e-mail address..';
+                $message = 'Enter a username or e-mail address..';
+                $wp_session['forgot_msg'] = $message;
             } else if( ! is_email( $email )) {
-                $error = 'Invalid username or e-mail address.';
+                $message = 'Invalid username or e-mail address.';
+                $wp_session['forgot_msg'] = $message;
             } else if( ! email_exists( $email ) ) {
-                $error = 'There is no user registered with that email address.';
+                $message = 'There is no user registered with that email address.';
+                $wp_session['forgot_msg'] = $message;
             } else {
                                
                  // <-----------Mail Part----------------->
+                 $message = 'A reset password link has been sent to you. Please check your email.';
+                 $wp_session['forgot_msg'] = $message;
                  $mail->forgotPassword(array('user_id'=>$user_id, 'email'=>$email));
 //                $user_data = get_user_by('email', $email);
 //                $token = get_password_reset_key( $user_data );
@@ -47,16 +52,15 @@
 //                    $error = 'Oops something went wrong.Please try again';
 //                }
                 
-            }
-            
-            if( ! empty( $error ) )
-                echo '<div class="message"><p class="error"><strong>ERROR:</strong> '. $error .'</p></div>';
-            
-            if( ! empty( $success ) )
-                echo '<div class="error_login"><p class="success">'. $success .'</p></div>';
+            }           
+           
         }
 get_header();
 ?>
+<?php if($wp_session['forgot_msg']!=''){  ?> 
+<div id="show_msg" ><?php echo $wp_session['forgot_msg']?></div><?php $wp_session['forgot_msg']='';
+
+} ?>
         <?php //get_template_part('template-parts/block', 'search'); ?>
      <section class="content-body login-page">
         	<div class="container">

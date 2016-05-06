@@ -5,7 +5,8 @@
  */
 get_header();
 ?>
-        <?php get_template_part('template-parts/block', 'search'); ?>
+        <?php 
+        // get_template_part('template-parts/block', 'search'); ?>
         <section class="content-body sing-login">
         	<div class="container">
             	<div class="row">
