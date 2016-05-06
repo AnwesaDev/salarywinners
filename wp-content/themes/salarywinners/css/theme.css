@@ -478,7 +478,3 @@ a.on-mobile img{width:70%;}
     100%{top: 0px;}
 }
 .contact-frm .has-feedback .form-control{padding: 0;}
-.error {
-    display: block; padding-top: 10px; width: 100%; margin-left: 20%;
-    
-}
