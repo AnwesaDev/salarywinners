@@ -3,15 +3,11 @@
 			color: #fff; 
 			text-shadow: none; 
 			font-weight: 300; 
-			font-size: 13px; 
-			line-height: 18px; 
-			font-family: 'Century Gothic'; 
-			padding: 0px 4px; 
-			padding-top: 1px;
-			margin: 0px; 
-			border-width: 0px; 
+			font-size: 300%;
+			line-height: 18px;
 			border-style: none; 
 			/*background-color:#000;*/	
+  			font-family: 'Open Sans', sans-serif;
 			letter-spacing: -1.5px;	 text-align:center;									
 		}
 .tp-caption.big_white h2{ font-size:50px; font-weight:bold; line-height:36px; padding:0; margin:0 0 20px 0; text-transform:none;}
@@ -185,4 +181,4 @@
 .tp-caption a:hover { 
 	color: #ffa902; 
 }
-.tp-caption a.btn-work{padding:8px 25px;}
+.tp-caption a.btn-work{padding:8px 35px; border-width:5px;}
