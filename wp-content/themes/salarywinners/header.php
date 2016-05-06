@@ -36,7 +36,7 @@
                                </form>
                             </div>
                         </div>
-						<?php endif; ?>
+
 						<nav class="col-md-6">
 							<ul class="navbar-right">
 								<li><a href=""><span class="user"></span>Providers</a></li>
@@ -48,6 +48,21 @@
 								<li><a href="<?php echo esc_url(get_bloginfo('siteurl').'/join-now/'); ?>"><span class="join-now"></span>Join Now</a></li>
 							</ul>
 						</nav>
+						<?php endif; ?>
+						<?php if(is_front_page()): ?>
+						<nav class="noral">
+							<ul class="navbar-right">
+								<li><a href=""><span class="user"></span>Providers</a></li>
+								<?php if(is_user_logged_in()): ?>
+								<li><a href="<?php echo esc_url(wp_logout_url(get_bloginfo('siteurl').'/login/')); ?>"><span class="login"></span>Logout</a></li>
+								<?php else: ?>
+								<li><a href="<?php echo esc_url(get_bloginfo('siteurl').'/login/'); ?>"><span class="login"></span>Login</a></li>
+								<?php endif; ?>
+								<li><a href="<?php echo esc_url(get_bloginfo('siteurl').'/join-now/'); ?>"><span class="join-now"></span>Join Now</a></li>
+							</ul>
+						</nav>
+
+						<?php endif; ?>
 					</div>
                 </div>
             </div>
