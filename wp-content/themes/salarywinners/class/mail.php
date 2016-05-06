@@ -27,8 +27,8 @@ class mail {
         $headers = array('Content-Type: text/html; charset=UTF-8');
         $headers[] = 'From: '.get_bloginfo('name').' <' . get_bloginfo('admin_email') . '>';
         
-        wp_mail( $to, $subject, $message, $headers);
-        
+        $mailStatus = wp_mail( $to, $subject, $message, $headers);
+        return $mailStatus;
     }
     
     public function forgotPassword($cred = array()) {
@@ -61,7 +61,7 @@ class mail {
         $headers = array('Content-Type: text/html; charset=UTF-8');
         $headers[] = 'From: '.get_bloginfo('name').' <' . get_bloginfo('admin_email') . '>';
         
-        wp_mail( $to, $subject, $message, $headers);
-        
+         $mailStatus = wp_mail( $to, $subject, $message, $headers);
+         return $mailStatus;
     }
 }
