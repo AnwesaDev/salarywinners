@@ -89,3 +89,4 @@
 .notify-bar-close:hover {
   color: #05f;
 }
+.jquery-notify-bar.error{margin: 0;}
