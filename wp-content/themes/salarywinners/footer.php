@@ -14,11 +14,7 @@
         <footer class="footer-section">
         	<div class="row">
             	<div class="social">
-                	<a href=""><span class="fa fa-facebook"></span></a>
-                    <a href=""><span class="fa fa-twitter"></span></a>
-                    <a href=""><span class="fa fa-linkedin"></span></a>
-                    <a href=""><span class="fa fa-instagram"></span></a>
-                    <a href=""><span class="fa fa-pinterest"></span></a>
+                	<?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?>
                 </div>
                 <div class="container">
                     <div class="col-md-6">
