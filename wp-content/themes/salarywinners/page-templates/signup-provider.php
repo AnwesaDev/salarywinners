@@ -43,13 +43,16 @@ if(isset($_POST['task']) && $_POST['task'] == 'register' ) {
                         $error = true;
 		} else {
 			do_action('user_register', $user_id);
-                        
+                     $token = mt_rand(00000, 99999);
+                     $token = md5($token);
+                     $token = substr($token, 0, 10);
                     update_user_meta($user_id, 'company', $company);                    
                     update_user_meta($user_id, 'phone',   $phone);
                     update_user_meta($user_id, 'country', $country);
                     update_user_meta($user_id, 'category', $category);
                     update_user_meta($user_id, 'specialized', $specialized);
-                    
+                    update_user_meta($user_id, 'status', 'inactive');
+                    update_user_meta($user_id, 'activation_token', $token);
                     
 //                 <--------- Resistration Mail----------->
                         $mail->userRegistration($user_id);

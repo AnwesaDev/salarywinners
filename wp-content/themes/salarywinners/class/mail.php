@@ -8,8 +8,9 @@ class mail {
        $to         = $user->user_email;
        $subject    = 'Registration successful on '.get_bloginfo('name');	
 		
-	$link  = add_query_arg(array('token'=>$token), get_bloginfo('siteurl').'/login/');
-        $activationlink = '<a href="'.$link.'">'.$link.'</a>';
+	$link  = add_query_arg(array('token'=>$token), get_bloginfo('siteurl').'/check-activation/');
+        $activationlink = '<a href="'.$link.'" target="_blank">'.$link.'</a>';
+        //echo $activationlink;die();
         $message   = $salarywinnersOptions['email-user-registration'];
         
 		
@@ -31,6 +32,7 @@ class mail {
         
         $mailStatus = wp_mail( $to, $subject, $message, $headers);
         return $mailStatus;
+                //return $activationlink;
     }
     
     public function forgotPassword($cred = array()) {

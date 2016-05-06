@@ -13,8 +13,9 @@ global $wpdb, $wp_session;
             $password = $wpdb->escape($_POST['pwd']);
             $remember = $wpdb->escape($_POST['remember']);
             
-            $user_details = $user = get_user_by('email', $email);
+            $user_details = get_user_by('email', $username);
             $meta = get_user_meta($user_details->ID); 
+            
             if($meta['status'][0]=='active')
             {
                 $user_data = array();
@@ -36,9 +37,7 @@ global $wpdb, $wp_session;
                 $message = 'Your Status is not active.';
                 $error = true;
             }
-                
-        }
-       if($error){
+             if($error){
                 $notifyClass = 'error';
             } else {
                 $notifyClass = 'success';
@@ -51,7 +50,9 @@ global $wpdb, $wp_session;
              if(!$error){
                 wp_redirect(get_bloginfo('siteurl'));
                 exit();
-             }
+             }   
+        }
+      
 get_header();
 ?>
 

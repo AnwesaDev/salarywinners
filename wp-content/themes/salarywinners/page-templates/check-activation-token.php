@@ -1,6 +1,7 @@
 <?php
 
 /* 
+ * Template Name: Check Activation
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -14,7 +15,7 @@ global $wpdb, $wp_session;
 
             update_user_meta($users[0]->ID, 'status', 'active');
             update_user_meta($users[0]->ID, 'activation_token', '');
-            
+            $message = 'Activation Successfull';
         }
          else {
              $message = 'Invalid token';
@@ -30,7 +31,12 @@ global $wpdb, $wp_session;
                 'class' => $notifyClass,
                 'message' => $message,
             );
-            if(!$error){
+            //if(!$error){
                 wp_redirect(get_bloginfo('siteurl').'/login/');
                 exit();
-             }
+             //}
+get_header();
+?>
+
+<?php
+get_footer();
