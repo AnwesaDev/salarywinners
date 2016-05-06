@@ -21,7 +21,7 @@ if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/theme-opt
 
 // WP_Session by Eric https://github.com/ericmann/wp-session-manager
 require get_template_directory() . '/inc/vendor/wp-session-manager/wp-session-manager.php';
-global $wp_session, $sortlistedNameIDs;
+global $wp_session;
 $wp_session = WP_Session::get_instance(); //now $wp_session can be used anywhere
 
 if ( ! function_exists( 'salarywinners_setup' ) ) :
@@ -132,16 +132,16 @@ add_action( 'widgets_init', 'salarywinners_widgets_init' );
  * Enqueue scripts and styles.
  */
 function salarywinners_scripts() {
-        
+        global $wp_session;
         wp_enqueue_style('salarywinners-style-bootstrap', get_template_directory_uri().'/css/bootstrap.css');
         wp_enqueue_style('salarywinners-style-fontawesome', get_template_directory_uri().'/css/font-awesome.css');
+        wp_enqueue_style('salarywinners-style-notifyBar', get_template_directory_uri().'/css/jquery.notifyBar.css');
         wp_enqueue_style('salarywinners-style-theme', get_template_directory_uri().'/css/theme.css');
-        //wp_enqueue_style('salarywinners-style-main', get_template_directory_uri().'/css/style.css');
 	wp_enqueue_style( 'salarywinners-style', get_stylesheet_uri() );
         
         wp_enqueue_script('jquery');
         wp_enqueue_script('salarywinners-script-bootstrap', get_template_directory_uri().'/js/bootstrap.min.js', 'jquery', '20160428', true);
-        wp_enqueue_script('salarywinners-script', get_template_directory_uri().'/js/script.js', 'jquery', '20160428', true);
+        wp_enqueue_script('salarywinners-script-notifyBar', get_template_directory_uri().'/js/jquery.notifyBar.js', 'jquery', '20160428', true);
         wp_enqueue_script('salarywinners-script-bootstrap-validator', get_template_directory_uri().'/js/validator.js', 'jquery', '20160428', true);
 	//wp_enqueue_script( 'salarywinners-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
@@ -150,6 +150,26 @@ function salarywinners_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+        
+        wp_enqueue_script('salarywinners-script', get_template_directory_uri().'/js/script.js', array(
+            'jquery',
+            'salarywinners-script-bootstrap',
+            'salarywinners-script-notifyBar',
+            'salarywinners-script-bootstrap-validator',
+            ), '20160428', true);
+        
+        $notify = '';
+        try {
+            if(is_object($wp_session['notify'])){
+                $notify = $wp_session['notify']->toArray();
+                $wp_session['notify'] = ''; // clear notification
+            }
+        } catch (Exception $ex) {
+
+        }
+        
+        wp_localize_script('salarywinners-script','sw',array('notify'=>$notify));
+        
 }
 add_action( 'wp_enqueue_scripts', 'salarywinners_scripts' );
 
