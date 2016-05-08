@@ -1,13 +1,6 @@
 <?php
 
-/**
- * Get the bootstrap!
- */
-if ( file_exists(  __DIR__ . '/vendor/cmb2/init.php' ) ) {
-  require_once  __DIR__ . '/vendor/cmb2/init.php';
-} elseif ( file_exists(  __DIR__ . '/vendor/CMB2/init.php' ) ) {
-  require_once  __DIR__ . '/vendor/CMB2/init.php';
-}
+
 function salarywinners_show_if_front_page( $cmb ) {
 	// Don't show this metabox if it's not the front page template
 	if ( $cmb->object_id !== get_option( 'page_on_front' ) ) {

@@ -1,6 +1,7 @@
 <?php
 
-class mail {
+class SW_Mail extends AI_Mailing {
+    
     public function userRegistration($user_id) {
        $user = get_user_by('id', $user_id);
        $meta = get_user_meta($user_id); 
@@ -23,14 +24,14 @@ class mail {
             'activationlink' => $activationlink
         );
 
-        foreach ($emailVars as $key => $value) {
-            $message = str_replace('{{' . $key . '}}', $value, $message);
-        }
+//        foreach ($emailVars as $key => $value) {
+//            $message = str_replace('{{' . $key . '}}', $value, $message);
+//        }
       
-        $headers = array('Content-Type: text/html; charset=UTF-8');
-        $headers[] = 'From: '.get_bloginfo('name').' <' . get_bloginfo('admin_email') . '>';
+//        $headers = array('Content-Type: text/html; charset=UTF-8');
+//        $headers[] = 'From: '.get_bloginfo('name').' <' . get_bloginfo('admin_email') . '>';
         
-        $mailStatus = wp_mail( $to, $subject, $message, $headers);
+        $mailStatus = $this->wp_mail( $to, $subject, $message, $emailVars);
         return $mailStatus;
                 //return $activationlink;
     }

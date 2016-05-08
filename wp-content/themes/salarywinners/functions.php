@@ -7,21 +7,18 @@
  * @package Salary_Winners
  */
 show_admin_bar(false);
-require get_template_directory() . '/class/mail.php';
+require dirname( __FILE__ ) . '/inc/ai-core/bootstrap.php'; // Load Anwesa Infotech Core Library
 
-global $mail;
-$mail = new mail();
-
-if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/inc/vendor/ReduxFramework/ReduxCore/framework.php' ) ) {
-    require_once( dirname( __FILE__ ) . '/inc/vendor/ReduxFramework/ReduxCore/framework.php' );
-}
 if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/theme-options.php' ) ) {
     require_once( dirname( __FILE__ ) . '/inc/theme-options.php' );
 }
 
-// WP_Session by Eric https://github.com/ericmann/wp-session-manager
-require get_template_directory() . '/inc/vendor/wp-session-manager/wp-session-manager.php';
-global $wp_session;
+require dirname( __FILE__ ) . '/inc/class/mail.php';
+
+global $mail; /** @todo: Change naming convention */
+$mail = new mail();
+
+global $wp_session; /** @todo: change name to core like $ai_session */
 $wp_session = WP_Session::get_instance(); //now $wp_session can be used anywhere
 
 if ( ! function_exists( 'salarywinners_setup' ) ) :
@@ -177,7 +174,11 @@ function salarywinners_scripts() {
 
         }
         
-        wp_localize_script('salarywinners-script','sw',array('notify'=>$notify));
+        wp_localize_script('salarywinners-script','sw',array(
+            'notify'    =>  $notify,
+            'ajaxurl'   =>  admin_url( 'admin-ajax.php' ),
+            'nonce'     => '',
+            ));
         
 }
 add_action( 'wp_enqueue_scripts', 'salarywinners_scripts' );
@@ -203,6 +204,6 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
- * Load Jetpack compatibility file.
+ * Load CMB2
  */
 require get_template_directory() . '/inc/metabox.php';
