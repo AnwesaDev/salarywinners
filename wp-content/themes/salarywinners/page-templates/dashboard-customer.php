@@ -64,31 +64,36 @@ get_header();
                                         <div class="col-xs-4"><button class="btn btn-edit pull-right" id="btn-profile-edit">edit</button></div>
                                     </div>
                                     <div class="contact-frm">
-                                        <form action="" method="">
-                                            <div class="input-box form-group">
+                                        <form action="" method="post" data-toggle="validator" role="form" name="form-setting">
+                                            <div class="input-box form-group has-feedback">
                                                 <label>First name</label>
-                                                <input type="text" placeholder="" class="form-control" name="profile-fname" id="profile-fname" value="<?php echo $user_meta['first_name'][0] ;?>" readonly="">
+                                                <input type="text" placeholder="" class="form-control" name="profile-fname" id="profile-fname" value="<?php echo $user_meta['first_name'][0] ;?>" readonly="" data-error="First name is required" required="">
+                                                <div class="help-block with-errors"></div>
                                             </div>
-                                            <div class="input-box form-group">
+                                            <div class="input-box form-group has-feedback">
                                                 <label>Last name</label>
-                                                <input type="text" placeholder="" class="form-control" name="profile-lname" id="profile-lname" value="<?php echo $user_meta['last_name'][0] ;?>" readonly="">
+                                                <input type="text" placeholder="" class="form-control" name="profile-lname" id="profile-lname" value="<?php echo $user_meta['last_name'][0] ;?>" readonly=""  data-error="Last name is required" required="">
+                                                <div class="help-block with-errors"></div>
                                             </div>
-                                            <div class="input-box form-group">
+                                            <div class="input-box form-group has-feedback">
                                                 <label>Email Address</label>
-                                                <input type="email" placeholder="" class="form-control" name="profile-email" id="profile-email" value="<?php echo $user->user_email;?>" readonly="">
+                                                <input type="email" placeholder="" class="form-control" name="profile-email" id="profile-email" value="<?php echo $user->user_email;?>" readonly="" pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$" data-error="Please enter a valid email address" required="">
+                                                <div class="help-block with-errors"></div>
                                             </div>
-                                            <div class="input-box form-group">
+                                            <div class="input-box form-group has-feedback">
                                                 <label>Password</label>
-                                                <input type="password" placeholder="" class="form-control" name="profile-password" id="profile-password" value="<?php echo $user->user_pass;?>" readonly="">
+                                                <input type="password" placeholder="" class="form-control" name="profile-password" id="profile-password" value="<?php echo $user->user_pass;?>" readonly="" data-error="Password is required" required="">
+                                                <div class="help-block with-errors"></div>
                                             </div>
-                                            <div class="input-box form-group" style="display: none" id="div-profile-confirm-password">
+                                            <div class="input-box form-group has-feedback" style="display: none" id="div-profile-confirm-password">
                                                 <label>confirm password</label>
-                                                <input type="password" placeholder="" class="form-control" name="profile-confirm-password" id="profile-confirm-password" >
+                                                <input type="password" placeholder="" class="form-control" name="profile-confirm-password" id="profile-confirm-password" data-match="#profile-password" data-match-error="Password do not match" required="">
+                                                <div class="help-block with-errors has-feedback"></div>
                                             </div>
 
                                             <div class="input-box end-section form-group">
                                             	<label></label>
-                                                <input type="submit" value="Save Settings" >
+                                                <input type="submit" value="Save Settings" id="profile-save" disabled="" >
                                             </div>
                                         </form>
                                     </div>
@@ -237,14 +242,46 @@ jQuery(document).ready(function($){
         $("#profile-email").attr("readonly", false);
         $("#profile-password").attr("readonly", false);
         $("#div-profile-confirm-password").css("display", "block");
+        $("#profile-save").attr("disabled", false);
     });
     
-    $('#btn-profile-edit').click(function(){
-	$("#profile-fname").attr("readonly", false);			
-	$("#profile-lname").attr("readonly", false); 
-        $("#profile-email").attr("readonly", false);
-        $("#profile-password").attr("readonly", false);
-        $("#div-profile-confirm-password").css("display", "block");
+    $('#profile-save').click(function(){
+	var first_name = $("#profile-fname").attr('value');
+        //alert(first_name);
+        var last_name = $("#profile-lname").attr('value');
+        var email = $("#profile-email").attr('value');
+        var password = $("#profile-password").attr('value');
+	
+        var data = {
+            action: 'update_user_profile',
+            first_name: first_name,
+            last_name: last_name,
+            email: email,
+            password: password
+        };
+        $.ajax({
+            url: sw.ajaxurl,
+            type: 'POST',
+            data: data,
+            success: function(response) {
+            if(response.success == true){
+                    var nclass = 'success';
+                }    
+                else
+                {
+                    var nclass = 'error';
+                }
+                
+            $.notifyBar({
+            cssClass: nclass,
+            html: response.data['message'],
+            close: true,
+            delay: 100000,
+            closeOnClick: false
+        });
+            }
+                
+         });            
     });
 });
 </script>

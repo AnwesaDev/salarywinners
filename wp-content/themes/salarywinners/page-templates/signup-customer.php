@@ -379,7 +379,7 @@ get_header();
                                 </div>
                                 <div class="form-group input-box has-feedback">
                                    <label for="" class="control-label"><star>*</star>Password</label>
-                                   <input type="password" name="pwd" id="pwd" class="form-control" placeholder="Password" data-error="Password is required" required"">
+                                   <input type="password" name="pwd" id="pwd" class="form-control" placeholder="Password" data-error="Password is required" required="">
                                 </div>
                                 <div class="form-group input-box has-feedback end-section">
                                    <label for="" class="control-label"><star>*</star>Confirm Password</label>

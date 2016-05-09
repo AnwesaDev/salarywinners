@@ -16,7 +16,7 @@ if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/theme-opt
 require dirname( __FILE__ ) . '/inc/class/mail.php';
 
 global $mail; /** @todo: Change naming convention */
-$mail = new mail();
+$mail = new SW_Mail();
 
 global $wp_session; /** @todo: change name to core like $ai_session */
 $wp_session = WP_Session::get_instance(); //now $wp_session can be used anywhere
@@ -207,3 +207,6 @@ require get_template_directory() . '/inc/customizer.php';
  * Load CMB2
  */
 require get_template_directory() . '/inc/metabox.php';
+
+
+require get_template_directory() . '/inc/ajax-functions.php';
