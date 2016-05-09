@@ -56,17 +56,16 @@ class SW_Mail extends AI_Mailing {
             'phone'  => $meta['phone'][0],
             'email' => $user->user_email,
             'resetlink' => $resetlink
-            
         );
 
-        foreach ($emailVars as $key => $value) {
-            $message = str_replace('{{' . $key . '}}', $value, $message);
-        }
+//        foreach ($emailVars as $key => $value) {
+//            $message = str_replace('{{' . $key . '}}', $value, $message);
+//        }
       
-        $headers = array('Content-Type: text/html; charset=UTF-8');
-        $headers[] = 'From: '.get_bloginfo('name').' <' . get_bloginfo('admin_email') . '>';
-        
-         $mailStatus = wp_mail( $to, $subject, $message, $headers);
+//        $headers = array('Content-Type: text/html; charset=UTF-8');
+//        $headers[] = 'From: '.get_bloginfo('name').' <' . get_bloginfo('admin_email') . '>';
+//        
+         $mailStatus = $this->wp_mail( $to, $subject, $message, $emailVars);
          return $mailStatus;
     }
 }
