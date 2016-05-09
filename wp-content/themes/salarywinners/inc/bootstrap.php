@@ -1,11 +1,17 @@
 <?php
 
-/* 
+/**
  * Salarywinners App bootstrap
+ * @author Sandeep
+ * @package Salary_Winners
  */
 
-// All Definations
+// All APP Definations
+define(SW_ROLE_CUSTOMER,'customer');
+define(SW_ROLE_PROVIDER,'provider');
 
+define(SW_PT_JOB,'sw_job');
+define(SW_PT_PRODUCT,'sw_product');
 
 // Include Anwesa Infotech core
 require dirname( __FILE__ ) . '/ai-core/bootstrap.php';
@@ -18,7 +24,9 @@ if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/theme-options
 // Include Post Types and Taxonomies
 
 
-// Include app class
+// Include app classes
+require dirname( __FILE__ ) . '/class/mail.php';
+
 
 // Include other functions
 
