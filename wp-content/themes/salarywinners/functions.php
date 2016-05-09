@@ -7,11 +7,9 @@
  * @package Salary_Winners
  */
 show_admin_bar(false);
-require dirname( __FILE__ ) . '/inc/ai-core/bootstrap.php'; // Load Anwesa Infotech Core Library
+require dirname( __FILE__ ) . '/inc/bootstrap.php'; // Load Salary winners app
 
-if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/theme-options.php' ) ) {
-    require_once( dirname( __FILE__ ) . '/inc/theme-options.php' );
-}
+
 require dirname( __FILE__ ) . '/inc/class/mail.php';
 
 global $mail; /** @todo: Change naming convention */
@@ -202,10 +200,3 @@ require get_template_directory() . '/inc/extras.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Load CMB2
- */
-require get_template_directory() . '/inc/metabox.php';
-
-
-require get_template_directory() . '/inc/ajax-functions.php';
