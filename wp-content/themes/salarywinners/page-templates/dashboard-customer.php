@@ -1,5 +1,4 @@
 <?php
-
 /* 
  * Template name: Dashboard Customer
  * To change this license header, choose License Headers in Project Properties.
@@ -64,7 +63,7 @@ get_header();
                                         <div class="col-xs-4"><button class="btn btn-edit pull-right" id="btn-profile-edit">edit</button></div>
                                     </div>
                                     <div class="contact-frm">
-                                        <form action="" method="post" data-toggle="validator" role="form" name="form-setting">
+                                        <form action="" id="form-profile" method="post" data-toggle="validator" role="form" name="form-setting">
                                             <div class="input-box form-group has-feedback">
                                                 <label>First name</label>
                                                 <input type="text" placeholder="" class="form-control" name="profile-fname" id="profile-fname" value="<?php echo $user_meta['first_name'][0] ;?>" readonly="" data-error="First name is required" required="">
@@ -82,18 +81,18 @@ get_header();
                                             </div>
                                             <div class="input-box form-group has-feedback">
                                                 <label>Password</label>
-                                                <input type="password" placeholder="" class="form-control" name="profile-password" id="profile-password" value="<?php echo $user->user_pass;?>" readonly="" data-error="Password is required" required="">
+                                                <input type="password" placeholder="" class="form-control" name="profile-password" id="profile-password" value="" readonly="" data-error="Password is required">
                                                 <div class="help-block with-errors"></div>
                                             </div>
                                             <div class="input-box form-group has-feedback" style="display: none" id="div-profile-confirm-password">
                                                 <label>confirm password</label>
-                                                <input type="password" placeholder="" class="form-control" name="profile-confirm-password" id="profile-confirm-password" data-match="#profile-password" data-match-error="Password do not match" required="">
+                                                <input type="password" placeholder="" class="form-control" name="profile-confirm" id="profile-confirm" data-match="#profile-password" data-match-error="Password do not match">
                                                 <div class="help-block with-errors has-feedback"></div>
                                             </div>
 
                                             <div class="input-box end-section form-group">
                                             	<label></label>
-                                                <input type="submit" value="Save Settings" id="profile-save" disabled="" >
+                                                <input type="submit" value="Save Settings" id="btn-profile-save" disabled="" >
                                             </div>
                                         </form>
                                     </div>
@@ -242,47 +241,9 @@ jQuery(document).ready(function($){
         $("#profile-email").attr("readonly", false);
         $("#profile-password").attr("readonly", false);
         $("#div-profile-confirm-password").css("display", "block");
-        $("#profile-save").attr("disabled", false);
+        $("#btn-profile-save").attr("disabled", false);
     });
     
-    $('#profile-save').click(function(){
-	var first_name = $("#profile-fname").attr('value');
-        //alert(first_name);
-        var last_name = $("#profile-lname").attr('value');
-        var email = $("#profile-email").attr('value');
-        var password = $("#profile-password").attr('value');
-	
-        var data = {
-            action: 'update_user_profile',
-            first_name: first_name,
-            last_name: last_name,
-            email: email,
-            password: password
-        };
-        $.ajax({
-            url: sw.ajaxurl,
-            type: 'POST',
-            data: data,
-            success: function(response) {
-            if(response.success == true){
-                    var nclass = 'success';
-                }    
-                else
-                {
-                    var nclass = 'error';
-                }
-                
-            $.notifyBar({
-            cssClass: nclass,
-            html: response.data['message'],
-            close: true,
-            delay: 100000,
-            closeOnClick: false
-        });
-            }
-                
-         });            
-    });
 });
 </script>
 <?php

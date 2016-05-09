@@ -12,7 +12,6 @@ require dirname( __FILE__ ) . '/inc/ai-core/bootstrap.php'; // Load Anwesa Infot
 if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/theme-options.php' ) ) {
     require_once( dirname( __FILE__ ) . '/inc/theme-options.php' );
 }
-
 require dirname( __FILE__ ) . '/inc/class/mail.php';
 
 global $mail; /** @todo: Change naming convention */

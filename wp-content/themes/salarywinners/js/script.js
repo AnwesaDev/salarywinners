@@ -30,4 +30,47 @@ jQuery(document).ready(function($) {
         });
         
     }
+    
+    ///Save profile
+    $('#form-profile').validator().on('submit',function(e){
+        
+        if (e.isDefaultPrevented()) {
+            // handle the invalid form...
+            console.log('something is wrong');
+        } else {
+            // everything looks good!
+            var data = {
+                action: 'update_user_profile',
+                values: $('#form-profile').serializeArray(),
+            };
+
+            $.ajax({
+                url:sw.ajaxurl,
+                type: 'POST',
+                data: data,
+                success: function(response){
+                    console.log(response);
+                    var notifyClass = 'info';
+                    if(response.success == false){
+                        notifyClass = 'danger';
+                    } else {
+                        notifyClass = 'success';
+                    }
+                    
+                    $.notifyBar({
+                        cssClass: notifyClass,
+                        html: response.data['message'],
+                        close: true,
+                        delay: 100000,
+                        closeOnClick: false
+                    });
+                },
+                error: function(e){
+
+                }
+            });
+            e.preventDefault();
+        }
+        
+    });
 });
