@@ -28,7 +28,7 @@
                 <div class="top-nav">
 					<div class="">
 						<?php if(!is_front_page()): ?>
-                    	<div class="col-md-6 hidden-xs">
+                    	<div class="col-md-6 col-sm-5 hidden-xs">
                             <div class="top-search">
                                <form method="" action="<?php echo home_url(); ?>">
                                    <input type="search" name="s" placeholder="Search">
@@ -37,7 +37,7 @@
                             </div>
                         </div>
 
-						<nav class="col-md-6">
+						<nav class="col-md-6 col-sm-7">
 							<ul class="navbar-right">
 								<li><a href=""><span class="user"></span>Providers</a></li>
 								<?php if(is_user_logged_in()): ?>
