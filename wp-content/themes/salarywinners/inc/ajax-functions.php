@@ -7,8 +7,8 @@
  */
 
 /*Update user setting*/
-add_action('wp_ajax_update_user_profile', 'update_user_profile');
-function update_user_profile() {
+add_action('wp_ajax_update_customer_profile', 'update_customer_profile');
+function update_customer_profile() {
     extract($_POST);
     $error = false;
 
@@ -36,14 +36,23 @@ function update_user_profile() {
             $message .= '';
 
         } else {
-            $message .= 'Email Updated. ';
+            //$message .= 'Email Updated. ';
             $update['user_email'] = $email;
         }
         
         if(!empty($data['profile-password']))
         {
-            $message .= 'Password Updated. ';
-            $update['user_pass'] = $data['profile-password'];
+            if($data['profile-password']==$data['profile-confirm'])
+            {
+                //$message .= 'Password Updated. ';
+                $update['user_pass'] = $data['profile-password'];
+            }
+            else 
+            {
+                $error = true;
+                $message .= 'Password do not match.Password not Updated. ';                            
+            }
+            
         }
         wp_update_user($update);
 

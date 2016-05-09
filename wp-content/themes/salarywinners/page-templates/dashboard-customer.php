@@ -86,7 +86,7 @@ get_header();
                                             </div>
                                             <div class="input-box form-group has-feedback" style="display: none" id="div-profile-confirm-password">
                                                 <label>confirm password</label>
-                                                <input type="password" placeholder="" class="form-control" name="profile-confirm" id="profile-confirm" data-match="#profile-password" data-match-error="Password do not match">
+                                                <input type="password" placeholder="" class="form-control" name="profile-confirm" id="profile-confirm" data-match="#profile-password" data-error="Password do not match">
                                                 <div class="help-block with-errors has-feedback"></div>
                                             </div>
 

@@ -40,7 +40,7 @@ jQuery(document).ready(function($) {
         } else {
             // everything looks good!
             var data = {
-                action: 'update_user_profile',
+                action: 'update_customer_profile',
                 values: $('#form-profile').serializeArray(),
             };
 
