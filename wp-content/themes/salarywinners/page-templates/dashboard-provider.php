@@ -132,12 +132,19 @@ get_header();
                                     	<form action="" id="form-provider-about" method="post" data-toggle="validator" role="form" name="form-setting" enctype="multipart/form-data">
                                         	<div class="form-group input-box">
                                             	<label for="">Profile image</label>
-                                                <div class="profile-img"><img src="<?php echo get_template_directory_uri(); ?>/images/profile-image.png" alt="" title=""></div>
+                                                <div class="profile-img">
+                                                    <?php if(empty($user_meta['avatar'][0])): ?>
+                                                    <img id="profile-picture" src="<?php echo get_template_directory_uri(); ?>/images/profile-image.png" alt="" title="">
+                                                    <?php else: ?>
+                                                    <?php $avatar_data = wp_get_attachment_image_src($user_meta['avatar'][0]); ?>
+                                                    <img id="profile-picture" src="<?php echo $avatar_data[0]; ?>" >
+                                                    <?php endif; ?>
+                                                </div>
                                             </div>
                                             <div class="attachment ">
                                             	<label class="sub-label">Change Image</label>
-                                                <button class="disabled btn-uplaod">Choose file</button>
-                                                 <input type="file" placeholder="" name="avatar">
+                                                <button class="disabled btn-uplaod" >Choose file</button>
+                                                 <input type="file" placeholder="" name="avatar" id="btn-profile-image" disabled="">
                                                  <small class="imgae-format">(Fileformat: PNG, JPEG)</small>
                                             </div>
                                             <div class="form-group input-box">
@@ -624,6 +631,7 @@ jQuery(document).ready(function($){
     });
     $('#btn-about-edit').click(function(){
 	$("#description").attr("readonly", false);         
+        $("#btn-profile-image").attr("disabled", false);
         $("#btn-about-save").attr("disabled", false);
     });
 });

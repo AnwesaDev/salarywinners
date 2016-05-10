@@ -136,7 +136,7 @@ get_header();
                                             <div class="attachment ">
                                             	<label class="sub-label">Change Image</label>
                                                 <button class="disabled btn-uplaod">Choose file</button>
-                                                 <input type="file" placeholder="" name="avatar" />
+                                                 <input type="file" placeholder="" name="avatar"  id="btn-profile-image" disabled=""/>
                                                  <small class="imgae-format">(Fileformat: PNG, JPEG)</small>
                                             </div>
                                             <div class="form-group input-box">
@@ -582,7 +582,8 @@ jQuery(document).ready(function($){
         $("#btn-location-save").attr("disabled", false);
     });
     $('#btn-about-edit').click(function(){
-	$("#description").attr("readonly", false);         
+	$("#description").attr("readonly", false); 
+        $("#btn-profile-image").attr("disabled", false);
         $("#btn-about-save").attr("disabled", false);
     });
 });

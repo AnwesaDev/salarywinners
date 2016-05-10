@@ -298,10 +298,10 @@ jQuery(document).ready(function($) {
             console.log('something is wrong');
         } else {
             // everything looks good!
-            var data = {
-                action: 'update_customer_about',
-                values: $('#form-customer-about').serializeArray(),
-            };
+//            var data = {
+//                action: 'update_customer_about',
+//                values: $('#form-customer-about').serializeArray(),
+//            };
             
             var formData = new FormData($('#form-customer-about')[0]);
 
@@ -348,21 +348,30 @@ jQuery(document).ready(function($) {
             console.log('something is wrong');
         } else {
             // everything looks good!
-            var data = {
-                action: 'update_provider_about',
-                values: $('#form-provider-about').serializeArray(),
-            };
+              // everything looks good!
+//            var data = {
+//                action: 'update_customer_about',
+//                values: $('#form-customer-about').serializeArray(),
+//            };
+            
+            var formData = new FormData($('#form-provider-about')[0]);
 
             $.ajax({
-                url:sw.ajaxurl,
+                url:sw.ajaxurl + '?action=update_provider_about',
                 type: 'POST',
-                data: data,
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
                 success: function(response){
                     console.log(response);
                     var notifyClass = 'info';
                     if(response.success == false){
                         notifyClass = 'danger';
+                        
                     } else {
+                        $('#profile-picture').attr("src", response.data.picture);
+                        
                         notifyClass = 'success';
                     }
                     
