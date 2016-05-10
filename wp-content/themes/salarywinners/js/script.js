@@ -282,6 +282,15 @@ jQuery(document).ready(function($) {
         }
         
     });
+    
+    $(':file').change(function(){
+    var file = this.files[0];
+    var name = file.name;
+    var size = file.size;
+    var type = file.type;
+    //Your validation
+});
+
     ///Save customer about myself
     $('#form-customer-about').validator().on('submit',function(e){       
         if (e.isDefaultPrevented()) {
@@ -293,17 +302,25 @@ jQuery(document).ready(function($) {
                 action: 'update_customer_about',
                 values: $('#form-customer-about').serializeArray(),
             };
+            
+            var formData = new FormData($('#form-customer-about')[0]);
 
             $.ajax({
-                url:sw.ajaxurl,
+                url:sw.ajaxurl + '?action=update_customer_about',
                 type: 'POST',
-                data: data,
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
                 success: function(response){
                     console.log(response);
                     var notifyClass = 'info';
                     if(response.success == false){
                         notifyClass = 'danger';
+                        
                     } else {
+                        $('#profile-picture').attr("src", response.data.picture);
+                        
                         notifyClass = 'success';
                     }
                     

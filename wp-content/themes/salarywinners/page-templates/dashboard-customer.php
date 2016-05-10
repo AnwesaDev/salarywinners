@@ -121,15 +121,22 @@ get_header();
                                         <button class="btn btn-edit pull-right" id="btn-about-edit">edit</button></div>
                                     </div>
                                     <div class="">
-                                    	<form action="" id="form-customer-about" method="post" data-toggle="validator" role="form" name="form-setting">
+                                    	<form action="" id="form-customer-about" method="post" data-toggle="validator" role="form" name="form-setting" enctype="multipart/form-data">
                                         	<div class="form-group input-box">
                                             	<label for="">Profile image</label>
-                                                <div class="profile-img"><img src="<?php echo get_template_directory_uri(); ?>/images/profile-image.png" alt="" title=""></div>
+                                                <div class="profile-img">
+                                                    <?php if(empty($user_meta['avatar'][0])): ?>
+                                                    <img id="profile-picture" src="<?php echo get_template_directory_uri(); ?>/images/profile-image.png" alt="" title="">
+                                                    <?php else: ?>
+                                                    <?php $avatar_data = wp_get_attachment_image_src($user_meta['avatar'][0]); ?>
+                                                    <img id="profile-picture" src="<?php echo $avatar_data[0]; ?>" >
+                                                    <?php endif; ?>
+                                                </div>
                                             </div>
                                             <div class="attachment ">
                                             	<label class="sub-label">Change Image</label>
                                                 <button class="disabled btn-uplaod">Choose file</button>
-                                                 <input type="file" placeholder="">
+                                                 <input type="file" placeholder="" name="avatar" />
                                                  <small class="imgae-format">(Fileformat: PNG, JPEG)</small>
                                             </div>
                                             <div class="form-group input-box">

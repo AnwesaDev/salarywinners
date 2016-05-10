@@ -370,32 +370,45 @@ function update_customer_about() {
     $error = false;
 
     $message = '';
+    
+    $picture_url = '';
 
     $user_id = get_current_user_id();
     $user = get_user_by('id', $user_id);
     
     $data = array();
 
-    for ($i = 0; $i < COUNT($values); $i++) {
-        $data[$values[$i]['name']] = $values[$i]['value'];
-    }    
-    
-        if(empty($data['description']))
+//    for ($i = 0; $i < COUNT($values); $i++) {
+//        $data[$values[$i]['name']] = $values[$i]['value'];
+//    }    
+        if(true)
         {
-            $error = true;
-            $message .= 'There is no data to save. ';
-        }
-        else 
-        {
-            if(!empty($data['description']))
+            if(!empty($description))
             {
-               update_user_meta($user_id, 'description', $data['description']); 
+               update_user_meta($user_id, 'description', $description); 
             }
             
-           $message .= 'About myself saved successfully'; 
+            // These files need to be included as dependencies when on the front end.
+            require_once( ABSPATH . 'wp-admin/includes/image.php' );
+            require_once( ABSPATH . 'wp-admin/includes/file.php' );
+            require_once( ABSPATH . 'wp-admin/includes/media.php' );
+            // Let WordPress handle the upload.
+            // Remember, 'avatar' is the name of our file input.
+            $attachment_id = media_handle_upload( 'avatar', 0 );
+            if ( !is_wp_error( $attachment_id ) ) {
+                update_user_meta($user_id, 'avatar', $attachment_id); 
+                $image_data = wp_get_attachment_image_src($attachment_id);
+                if(!is_wp_error($image_data)){
+                    $picture_url = $image_data[0];
+                }
+            } else {
+                $results['uperror'] = $attachment_id;
+            }
+            $message .= 'About myself saved successfully'; 
         } 
     $results['message'] = $message;
-    $results['raw'] = $values;
+    $results['picture'] = $picture_url;
+    $results['raw'] = $_POST;
 
     if($error){
         wp_send_json_error($results);
