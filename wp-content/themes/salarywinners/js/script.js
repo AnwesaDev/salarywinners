@@ -31,7 +31,7 @@ jQuery(document).ready(function($) {
         
     }
     
-    ///Save profile
+    ///Save profile customer
     $('#form-profile').validator().on('submit',function(e){
         
         if (e.isDefaultPrevented()) {
@@ -42,6 +42,298 @@ jQuery(document).ready(function($) {
             var data = {
                 action: 'update_customer_profile',
                 values: $('#form-profile').serializeArray(),
+            };
+
+            $.ajax({
+                url:sw.ajaxurl,
+                type: 'POST',
+                data: data,
+                success: function(response){
+                    console.log(response);
+                    var notifyClass = 'info';
+                    if(response.success == false){
+                        notifyClass = 'danger';
+                    } else {
+                        notifyClass = 'success';
+                    }
+                    
+                    $.notifyBar({
+                        cssClass: notifyClass,
+                        html: response.data['message'],
+                        close: true,
+                        delay: 100000,
+                        closeOnClick: false
+                    });
+                },
+                error: function(e){
+
+                }
+            });
+            e.preventDefault();
+        }
+        
+    });
+    
+    ///Save profile provider
+    $('#form-provider-profile').validator().on('submit',function(e){       
+        if (e.isDefaultPrevented()) {
+            // handle the invalid form...
+            console.log('something is wrong');
+        } else {
+            // everything looks good!
+            var data = {
+                action: 'update_provider_profile',
+                values: $('#form-provider-profile').serializeArray(),
+            };
+
+            $.ajax({
+                url:sw.ajaxurl,
+                type: 'POST',
+                data: data,
+                success: function(response){
+                    console.log(response);
+                    var notifyClass = 'info';
+                    if(response.success == false){
+                        notifyClass = 'danger';
+                    } else {
+                        notifyClass = 'success';
+                    }
+                    
+                    $.notifyBar({
+                        cssClass: notifyClass,
+                        html: response.data['message'],
+                        close: true,
+                        delay: 100000,
+                        closeOnClick: false
+                    });
+                },
+                error: function(e){
+
+                }
+            });
+            e.preventDefault();
+        }
+        
+    });
+    
+    ///Save social profile customer
+    $('#form-customer-social-profile').validator().on('submit',function(e){       
+        if (e.isDefaultPrevented()) {
+            // handle the invalid form...
+            console.log('something is wrong');
+        } else {
+            // everything looks good!
+            var data = {
+                action: 'update_customer_social_profile',
+                values: $('#form-customer-social-profile').serializeArray(),
+            };
+
+            $.ajax({
+                url:sw.ajaxurl,
+                type: 'POST',
+                data: data,
+                success: function(response){
+                    console.log(response);
+                    var notifyClass = 'info';
+                    if(response.success == false){
+                        notifyClass = 'danger';
+                    } else {
+                        notifyClass = 'success';
+                    }
+                    
+                    $.notifyBar({
+                        cssClass: notifyClass,
+                        html: response.data['message'],
+                        close: true,
+                        delay: 100000,
+                        closeOnClick: false
+                    });
+                },
+                error: function(e){
+
+                }
+            });
+            e.preventDefault();
+        }
+        
+    });
+    
+    ///Save social profile customer
+    $('#form-provider-social-profile').validator().on('submit',function(e){       
+        if (e.isDefaultPrevented()) {
+            // handle the invalid form...
+            console.log('something is wrong');
+        } else {
+            // everything looks good!
+            var data = {
+                action: 'update_provider_social_profile',
+                values: $('#form-provider-social-profile').serializeArray(),
+            };
+
+            $.ajax({
+                url:sw.ajaxurl,
+                type: 'POST',
+                data: data,
+                success: function(response){
+                    console.log(response);
+                    var notifyClass = 'info';
+                    if(response.success == false){
+                        notifyClass = 'danger';
+                    } else {
+                        notifyClass = 'success';
+                    }
+                    
+                    $.notifyBar({
+                        cssClass: notifyClass,
+                        html: response.data['message'],
+                        close: true,
+                        delay: 100000,
+                        closeOnClick: false
+                    });
+                },
+                error: function(e){
+
+                }
+            });
+            e.preventDefault();
+        }
+        
+    });
+    
+    ///Save customer location
+    $('#form-customer-location').validator().on('submit',function(e){       
+        if (e.isDefaultPrevented()) {
+            // handle the invalid form...
+            console.log('something is wrong');
+        } else {
+            // everything looks good!
+            var data = {
+                action: 'update_customer_location',
+                values: $('#form-customer-location').serializeArray(),
+            };
+
+            $.ajax({
+                url:sw.ajaxurl,
+                type: 'POST',
+                data: data,
+                success: function(response){
+                    console.log(response);
+                    var notifyClass = 'info';
+                    if(response.success == false){
+                        notifyClass = 'danger';
+                    } else {
+                        notifyClass = 'success';
+                    }
+                    
+                    $.notifyBar({
+                        cssClass: notifyClass,
+                        html: response.data['message'],
+                        close: true,
+                        delay: 100000,
+                        closeOnClick: false
+                    });
+                },
+                error: function(e){
+
+                }
+            });
+            e.preventDefault();
+        }
+        
+    });
+    ///Save provider location
+    $('#form-provider-location').validator().on('submit',function(e){       
+        if (e.isDefaultPrevented()) {
+            // handle the invalid form...
+            console.log('something is wrong');
+        } else {
+            // everything looks good!
+            var data = {
+                action: 'update_provider_location',
+                values: $('#form-provider-location').serializeArray(),
+            };
+
+            $.ajax({
+                url:sw.ajaxurl,
+                type: 'POST',
+                data: data,
+                success: function(response){
+                    console.log(response);
+                    var notifyClass = 'info';
+                    if(response.success == false){
+                        notifyClass = 'danger';
+                    } else {
+                        notifyClass = 'success';
+                    }
+                    
+                    $.notifyBar({
+                        cssClass: notifyClass,
+                        html: response.data['message'],
+                        close: true,
+                        delay: 100000,
+                        closeOnClick: false
+                    });
+                },
+                error: function(e){
+
+                }
+            });
+            e.preventDefault();
+        }
+        
+    });
+    ///Save customer about myself
+    $('#form-customer-about').validator().on('submit',function(e){       
+        if (e.isDefaultPrevented()) {
+            // handle the invalid form...
+            console.log('something is wrong');
+        } else {
+            // everything looks good!
+            var data = {
+                action: 'update_customer_about',
+                values: $('#form-customer-about').serializeArray(),
+            };
+
+            $.ajax({
+                url:sw.ajaxurl,
+                type: 'POST',
+                data: data,
+                success: function(response){
+                    console.log(response);
+                    var notifyClass = 'info';
+                    if(response.success == false){
+                        notifyClass = 'danger';
+                    } else {
+                        notifyClass = 'success';
+                    }
+                    
+                    $.notifyBar({
+                        cssClass: notifyClass,
+                        html: response.data['message'],
+                        close: true,
+                        delay: 100000,
+                        closeOnClick: false
+                    });
+                },
+                error: function(e){
+
+                }
+            });
+            e.preventDefault();
+        }
+        
+    });
+    
+    ///Save provider about myself
+    $('#form-provider-about').validator().on('submit',function(e){       
+        if (e.isDefaultPrevented()) {
+            // handle the invalid form...
+            console.log('something is wrong');
+        } else {
+            // everything looks good!
+            var data = {
+                action: 'update_provider_about',
+                values: $('#form-provider-about').serializeArray(),
             };
 
             $.ajax({

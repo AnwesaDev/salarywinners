@@ -31,7 +31,7 @@ global $wpdb, $wp_session;
                     $message = __('Invalid username or password.','salarywinners');
                     $error = true;
                 } else {
-                    wp_set_current_user( $user_details->ID, $username );
+                    wp_set_current_user( $user_details->ID, $username );                    
                     do_action('set_current_user');
                     $message = 'Logged in successfully';
                 }    
@@ -51,7 +51,17 @@ global $wpdb, $wp_session;
                 'message' => $message,
             );
              if(!$error){
-                wp_redirect(get_bloginfo('siteurl'));
+                 $user = new WP_User( $user_details->ID );
+                 $user_role = $user->roles[0];
+                 if($user_role == 'customer')
+                 {
+                    $url = ai_get_page_link('dashboard-customer');
+                 }
+                 else if($user_role == 'provider')
+                 {
+                    $url = ai_get_page_link('dashboard-provider');
+                 }
+                 wp_redirect($url);
                 exit();
              }   
         }
