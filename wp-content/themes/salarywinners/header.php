@@ -32,7 +32,7 @@
                             <div class="top-search">
                                <form method="" action="<?php echo home_url(); ?>">
                                    <input type="search" name="s" placeholder="Search">
-                                    <i class="fa fa-search"></i>
+                                    <a href=""><i class="fa fa-search"></i></a>
                                </form>
                             </div>
                         </div>

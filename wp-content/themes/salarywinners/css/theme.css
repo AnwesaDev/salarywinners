@@ -252,7 +252,7 @@ label.sub-label{ text-align:right; position:relative; margin-top:30px; font-weig
 small.imgae-format{width: 100%; text-align: center;display: inline-block;margin-left: -30px;}
 .customer-dashbord form textarea, .provider-dashbord form textarea{float: left;width: 70%;position: relative;}
 .customer-dashbord .input-box, .provider-dashbord .input-box{margin:20px 0 20px;}
-.customer-dashbord .input-box:nth-last-child(1), .provider-dashbord .input-box:nth-last-child(1){border-top:solid 1px #e8e8e8; margin-top:50px;}
+.customer-dashbord .input-box:nth-last-child(1), .provider-dashbord .input-box:nth-last-child(1){border-top:solid 1px #e8e8e8; margin-top:50px;    position: absolute;bottom: 0;}
 
 
 .profile-img{ float:left; width:70%;position: relative;}
@@ -492,6 +492,7 @@ h3.price b{color:#f87c32; padding-left:10px; font-size:16px;vertical-align: top;
 	.contact-frm form b{position: relative;}
 	.with-errors.error{margin-left: 0;}
 	.content-body.registration .contact-frm form .input-box.end-section{margin-right: 0;}
+	.select2-container {width: 90%;}
 }
 @keyframes showing-nav{
 0%{ left:200%}
