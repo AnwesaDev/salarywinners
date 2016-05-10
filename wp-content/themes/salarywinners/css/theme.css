@@ -237,22 +237,23 @@ form input[type="submit"]{font-size: 20px; margin: 30px 0px 30px 0; background: 
 right: 0;margin: 0 auto;}
 
 
-.customer-dashbord button.btn-uplaod{bottom:12px; top:auto;}
+.customer-dashbord button.btn-uplaod{bottom:18px; top:auto;}
 .customer-dashbord form{margin-top:30px;}
 .customer-dashbord form label{width:25%; float:left;}
 .customer-dashbord form input{float:left;}
 
-.customer-dashbord button.btn-uplaod, .provider-dashbord button.btn-uplaod{bottom:0;left: 38%}
+.customer-dashbord button.btn-uplaod, .provider-dashbord button.btn-uplaod{left: 38%}
 .customer-dashbord form, .provider-dashbord form{margin-top:30px;}
 .customer-dashbord form label, .provider-dashbord form label{width:25%; float:left;}
 .customer-dashbord form input, .provider-dashbord form input{float:left;}
 label.sub-label{ text-align:right; position:relative; margin-top:30px; font-weight:normal;width: 35% !important;}
 .profile-img{ float:left; width:70%;position: relative; }
+.profile-img{max-height: 225px; max-width: 225px;}
 .customer-dashbord form input[type="file"]{}
 small.imgae-format{width: 100%; text-align: center;display: inline-block;margin-left: -30px;}
 .customer-dashbord form textarea, .provider-dashbord form textarea{float: left;width: 70%;position: relative;}
 .customer-dashbord .input-box, .provider-dashbord .input-box{margin:20px 0 20px;}
-.customer-dashbord .input-box:nth-last-child(1), .provider-dashbord .input-box:nth-last-child(1){border-top:solid 1px #e8e8e8; margin-top:50px;    position: absolute;bottom: 0;}
+.customer-dashbord .input-box:nth-last-child(1), .provider-dashbord .input-box:nth-last-child(1){border-top:solid 1px #e8e8e8; margin-top:50px;    position: absolute;bottom: 0; width: 95%;}
 
 
 .profile-img{ float:left; width:70%;position: relative;}
@@ -270,7 +271,7 @@ small.imgae-format{width: 100%; text-align: center;display: inline-block;margin-
 .content-body.post-a-job .contact-frm form .attachment strong span{margin-right:10px; font-size:24px;}
 form input[type="file"]{ border:none; margin-top:20px; background: transparent; opacity:0; width:170px; cursor:pointer;    padding: 10px 20px;}
 .content-body.post-a-job .contact-frm form .attachment small{text-align:center; color:#ADADAD}
-button.btn-uplaod{position: absolute; top: 18px;right: 0;left: 180px;height: 40px;width: 140px; cursor:pointer;background: #f67c3d;font-size: 20px;color: #fff;border: solid 2px;border-color: transparent #b0501e #b0501e #e8e8e8;outline: none;border-left: none;text-transform: capitalize; border-radius:4px;}
+button.btn-uplaod{position: absolute; top: 18px;right: 0;left: 180px; padding: 12px 30px; cursor:pointer;background: #f67c3d;font-size: 20px;color: #fff;border: solid 2px;border-color: transparent #b0501e #b0501e #e8e8e8;outline: none;border-left: none;text-transform: capitalize; border-radius:4px;}
 .contact-frm form select{text-transform:capitalize;}
 .content-body.post-a-job .contact-frm form .input-box:nth-last-child(1){ border-top:solid 1px #e8e8e8; margin-top:30px;}
 .attachment{position:relative;}

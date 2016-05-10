@@ -134,7 +134,7 @@ get_header();
                                             	<label for="">Profile image</label>
                                                 <div class="profile-img">
                                                     <?php if(empty($user_meta['avatar'][0])): ?>
-                                                    <img id="profile-picture" src="<?php echo get_template_directory_uri(); ?>/images/profile-image.png" alt="" title="">
+                                                    <img id="profile-picture" src="<?php echo get_template_directory_uri(); ?>/images/profile-image.png" class="img-circle" alt="" title="">
                                                     <?php else: ?>
                                                     <?php $avatar_data = wp_get_attachment_image_src($user_meta['avatar'][0]); ?>
                                                     <img id="profile-picture" src="<?php echo $avatar_data[0]; ?>" >
