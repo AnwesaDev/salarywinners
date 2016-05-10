@@ -39,13 +39,33 @@
 
 						<nav class="col-md-6 col-sm-7">
 							<ul class="navbar-right">
-								<li><a href=""><span class="user"></span>Providers</a></li>
-								<?php if(is_user_logged_in()): ?>
-								<li><a href="<?php echo esc_url(wp_logout_url(get_bloginfo('siteurl').'/login/')); ?>"><span class="login"></span>Logout</a></li>
+								
+								<?php if(is_user_logged_in()): 
+                                                                    $user_id = get_current_user_id();
+                                                                    $user = new WP_User( $user_id );
+                                                                    $user_role = $user->roles[0];
+                                                                    if($user_role == 'customer')
+                                                                    {
+                                                                       $url = ai_get_page_link('dashboard-customer');
+                                                                       ?>
+                                                                        <li><a href="<?php echo esc_url($url); ?>"><span class="user"></span>Customer</a></li>
+                                                                    <?php                                                                    
+                                                                    }
+                                                                    else if($user_role == 'provider')
+                                                                    {
+                                                                       $url = ai_get_page_link('dashboard-provider');
+                                                                       ?>
+                                                                        <li><a href="<?php echo esc_url($url); ?>"><span class="user"></span>Provider</a></li>
+                                                                    <?php                                                                    
+                                                                    }
+                                                                ?>
+                                                                
+								<li><a href="<?php echo esc_url(wp_logout_url(ai_get_page_link('login'))); ?>"><span class="login"></span>Logout</a></li>
 								<?php else: ?>
-								<li><a href="<?php echo esc_url(get_bloginfo('siteurl').'/login/'); ?>"><span class="login"></span>Login</a></li>
+								<li><a href="<?php echo esc_url(ai_get_page_link('login')); ?>"><span class="login"></span>Login</a></li>
+                                                                <li><a href="<?php echo esc_url(ai_get_page_link('join-now')); ?>"><span class="join-now"></span>Join Now</a></li>
 								<?php endif; ?>
-								<li><a href="<?php echo esc_url(get_bloginfo('siteurl').'/join-now/'); ?>"><span class="join-now"></span>Join Now</a></li>
+								
 							</ul>
 						</nav>
 						<?php endif; ?>
