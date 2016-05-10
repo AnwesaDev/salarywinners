@@ -27,7 +27,7 @@ get_header();
                                 <li><a data-toggle="tab" href="#notification">
                                 <span class="notification"></span> notification Setting</a></li>
 
-                                <li><a data-toggle="tab" href="#my-self"><span class="my-self"></span>about my self</a></li>
+                                <li><a data-toggle="tab" href="#my-self"><span class="my-self"></span>about myself</a></li>
 
                                 <li><a data-toggle="tab" href="#location"><span class="location"></span>location</a></li>
 
@@ -110,7 +110,7 @@ get_header();
 
                                 <div id="my-self" class="tab-pane fade">
                                 	<div class="content-head">
-                                        <div class="col-xs-8"><h2 class="title">About my self</h2></div>
+                                        <div class="col-xs-8"><h2 class="title">About myself</h2></div>
                                         <div class="col-xs-4">
                                         <button class="btn btn-edit pull-right" id="btn-about-edit">edit</button></div>
                                     </div>
