@@ -257,6 +257,7 @@ small.imgae-format{width: 100%; text-align: center;display: inline-block;margin-
 
 
 .profile-img{ float:left; width:70%;position: relative;}
+.profile-img img{max-width: 225px; max-height: 225px;}
 
 /*providers dashbord*/
 .content-body.dashbord.providers-dashbord .content { min-height:1300px;}
