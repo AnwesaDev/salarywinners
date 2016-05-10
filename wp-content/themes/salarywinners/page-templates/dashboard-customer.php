@@ -9,6 +9,12 @@ if(!is_user_logged_in()) {
         wp_redirect(get_bloginfo('siteurl'));
     }
 $user_id = get_current_user_id();
+$user = new WP_User( $user_id );
+$user_roles = $user->roles;
+        if(!in_array(SW_ROLE_CUSTOMER, $user_roles))
+        {
+             wp_redirect(get_bloginfo('siteurl'));
+        }
 $user = get_user_by('id', $user_id);
 $user_meta = get_user_meta($user_id);
 

@@ -11,8 +11,8 @@ if(!is_user_logged_in()) {
     }
 $user_id = get_current_user_id();
 $user = new WP_User( $user_id );
-$user_role = $user->roles[0];
-        if($user_role!='provider')
+$user_roles = $user->roles;
+        if(!in_array(SW_ROLE_PROVIDER, $user_roles))
         {
              wp_redirect(get_bloginfo('siteurl'));
         }

@@ -52,12 +52,12 @@ global $wpdb, $wp_session;
             );
              if(!$error){
                  $user = new WP_User( $user_details->ID );
-                 $user_role = $user->roles[0];
-                 if($user_role == 'customer')
+                 $user_roles = $user->roles;
+                 if(in_array(SW_ROLE_CUSTOMER, $user_roles))
                  {
                     $url = ai_get_page_link('dashboard-customer');
                  }
-                 else if($user_role == 'provider')
+                 else if(in_array(SW_ROLE_PROVIDER, $user_roles))
                  {
                     $url = ai_get_page_link('dashboard-provider');
                  }
