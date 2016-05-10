@@ -238,17 +238,11 @@ right: 0;margin: 0 auto;}
 
 
 .customer-dashbord button.btn-uplaod{bottom:18px; top:auto;}
-.customer-dashbord form{margin-top:30px;}
-.customer-dashbord form label{width:25%; float:left;}
-.customer-dashbord form input{float:left;}
-
 .customer-dashbord button.btn-uplaod, .provider-dashbord button.btn-uplaod{left: 38%}
 .customer-dashbord form, .provider-dashbord form{margin-top:30px;}
 .customer-dashbord form label, .provider-dashbord form label{width:25%; float:left;}
 .customer-dashbord form input, .provider-dashbord form input{float:left;}
 label.sub-label{ text-align:right; position:relative; margin-top:30px; font-weight:normal;width: 35% !important;}
-.profile-img{ float:left; width:70%;position: relative; }
-.profile-img{max-height: 225px; max-width: 225px;}
 .customer-dashbord form input[type="file"]{}
 small.imgae-format{width: 100%; text-align: center;display: inline-block;margin-left: -30px;}
 .customer-dashbord form textarea, .provider-dashbord form textarea{float: left;width: 70%;position: relative;}
