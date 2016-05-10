@@ -14,6 +14,9 @@ global $wpdb, $wp_session;
             $remember = $wpdb->escape($_POST['remember']);
             
             $user_details = get_user_by('email', $username);
+            if($user_details==false){
+              $user_details = get_user_by('login', $username); 
+            }
             $meta = get_user_meta($user_details->ID); 
             
             if($meta['status'][0]=='active')
@@ -28,7 +31,7 @@ global $wpdb, $wp_session;
                     $message = __('Invalid username or password.','salarywinners');
                     $error = true;
                 } else {
-                    wp_set_current_user( $user->ID, $username );
+                    wp_set_current_user( $user_details->ID, $username );
                     do_action('set_current_user');
                     $message = 'Logged in successfully';
                 }    

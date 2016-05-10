@@ -6,20 +6,142 @@
  *
  * @package Salary_Winners
  */
-show_admin_bar(false);
-require dirname( __FILE__ ) . '/inc/ai-core/bootstrap.php'; // Load Anwesa Infotech Core Library
-
-if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/theme-options.php' ) ) {
-    require_once( dirname( __FILE__ ) . '/inc/theme-options.php' );
-}
-
-require dirname( __FILE__ ) . '/inc/class/mail.php';
+require dirname( __FILE__ ) . '/inc/bootstrap.php'; // Load Salary winners app files
 
 global $mail; /** @todo: Change naming convention */
 $mail = new SW_Mail();
 
 global $wp_session; /** @todo: change name to core like $ai_session */
 $wp_session = WP_Session::get_instance(); //now $wp_session can be used anywhere
+
+class SW_App extends AI_Base {
+    
+    public function __construct() {
+        // disable admin bar if user can not manage options
+        if (! current_user_can('manage_options')) {
+            show_admin_bar(false);
+        }
+        
+        global $wp_roles;
+        
+        /**
+         * register wp_role Provider
+         */
+        if (! isset($wp_roles->roles[SW_ROLE_PROVIDER])) {
+            
+            // all new roles
+            add_role(SW_ROLE_PROVIDER, __('Provider', ''), array(
+                'read' => true,
+                
+                // true allows this capability
+                'edit_posts' => true,
+                'delete_posts' => false
+            ));
+            // Use false to explicitly deny
+            
+        }
+        
+        /**
+         * add new role Customer
+         */
+        if (! isset($wp_roles->roles[SW_ROLE_CUSTOMER])) {
+            add_role(SW_ROLE_CUSTOMER, __('Customer', ''), array(
+                'read' => true,
+                
+                // true allows this capability
+                'edit_posts' => true,
+                'delete_posts' => false
+            ));
+            // Use false to explicitly deny
+            
+        }
+        
+        /**
+         * add query vars
+         */
+        $this->add_filter('query_vars', 'add_query_vars');
+        
+        /**
+         * add return url for user after register
+         */
+        //$this->add_filter('ai_after_insert_user', 'filter_link_redirect_register');
+        
+        /**
+         * add return url for user after login
+         */
+        //$this->add_filter('ai_after_login_user', 'filter_link_redirect_login');
+        
+        /**
+         * check role for user when register
+         */
+        //$this->add_filter('ai_pre_insert_user', 'ai_check_role_user');
+        
+        /**
+         * add user default value
+         */
+        //$this->add_action('ai_insert_user', 'add_user_default_values');
+        
+        /**
+         * update user profile title
+         */
+        //$this->add_filter('ai_update_user', 'sync_profile_data');
+        /**
+         * add users custom fields
+         * @toto make it working
+         */
+        $this->add_filter('ai_define_user_meta', 'add_user_meta_fields');
+        
+        /**
+         * add action admin menu prevent front end user enter admin area
+         */
+        $this->add_action('admin_menu', 'redirect_front_end_user');
+        $this->add_action('login_init', 'redirect_login');
+        
+        
+    }
+    
+    // add custom fields for user TODO: use this one
+    function add_user_meta_fields($default)
+    {
+        $default = wp_parse_args(array(
+            'user_hour_rate',
+            'user_profile_id',
+            'user_currency',
+            'user_skills',
+            'user_available'
+        ), $default);
+        
+        return $default;
+    }
+    
+    /**
+     * redirect wp
+     */
+    function redirect_front_end_user()
+    {
+        if (! (current_user_can('manage_options') || current_user_can('editor'))) {
+            wp_redirect(home_url());
+            exit();
+        }
+    }
+
+    function redirect_login()
+    {
+        if (!is_user_logged_in()) {
+            wp_redirect(home_url());
+            exit();
+        }
+    }
+
+    /**
+     * add query var TODO: Use this one
+     */
+    function add_query_vars($vars)
+    {
+        array_push($vars, 'something');
+        return $vars;
+    }
+}
 
 if ( ! function_exists( 'salarywinners_setup' ) ) :
 /**
@@ -61,14 +183,7 @@ function salarywinners_setup() {
 		'primary' => esc_html__( 'Primary', 'salarywinners' ),
                 'footer' => esc_html__( 'Footer', 'salarywinners' ),
 	) );
-        // Add a custom user role
- 
-        $result = add_role( 'provider', __(
-        'Provider' ),
-        array( ) );
-        $result = add_role( 'customer', __(
-        'Customer' ),
-        array( ) );
+        
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
@@ -98,8 +213,16 @@ function salarywinners_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+        
+        
+        // app class init
+        
+        global $SW_App;
+        
+        $SW_App = new SW_App();
 }
 endif;
+global $SW_App;
 add_action( 'after_setup_theme', 'salarywinners_setup' );
 
 /**
@@ -203,10 +326,3 @@ require get_template_directory() . '/inc/extras.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Load CMB2
- */
-require get_template_directory() . '/inc/metabox.php';
-
-
-require get_template_directory() . '/inc/ajax-functions.php';
