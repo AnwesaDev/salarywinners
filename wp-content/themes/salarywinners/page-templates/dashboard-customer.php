@@ -118,7 +118,7 @@ get_header();
                                     	<form action="" id="form-customer-about" method="post" data-toggle="validator" role="form" name="form-setting">
                                         	<div class="form-group input-box">
                                             	<label for="">Profile image</label>
-                                                <div class="profile-img"><img src="images/profile-image.png" alt="" title=""></div>
+                                                <div class="profile-img"><img src="<?php echo get_template_directory_uri(); ?>/images/profile-image.png" alt="" title=""></div>
                                             </div>
                                             <div class="attachment ">
                                             	<label class="sub-label">Change Image</label>
