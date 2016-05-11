@@ -5,43 +5,58 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-add_action( 'init', 'sw_post_job' );
+// Register Custom Post Type
 
 function sw_post_job() {
+
 	$labels = array(
-		'name'               => _x( 'Jobs', 'post type general name', 'salarywinners' ),
-		'singular_name'      => _x( 'Job', 'post type singular name', 'salarywinners' ),
-		'menu_name'          => _x( 'Jobs', 'admin menu', 'salarywinners' ),
-		'name_admin_bar'     => _x( 'Job', 'add new on admin bar', 'salarywinners' ),
-		'add_new'            => _x( 'Add New', 'Job', 'salarywinners' ),
-		'add_new_item'       => __( 'Add New Job', 'salarywinners' ),
-		'new_item'           => __( 'New Job', 'salarywinners' ),
-		'edit_item'          => __( 'Edit Job', 'salarywinners' ),
-		'view_item'          => __( 'View Job', 'salarywinners' ),
-		'all_items'          => __( 'All Jobs', 'salarywinners' ),
-		'search_items'       => __( 'Search Jobs', 'salarywinners' ),
-		'parent_item_colon'  => __( 'Parent Jobs:', 'salarywinners' ),
-		'not_found'          => __( 'No jobs found.', 'salarywinners' ),
-		'not_found_in_trash' => __( 'No jobs found in Trash.', 'salarywinners' )
+		'name'                  => _x( 'Jobs', 'Post Type General Name', 'salarywinners' ),
+		'singular_name'         => _x( 'Job', 'Post Type Singular Name', 'salarywinners' ),
+		'menu_name'             => __( 'Job', 'salarywinners' ),
+		'name_admin_bar'        => __( 'Job', 'salarywinners' ),
+		'archives'              => __( 'Job Archives', 'salarywinners' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'salarywinners' ),
+		'all_items'             => __( 'All Items', 'salarywinners' ),
+		'add_new_item'          => __( 'Add New Item', 'salarywinners' ),
+		'add_new'               => __( 'Add New Job', 'salarywinners' ),
+		'new_item'              => __( 'New Job', 'salarywinners' ),
+		'edit_item'             => __( 'Edit Job', 'salarywinners' ),
+		'update_item'           => __( 'Update Job', 'salarywinners' ),
+		'view_item'             => __( 'View Job', 'salarywinners' ),
+		'search_items'          => __( 'Search Job', 'salarywinners' ),
+		'not_found'             => __( 'Job Not found', 'salarywinners' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'salarywinners' ),
+		'featured_image'        => __( 'Featured Image', 'salarywinners' ),
+		'set_featured_image'    => __( 'Set featured image', 'salarywinners' ),
+		'remove_featured_image' => __( 'Remove featured image', 'salarywinners' ),
+		'use_featured_image'    => __( 'Use as featured image', 'salarywinners' ),
+		'insert_into_item'      => __( 'Insert into job', 'salarywinners' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'salarywinners' ),
+		'items_list'            => __( 'Items list', 'salarywinners' ),
+		'items_list_navigation' => __( 'Items list navigation', 'salarywinners' ),
+		'filter_items_list'     => __( 'Filter items list', 'salarywinners' ),
 	);
-
 	$args = array(
-		'labels'             => $labels,
-                'description'        => __( 'Description.', 'salarywinners' ),
-                
-		'public'             => true,
-		'publicly_queryable' => true,
-		'show_ui'            => true,
-		'show_in_menu'       => true,
-		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'job' ),
-		'capability_type'    => 'post',
-		'has_archive'        => true,
-		'hierarchical'       => false,
-		'menu_position'      => null,
-		'supports'           => array( 'title', 'editor', 'author' )
+		'label'                 => __( 'Job', 'salarywinners' ),
+		'description'           => __( 'Job Description', 'salarywinners' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'excerpt', ),
+		'taxonomies'            => array( 'sw_category', 'sw_skill' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-hammer',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,		
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
 	);
+	register_post_type( 'sw_job', $args );
 
-	register_post_type( 'job', $args );
 }
+add_action( 'init', 'sw_post_job', 0 );

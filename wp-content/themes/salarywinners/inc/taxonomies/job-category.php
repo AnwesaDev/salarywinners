@@ -5,40 +5,41 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-add_action( 'init', 'sw_taxonomy_job_category', 0 );
-function sw_taxonomy_job_category() {
+// Register Custom Taxonomy
+function sw_taxonomy_category() {
 
 	$labels = array(
 		'name'                       => _x( 'Categories', 'Taxonomy General Name', 'salarywinners' ),
-		'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'salarywinners' ),
-		'menu_name'                  => __( 'Category', 'salarywinners' ),
-		'all_items'                  => __( 'All Categories', 'salarywinners' ),
-		'parent_item'                => __( 'Parent Category', 'salarywinners' ),
-		'parent_item_colon'          => __( 'Parent Category:', 'salarywinners' ),
-		'new_item_name'              => __( 'New Category', 'salarywinners' ),
-		'add_new_item'               => __( 'Add New Category', 'salarywinners' ),
-		'edit_item'                  => __( 'Edit Category', 'salarywinners' ),
-		'update_item'                => __( 'Update Category', 'salarywinners' ),
-		'view_item'                  => __( 'View Category', 'salarywinners' ),
-		'separate_items_with_commas' => __( 'Separate Categories with commas', 'salarywinners' ),
-		'add_or_remove_items'        => __( 'Add or remove Category', 'salarywinners' ),
+		'singular_name'              => _x( 'Catagory', 'Taxonomy Singular Name', 'salarywinners' ),
+		'menu_name'                  => __( 'Catagory', 'salarywinners' ),
+		'all_items'                  => __( 'All Items', 'salarywinners' ),
+		'parent_item'                => __( 'Parent Item', 'salarywinners' ),
+		'parent_item_colon'          => __( 'Parent Item:', 'salarywinners' ),
+		'new_item_name'              => __( 'New Catagory', 'salarywinners' ),
+		'add_new_item'               => __( 'Add New Catagory', 'salarywinners' ),
+		'edit_item'                  => __( 'Edit Catagory', 'salarywinners' ),
+		'update_item'                => __( 'Update Catagory', 'salarywinners' ),
+		'view_item'                  => __( 'View Catagory', 'salarywinners' ),
+		'separate_items_with_commas' => __( 'Separate items with commas', 'salarywinners' ),
+		'add_or_remove_items'        => __( 'Add or remove items', 'salarywinners' ),
 		'choose_from_most_used'      => __( 'Choose from the most used', 'salarywinners' ),
-		'popular_items'              => __( 'Popular Categories', 'salarywinners' ),
-		'search_items'               => __( 'Search Categories', 'salarywinners' ),
-		'not_found'                  => __( 'Not Found', 'salarywinners' ),
+		'popular_items'              => __( 'Popular Catagories', 'salarywinners' ),
+		'search_items'               => __( 'Search Catagories', 'salarywinners' ),
+		'not_found'                  => __( 'Catagory Not Found', 'salarywinners' ),
 		'no_terms'                   => __( 'No items', 'salarywinners' ),
-		'items_list'                 => __( 'Categories list', 'salarywinners' ),
-		'items_list_navigation'      => __( 'Categories list navigation', 'salarywinners' ),
+		'items_list'                 => __( 'Items list', 'salarywinners' ),
+		'items_list_navigation'      => __( 'Items list navigation', 'salarywinners' ),
 	);
 	$args = array(
 		'labels'                     => $labels,
-		'hierarchical'               => false,
+		'hierarchical'               => true,
 		'public'                     => true,
 		'show_ui'                    => true,
 		'show_admin_column'          => true,
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'job-category', array('job'), $args );
+	register_taxonomy( 'sw_category', array( 'sw_job' ), $args );
 
 }
+add_action( 'init', 'sw_taxonomy_category', 0 );

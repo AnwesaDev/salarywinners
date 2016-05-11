@@ -25,7 +25,7 @@ get_header();
                             <div class="descrption">
                             	<h2 class="title">I'm a Service providers/Sellers</h2>
                             </div>
-                            <a class="btn-work btn" href="<?php echo esc_url(get_bloginfo('siteurl').'/signup-provider/'); ?>">work</a>
+                              <a class="btn-work btn" href="<?php echo esc_url(ai_get_page_link('signup-provider')); ?>">work</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
@@ -36,7 +36,7 @@ get_header();
                             <div class="descrption">
                             	<h2 class="title">I'm a Customer</h2>
                             </div>
-                            <a class="btn-work btn" href="<?php echo esc_url(get_bloginfo('siteurl').'/signup-customer/'); ?>">hire</a>
+                            <a class="btn-work btn" href="<?php echo esc_url(ai_get_page_link('signup-customer')); ?>">hire</a>
                         </div>
                     </div>
               </div>

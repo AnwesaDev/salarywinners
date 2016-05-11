@@ -97,7 +97,6 @@ class SW_App extends AI_Base {
         $this->add_action('admin_menu', 'redirect_front_end_user');
         //$this->add_action('login_init', 'redirect_login');
         
-        
     }
     
     // add custom fields for user TODO: use this one
@@ -115,7 +114,7 @@ class SW_App extends AI_Base {
     }
     
     /**
-     * redirect wp
+     * redirect front end user to homepage when they try to access admin url
      */
     function redirect_front_end_user()
     {
