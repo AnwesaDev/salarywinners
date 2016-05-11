@@ -6,8 +6,48 @@
  * and open the template in the editor.
  * Template Name: Post a Job
  */
-    global $wpdb, $mail, $wp_session;
     
+    global $wpdb, $mail, $wp_session;
+        if(!is_user_logged_in()) {
+            $error = true;
+            $message = 'Please login as a customer to post a job';
+            if($error){
+                $notifyClass = 'error';
+            } else {
+                $notifyClass = 'success';
+            }
+            
+            $wp_session['notify'] = array(
+                'class' => $notifyClass,
+                'message' => $message,
+            );
+            if($error){
+                wp_redirect(get_bloginfo('siteurl'));
+                exit();
+             }
+        }
+            $user_id = get_current_user_id();
+            $user = new WP_User( $user_id );
+            $user_roles = $user->roles;
+        if(!in_array(SW_ROLE_CUSTOMER, $user_roles))
+        {
+            $error = true;
+            $message = 'Please login as a customer to post a job';
+            if($error){
+                $notifyClass = 'error';
+            } else {
+                $notifyClass = 'success';
+            }
+            
+            $wp_session['notify'] = array(
+                'class' => $notifyClass,
+                'message' => $message,
+            );
+            if($error){
+                wp_redirect(get_bloginfo('siteurl'));
+                exit();
+             }
+        }
         if($_POST['btn-job-submit']=='Post the job')
         {
             $job_title = $wpdb->escape(trim($_POST['job-title']));
@@ -33,9 +73,23 @@
             add_post_meta($post_id, '_min_price', $min_price);
             add_post_meta($post_id, '_max_price', $max_price);
             }
-
-
+             $message = 'Your account has been registered successfully'; 
+             if($error){
+                $notifyClass = 'error';
+            } else {
+                $notifyClass = 'success';
+            }
+            
+            $wp_session['notify'] = array(
+                'class' => $notifyClass,
+                'message' => $message,
+            );
+            if(!$error){
+                wp_redirect(get_bloginfo('siteurl'));
+                exit();
+             }
         }
+        
 get_header();
 ?>
 
@@ -94,7 +148,7 @@ get_header();
                                     <label for="">Price Range</label>
                                     <strong>$</strong><input type="text" value="100.00" class="form-control" name="min-price" id="min-price" data-error="Min price is required" required="">
                                     <div class="help-block with-errors"></div>
-                                </div><em>To</em>
+                                </div>
                                 <div class="input-box dollar form-group has-feedback">
                                     <label for=""></label>
                                      <em>To</em>  
