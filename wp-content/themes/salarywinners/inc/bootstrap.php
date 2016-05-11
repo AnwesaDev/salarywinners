@@ -22,8 +22,9 @@ if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/theme-options
 }
 
 // Include Post Types and Taxonomies
-
-
+    require_once(dirname( __FILE__ ) . '/post-types/job.php');
+    
+    require_once(dirname( __FILE__ ) . '/taxonomies/job-category.php');
 // Include app classes
 require dirname( __FILE__ ) . '/class/mail.php';
 
@@ -38,3 +39,5 @@ require_once(dirname( __FILE__ ) . '/metabox.php');
 
 
 require_once(dirname( __FILE__ ) . '/ajax-functions.php');
+
+
