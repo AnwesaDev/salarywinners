@@ -58,7 +58,7 @@ get_header();
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
-                    	<div class="icon-holder"><img src="<?php echo get_template_directory_uri();?>/images/big-icon2.png" class="img-responsive" alt="" title=""></div>
+                    	<div class="icon-holder"><img src="<?php echo get_template_directory_uri();?>/images/big-icon3.png" class="img-responsive" alt="" title=""></div>
                         <div class="content">
                         	<h3><?php echo get_post_meta(get_the_ID(), '_sw_icon_title_2', true)?></h3>
                             <p>
@@ -67,7 +67,7 @@ get_header();
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
-                    	<div class="icon-holder"><img src="<?php echo get_template_directory_uri();?>/images/big-icon3.png" class="img-responsive" alt="" title=""></div>
+                    	<div class="icon-holder"><img src="<?php echo get_template_directory_uri();?>/images/big-icon2.png" class="img-responsive" alt="" title=""></div>
                         <div class="content">
                         	<h3><?php echo get_post_meta(get_the_ID(), '_sw_icon_title_3', true)?></h3>
                             <p>
