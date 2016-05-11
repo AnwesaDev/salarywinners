@@ -16,7 +16,7 @@ function sw_post_job() {
 		'name_admin_bar'        => __( 'Job', 'salarywinners' ),
 		'archives'              => __( 'Job Archives', 'salarywinners' ),
 		'parent_item_colon'     => __( 'Parent Item:', 'salarywinners' ),
-		'all_items'             => __( 'All Items', 'salarywinners' ),
+		'all_items'             => __( 'All Jobs', 'salarywinners' ),
 		'add_new_item'          => __( 'Add New Item', 'salarywinners' ),
 		'add_new'               => __( 'Add New Job', 'salarywinners' ),
 		'new_item'              => __( 'New Job', 'salarywinners' ),

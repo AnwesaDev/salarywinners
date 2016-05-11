@@ -25,6 +25,7 @@ if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/theme-options
     require_once(dirname( __FILE__ ) . '/post-types/job.php');
     
     require_once(dirname( __FILE__ ) . '/taxonomies/job-category.php');
+    require_once(dirname( __FILE__ ) . '/taxonomies/job-skill.php');
 // Include app classes
 require dirname( __FILE__ ) . '/class/mail.php';
 

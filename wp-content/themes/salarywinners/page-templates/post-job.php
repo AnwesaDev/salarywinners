@@ -6,7 +6,36 @@
  * and open the template in the editor.
  * Template Name: Post a Job
  */
+    global $wpdb, $mail, $wp_session;
+    
+        if($_POST['btn-job-submit']=='Post the job')
+        {
+            $job_title = $wpdb->escape(trim($_POST['job-title']));
+            $job_description = $wpdb->escape(trim($_POST['job-description']));
+            $category = $wpdb->escape(trim($_POST['job_category']));
+            $skill = $wpdb->escape(trim($_POST['skill']));
+            $min_price = $wpdb->escape(trim($_POST['min-price']));
+            $max_price = $wpdb->escape(trim($_POST['max-price']));
+            
+            $post_id = wp_insert_post(array (
+            'post_type' => 'sw_job',
+            'post_title' => $job_title,
+            'post_content' => $job_description,
+            'post_status' => 'publish',            
+            ));
+            if ($post_id) {
+            // insert taxonomies
+                wp_set_post_terms( $post_id, $category, 'sw_category' );
+                wp_set_post_terms( $post_id, $skill, 'sw_skill' );
+                
+            // insert post meta
+             
+            add_post_meta($post_id, '_min_price', $min_price);
+            add_post_meta($post_id, '_max_price', $max_price);
+            }
 
+
+        }
 get_header();
 ?>
 
@@ -16,36 +45,62 @@ get_header();
                 	<div class="col-md-8 col-sm-8">
                     	<div class="contact-frm">
                             <div class="col-md-12">
-                            	<h2 class="title">Contact</h2>
+                            	<h2 class="title">Post a Job</h2>
                             </div>
-                            <form id="" name="" method="" action="">
-                                <div class="input-box">
+                            <form action="" method="POST" id="job-post" data-toggle="validator" role="form">
+                                <div class="input-box form-group has-feedback">
                                     <label for="">Job Title</label>
-                                    <input type="text" placeholder="Job Title" name="">
+                                    <input type="text" placeholder="Job Title" class="form-control" name="job-title" id="job-title" data-error="Job Title is required" required="">
+                                    <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="input-box">
                                     <label for="">Category</label>
-                                    <select>
-                                    	<option selected>Web desing</option>
-                                        <option>Graphic desing</option>
-                                        <option>Photoshop desing</option>
-                                        <option>others</option>
-                                    </select>
+                                    <?php
+                                    $args = array(
+                                            'show_option_all'    => '',
+                                            'show_option_none'   => '',
+                                            'option_none_value'  => '-1',
+                                            'orderby'            => 'ID', 
+                                            'order'              => 'ASC',
+                                            'show_count'         => 0,
+                                            'hide_empty'         => 0, 
+                                            'child_of'           => 0,
+                                            'exclude'            => '',
+                                            'echo'               => 1,
+                                            'selected'           => 0,
+                                            'hierarchical'       => 0, 
+                                            'name'               => 'job_category',
+                                            'id'                 => 'job_category',
+                                            'class'              => '',
+                                            'depth'              => 0,
+                                            'tab_index'          => 0,
+                                            'taxonomy'           => 'sw_category',
+                                            'hide_if_empty'      => false,
+                                            'value_field'	 => 'term_id',	
+                                        );
+                                    wp_dropdown_categories( $args );
+                                    ?>
                                 </div>
                                 <div class="input-box">
                                     <label for="">Desired skill</label>
-                                    <input type="text" placeholder="Desired skill" name="">
+                                    <input type="text" placeholder="Desired skill" name="skill" id="skill">
                                 </div>
-                                <div class="input-box">
+                                <div class="input-box form-group has-feedback">
                                     <label for="">Job Description</label>
-                                    <textarea placeholder="Job Description" name="" cols="" rows="6"></textarea>
+                                    <textarea placeholder="Job Description" class="form-control" name="job-description" id="job-description" data-error="Job description is required" required="" cols="" rows="6"></textarea>
+                                    <div class="help-block with-errors"></div>
                                 </div>
-                                <div class="input-box dollar">
-                                    <label for="">Price range</label>
-                                    <strong>$</strong><input type="text" value="100.00"> <em>To</em> <strong>$</strong><input type="text" 
-                                    value="100.00">
+                                <div class="input-box dollar form-group has-feedback">
+                                    <label for="">Price Range</label>
+                                    <strong>$</strong><input type="text" value="100.00" class="form-control" name="min-price" id="min-price" data-error="Min price is required" required="">
+                                    <div class="help-block with-errors"></div>
+                                </div><em>To</em>
+                                <div class="input-box dollar form-group has-feedback">
+                                    <label for=""></label>
+                                     <em>To</em>  
+                                    <strong>$</strong><input type="text" value="100.00" class="form-control" name="max-price" id="max-price" data-error="Max Price is required" required="">
+                                    <div class="help-block with-errors"></div>
                                 </div>
-                                
                                 <div class="input-box attachment">
                                     <strong for=""><span class="fa fa-paperclip"></span>attachment</strong>
                                     <button class="disabled">Choose file</button>
@@ -54,7 +109,7 @@ get_header();
                                 </div>
                                 
                                 <div class="input-box">
-                                    <input type="submit" value="Post the job">
+                                    <input type="submit" value="Post the job" name="btn-job-submit" id="btn-job-submit">
                                 </div>
                             </form>
                         </div>
