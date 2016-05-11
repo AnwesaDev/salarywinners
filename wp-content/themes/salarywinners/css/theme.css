@@ -318,6 +318,7 @@ i.location{width: 30px; height: 28px;display: inline-block;float: left;backgroun
 .budget b{font-size:13px; line-height:2;}
 .budget b span{color:#f67c3d;}
 .dollar-tag{width: 30px; height: 28px;display: inline-block;float: left;background:url(../images/others-icon.png) no-repeat 13% 0%;}
+.dollar .help-block{margin-bottom: 0;}
 .job-listing .content p{border:none;}
 .job-listing .tags ul li{ font-size:12px;}
 .job-details{ padding-bottom:30px; border-bottom:solid 1px #e8e8e8; padding-top:30px;}
