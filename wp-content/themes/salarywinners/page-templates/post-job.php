@@ -73,7 +73,7 @@
             add_post_meta($post_id, '_min_price', $min_price);
             add_post_meta($post_id, '_max_price', $max_price);
             }
-             $message = 'Your account has been registered successfully'; 
+             $message = 'Your job has been posted successfully'; 
              if($error){
                 $notifyClass = 'error';
             } else {
@@ -148,13 +148,11 @@ get_header();
                                     <label for="">Price Range</label>
                                     <strong>$</strong><input type="text" value="100.00" class="form-control" name="min-price" id="min-price" data-error="Min price is required" required="">
                                     <div class="help-block with-errors"></div>
-                                </div>
-                                <div class="input-box dollar form-group has-feedback">
-                                    <label for=""></label>
-                                     <em>To</em>  
+                                    <em>To</em>  
                                     <strong>$</strong><input type="text" value="100.00" class="form-control" name="max-price" id="max-price" data-error="Max Price is required" required="">
                                     <div class="help-block with-errors"></div>
                                 </div>
+                                
                                 <div class="input-box attachment">
                                     <strong for=""><span class="fa fa-paperclip"></span>attachment</strong>
                                     <button class="disabled">Choose file</button>
