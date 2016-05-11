@@ -257,7 +257,6 @@ small.imgae-format{width: 100%; text-align: center;display: inline-block;margin-
 .content-body.dashbord.providers-dashbord .content { min-height:1300px;}
 /*post a job*/
 .content-body.post-a-job .contact-frm{border:solid 1px #e8e8e8;}
-.content-body.post-a-job .contact-frm form input[type="submit"]{width:139px;}
 .dollar input[type="text"]{width:20%; float:left;}
 .content-body.post-a-job .contact-frm form em, .content-body.post-a-job .contact-frm form strong{float:left; padding:10px; line-height:2.4;}
 .content-body.post-a-job .contact-frm form strong{color:#f87c32; font-family: cursive;}
