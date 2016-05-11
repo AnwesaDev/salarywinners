@@ -283,14 +283,6 @@ jQuery(document).ready(function($) {
         
     });
     
-    $(':file').change(function(){
-    var file = this.files[0];
-    var name = file.name;
-    var size = file.size;
-    var type = file.type;
-    //Your validation
-});
-
     ///Save customer about myself
     $('#form-customer-about').validator().on('submit',function(e){       
         if (e.isDefaultPrevented()) {

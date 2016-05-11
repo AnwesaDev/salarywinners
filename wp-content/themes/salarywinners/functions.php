@@ -95,7 +95,7 @@ class SW_App extends AI_Base {
          * add action admin menu prevent front end user enter admin area
          */
         $this->add_action('admin_menu', 'redirect_front_end_user');
-        $this->add_action('login_init', 'redirect_login');
+        //$this->add_action('login_init', 'redirect_login');
         
         
     }
