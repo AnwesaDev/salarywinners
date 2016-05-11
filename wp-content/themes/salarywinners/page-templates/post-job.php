@@ -155,7 +155,7 @@ get_header();
                                 
                                 <div class="input-box attachment">
                                     <strong for=""><span class="fa fa-paperclip"></span>attachment</strong>
-                                    <button class="disabled">Choose file</button>
+                                    <button class="disabled btn-upload">Choose file</button>
                                     <input  type="file" value="">
                                     <small>(Fileformat: PDF, DOC, DOCX, PNG, JPEG)</small>
                                 </div>
