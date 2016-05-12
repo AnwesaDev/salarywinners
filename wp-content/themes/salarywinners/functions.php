@@ -136,8 +136,8 @@ class SW_App extends AI_Base {
      * add query var TODO: Use this one
      */
     function add_query_vars($vars)
-    {
-        array_push($vars, 'job_category');
+    {        
+       $vars = array_merge($vars, array('keywords', 'job_category'));
         return $vars;
     }
 }

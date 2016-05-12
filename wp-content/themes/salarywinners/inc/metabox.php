@@ -87,4 +87,21 @@ function salarywinners_add_metabox_icon_block() {
 		'id'   => '_max_price',
 		'type' => 'text',
 	) );
+        //---------------Job post attachment-----------------
+        $cmb_job_attachment = new_cmb2_box( array(
+		'id'           => $prefix . 'job_post_attachment',
+		'title'        => __( 'Job Attachment', 'salarywinners' ),
+		'object_types' => array( 'sw_job' ),
+		'context'      => 'normal',
+		'priority'     => 'default',
+                
+	) );
+        $cmb_job_attachment->add_field( array(
+		'name'    => __( 'Attachment', 'salarywinners' ),
+		'desc'    => __( '(Fileformat: PDF, DOC, DOCX, PNG, JPEG)', 'salarywinners' ),
+		'id'      => '_job_attachment',
+		'type'    => 'file',
+                'context' => 'normal',
+                'priority'=> 'default',
+	) );
 }

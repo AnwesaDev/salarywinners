@@ -56,6 +56,7 @@
             $skill = $wpdb->escape(trim($_POST['skill']));
             $min_price = $wpdb->escape(trim($_POST['min-price']));
             $max_price = $wpdb->escape(trim($_POST['max-price']));
+            //$job_attachment = $_FILES['job_attachment'];
             
             $post_id = wp_insert_post(array (
             'post_type' => 'sw_job',
@@ -72,6 +73,26 @@
              
             add_post_meta($post_id, '_min_price', $min_price);
             add_post_meta($post_id, '_max_price', $max_price);
+            
+            // These files need to be included as dependencies when on the front end.
+            require_once( ABSPATH . 'wp-admin/includes/image.php' );
+            require_once( ABSPATH . 'wp-admin/includes/file.php' );
+            require_once( ABSPATH . 'wp-admin/includes/media.php' );
+            // Let WordPress handle the upload.
+            // Remember, 'avatar' is the name of our file input.
+            $attachment_id = media_handle_upload( 'job_attachment', 0 );
+            if ( !is_wp_error( $attachment_id ) ) {
+                add_post_meta($post_id, 'job_attachment', $attachment_id); 
+                $image_data = wp_get_attachment_image_src($attachment_id);
+                if(!is_wp_error($image_data)){
+                    $picture_url = $image_data[0];
+                }
+            } else {
+                $erroe = true;
+                $message = 'problem to upload attachment';
+            }
+            //print_r($attachment_id);die();
+            
             }
              $message = 'Your job has been posted successfully'; 
              if($error){
@@ -101,7 +122,7 @@ get_header();
                             <div class="col-md-12">
                             	<h2 class="title">Post a Job</h2>
                             </div>
-                            <form action="" method="POST" id="job-post" data-toggle="validator" role="form">
+                            <form action="" method="POST" id="job-post" data-toggle="validator" role="form" enctype="multipart/form-data">
                                 <div class="input-box form-group has-feedback">
                                     <label for="">Job Title</label>
                                     <input type="text" placeholder="Job Title" class="form-control" name="job-title" id="job-title" data-error="Job Title is required" required="">
@@ -156,7 +177,7 @@ get_header();
                                 <div class="input-box attachment">
                                     <strong for=""><span class="fa fa-paperclip"></span>attachment</strong>
                                     <button class="disabled btn-upload">Choose file</button>
-                                    <input  type="file" value="">
+                                    <input  type="file" value="" id="job_attachment" name="job_attachment">
                                     <small>(Fileformat: PDF, DOC, DOCX, PNG, JPEG)</small>
                                 </div>
                                 

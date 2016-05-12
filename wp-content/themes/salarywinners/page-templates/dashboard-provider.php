@@ -143,7 +143,7 @@ get_header();
                                             </div>
                                             <div class="attachment ">
                                             	<label class="sub-label">Change Image</label>
-                                                <button class="disabled btn-uplaod" >Choose file</button>
+                                                <button class="disabled btn-upload" >Choose file</button>
                                                  <input type="file" placeholder="" name="avatar" id="btn-profile-image" disabled="">
                                                  <small class="imgae-format">(Fileformat: PNG, JPEG)</small>
                                             </div>
