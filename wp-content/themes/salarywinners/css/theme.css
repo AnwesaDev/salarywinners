@@ -23,9 +23,9 @@ body{overflow-x:hidden; background:#fff !important; font-family: 'Open Sans', sa
 .header-section .primery-nav ul{list-style:none; margin:0 36px 0 0; padding:0;}
 .header-section .primery-nav ul li{float:left; margin:8px 15px 15px;}
 .header-section .primery-nav ul li a{color:#363636; text-transform:uppercase; text-decoration:none; outline:none;}
-.header-section .primery-nav ul li:hover a, .header-section .primery-nav ul li.active a{color:#ff6913;}
+.header-section .primery-nav ul li:hover a, .header-section .primery-nav ul li.current-menu-item a{color:#ff6913;}
 .header-section .primery-nav ul li a span{display:block;width: 33px;height: 32px; margin:10px auto; background:url(../images/main-navigation.png) no-repeat;}
-.header-section .primery-nav ul li:hover a span, .header-section .primery-nav ul li.active a span{background:url(../images/main-navigation-hover.png) no-repeat;}
+.header-section .primery-nav ul li:hover a span, .header-section .primery-nav ul li.current-menu-item a span{background:url(../images/main-navigation-hover.png) no-repeat;}
 .header-section .primery-nav ul li.h-wrk a span{background-position:0% 0%;}
 .header-section .primery-nav ul li.br-job a span{background-position:25% 0%}
 .header-section .primery-nav ul li.prdct a span{background-position:50% 0%}
@@ -115,6 +115,7 @@ position: absolute;left: 80%;height: 40px; width: 41px;top: 60px;}
 .sidebar ul li{ margin:10px 0 10px 0;width: 100%; line-height: 34px; color:#fff;}
 .sidebar ul li span{ border:solid 1px #fff; border-radius:50%; text-align:center; display:table-cell; vertical-align:middle; width:34px; height:34px; color:#fff; font-size:20px; float:left; margin-right: 12px; line-height: 34px;}
 .sidebar{ margin-left:30px;}
+.post-a-job .sidebar{ margin-left:0px;}
 .content-body .sidebar.contact-info{border:solid 1px transparent; background:#8bd0bd; margin-top:50px;}
 .content-body .sidebar{background:#fff; border:solid 1px #e8e8e8;}
 .sidebar ul{ list-style:none; padding:20px 20px;}
@@ -257,8 +258,9 @@ small.imgae-format{width: 100%; text-align: center;display: inline-block;margin-
 .content-body.dashbord.providers-dashbord .content { min-height:1300px;}
 /*post a job*/
 .content-body.post-a-job .contact-frm{border:solid 1px #e8e8e8;}
-.dollar input[type="text"]{width:20% !important; float:left;}
-.content-body.post-a-job .contact-frm form em, .content-body.post-a-job .contact-frm form strong{float:left; padding:10px; line-height:2.4;}
+.dollar input[type="text"]{width:13% !important; float:left;    border-width: 4px 1px 1px 4px !important;border-radius: 6px !important;}
+.content-body.post-a-job .contact-frm form em, .content-body.post-a-job .contact-frm form strong{float:left; padding:10px; line-height:2.4;padding-left: 0;}
+.content-body.post-a-job .contact-frm form em{padding-left: 10px; font-style: normal;}
 .content-body.post-a-job .contact-frm form strong{color:#f87c32; font-family: cursive;}
 .content-body.post-a-job .contact-frm form .attachment{ margin-left:23%;}
 .content-body.post-a-job .contact-frm form .attachment strong{ font-size:20px;}
@@ -268,7 +270,9 @@ form input[type="file"]{ border:none; margin-top:20px; background: transparent; 
 .content-body.post-a-job .contact-frm form .attachment small{text-align:center; color:#ADADAD}
 button.btn-upload{position: absolute; top: 18px;right: 0;left: 180px; padding: 12px 30px; cursor:pointer;background: #f67c3d;font-size: 20px;color: #fff;border: solid 2px;border-color: transparent #b0501e #b0501e #e8e8e8;outline: none;border-left: none;text-transform: capitalize; border-radius:4px;}
 .contact-frm form select{text-transform:capitalize;}
-.content-body.post-a-job .contact-frm form .input-box:nth-last-child(1){ border-top:solid 1px #e8e8e8; margin-top:30px;}
+.content-body.post-a-job .contact-frm form .input-box:nth-last-child(1){ border-top:solid 1px #e8e8e8; margin-top:30px;width: 98%;}
+.content-body.post-a-job form input[type="submit"]{margin-left: 25%;}
+.content-body.post-a-job .with-errors{margin-left: 25%;}
 .attachment{position:relative;}
 small.f-left{line-height: 6; color:#999999;}
 .user-registration form input[type="file"]{ float:left;}
@@ -319,7 +323,7 @@ i.location{width: 30px; height: 28px;display: inline-block;float: left;backgroun
 .budget b{font-size:13px; line-height:2;}
 .budget b span{color:#f67c3d;}
 .dollar-tag{width: 30px; height: 28px;display: inline-block;float: left;background:url(../images/others-icon.png) no-repeat 13% 0%;}
-.dollar .help-block{margin-bottom: 0;}
+.dollar .help-block{margin-bottom: 0; margin-top: 0;}
 .job-listing .content p{border:none;}
 .job-listing .tags ul li{ font-size:12px;}
 .job-details{ padding-bottom:30px; border-bottom:solid 1px #e8e8e8; padding-top:30px;}
@@ -490,6 +494,7 @@ h3.price b{color:#f87c32; padding-left:10px; font-size:16px;vertical-align: top;
 	.with-errors.error{margin-left: 0;}
 	.content-body.registration .contact-frm form .input-box.end-section{margin-right: 0;}
 	.select2-container {width: 90%;}
+	.content-body.post-a-job .with-errors, .content-body.post-a-job .contact-frm form .attachment{margin-left: 0;}
 }
 @keyframes showing-nav{
 0%{ left:200%}
