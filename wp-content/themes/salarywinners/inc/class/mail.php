@@ -11,7 +11,7 @@ class SW_Mail extends AI_Mailing {
 		
 	$link  = add_query_arg(array('token'=>$token), get_bloginfo('siteurl').'/check-activation/');
         $activationlink = '<a href="'.$link.'" target="_blank">'.$link.'</a>';
-        //echo $activationlink;die();
+        echo $activationlink;die();
         $message   = $salarywinnersOptions['email-user-registration'];
         
 		
