@@ -237,8 +237,8 @@ form input[type="submit"]{font-size: 20px; margin: 30px 0px 30px 0; background: 
 right: 0;margin: 0 auto;}
 
 
-.customer-dashbord button.btn-uplaod{bottom:18px; top:auto;}
-.customer-dashbord button.btn-uplaod, .provider-dashbord button.btn-uplaod{left: 38%}
+.customer-dashbord button.btn-upload{bottom:18px; top:auto;}
+.customer-dashbord button.btn-upload, .provider-dashbord button.btn-upload{left: 38%}
 .customer-dashbord form, .provider-dashbord form{margin-top:30px;}
 .customer-dashbord form label, .provider-dashbord form label{width:25%; float:left;}
 .customer-dashbord form input, .provider-dashbord form input{float:left;}
@@ -264,8 +264,9 @@ small.imgae-format{width: 100%; text-align: center;display: inline-block;margin-
 .content-body.post-a-job .contact-frm form .attachment strong{ font-size:20px;}
 .content-body.post-a-job .contact-frm form .attachment strong span{margin-right:10px; font-size:24px;}
 form input[type="file"]{ border:none; margin-top:20px; background: transparent; opacity:0; width:170px; cursor:pointer;    padding: 10px 20px;}
+.post-a-job .contact-frm .attachment .btn-upload{top: 9px;}
 .content-body.post-a-job .contact-frm form .attachment small{text-align:center; color:#ADADAD}
-button.btn-uplaod{position: absolute; top: 18px;right: 0;left: 180px; padding: 12px 30px; cursor:pointer;background: #f67c3d;font-size: 20px;color: #fff;border: solid 2px;border-color: transparent #b0501e #b0501e #e8e8e8;outline: none;border-left: none;text-transform: capitalize; border-radius:4px;}
+button.btn-upload{position: absolute; top: 18px;right: 0;left: 180px; padding: 12px 30px; cursor:pointer;background: #f67c3d;font-size: 20px;color: #fff;border: solid 2px;border-color: transparent #b0501e #b0501e #e8e8e8;outline: none;border-left: none;text-transform: capitalize; border-radius:4px;}
 .contact-frm form select{text-transform:capitalize;}
 .content-body.post-a-job .contact-frm form .input-box:nth-last-child(1){ border-top:solid 1px #e8e8e8; margin-top:30px;}
 .attachment{position:relative;}
@@ -354,7 +355,7 @@ i.location{width: 30px; height: 28px;display: inline-block;float: left;backgroun
 .submit-proposal form input, .submit-proposal form textarea{ width:90%; margin: 0 auto; border-radius:2px; padding-left:15px;}
 .submit-proposal input[type="file"]{ width:150px; height:45px;}
 .submit-proposal .attachment small{display:inline-block; float:none; clear:both; padding-left:15px; color:#999999; border-bottom:solid 1px #e8e8e8; padding-bottom:30px; position:relative;}
-.submit-proposal .attachment .btn-uplaod{top:20px; width:auto;}
+.submit-proposal .attachment .btn-upload{top:20px; width:auto;}
 .submit-proposal .attachment{padding-top:30px; padding-bottom:30px; width:100%; margin:0 auto;}
 .submit-proposal label small{display:block;  color:#999999; font-weight:normal; position:absolute;}
 .dollar strong{float: left;padding: 5px;color: #f87c32;font-family: cursive; line-height:2;}
