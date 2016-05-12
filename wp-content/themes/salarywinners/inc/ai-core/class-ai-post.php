@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of class-ai-post
  *
@@ -13,7 +7,7 @@
  */
 
 if(!class_exists('AI_Post')){
-    class AI_Post extends AI_Base {
+    class AI_Post {
         static $instance;
         public $meta;
 
@@ -123,6 +117,8 @@ if(!class_exists('AI_Post')){
                     $result['tax_input'][$name] = $terms;
                 }
             }
+            
+            $meta = apply_filters('ai_' . $this->post_type . '_convert_metadata', $this->meta, $post, $singular);
 
             // generate meta data
             if (!empty($meta)) {
@@ -187,7 +183,296 @@ if(!class_exists('AI_Post')){
         * @author Sandeep
         */
         public function get_current_post() {
+            // if($this->wp_query && $this->wp_query->is_main_query()){
+            //     return $this->current__main_post;
+            // }
             return $this->current_post;
+        }
+        
+        /**
+        * insert postdata and post metadata to an database
+        # used wp_insert_post
+        # used update_post_meta
+        # post function convert
+        * @param   array $post data
+        # wordpress post fields data
+        # post custom meta data
+        * @return  post object after insert
+        # wp_error object if post data invalid
+        * @author Sandeep
+        * @since the beginning of time
+        */
+        public function insert($args) {
+            global $current_user, $user_ID;
+
+            // check user submit post too fast
+            // if(!current_user_can( 'edit_others_posts' )) {
+            //     $post = get_posts( array('post_author' => $user_ID, 'post_type' => $this->post_type, 'posts_per_page' => 1 ) );
+
+            // }
+            // strip tags
+            foreach ($args as $key => $value) {
+                if ((in_array($key, $this->meta) || in_array($key, $this->convert)) && is_string($args[$key]) && $key != 'post_content') {
+                    $args[$key] = strip_tags($args[$key]);
+                }
+            }
+
+            // pre filter filter post args
+            $args = apply_filters('ai_pre_insert_' . $this->post_type, $args);
+            if (is_wp_error($args)) return $args;
+
+            $args = wp_parse_args($args, array(
+                'post_type' => $this->post_type
+            ));
+
+            if (!isset($args['post_status'])) {
+                $args['post_status'] = 'draft'; // default post status
+            }
+
+            // could not create with an ID
+            if (isset($args['ID'])) {
+                return new WP_Error('invalid_data', __("The ID already existed!", ''));
+            }
+
+            if (!isset($args['post_author']) || empty($args['post_author'])) $args['post_author'] = $current_user->ID;
+            // Check again for empty author
+            if ( empty( $args['post_author'] ) ) return new WP_Error('missing_author', __('You must login to submit listing.', ''));
+
+            // filter tax_input
+            $args = $this->_filter_tax_input($args);
+            if(isset($args['post_content'])){
+                // filter post content strip invalid tag
+                $args['post_content'] = $this->filter_content($args['post_content']);
+            }
+            /**
+             * insert post by wordpress function
+             */
+            $result = wp_insert_post($args, true);
+
+            /**
+             * update custom field and tax
+             */
+            if ($result != false && !is_wp_error($result)) {
+                $this->update_custom_field($result, $args);
+                $args['ID'] = $result;
+                $args['id'] = $result;
+
+                /**
+                 * do action ai_insert_{$this->post_type}
+                 * @param Int $result Inserted post ID
+                 * @param Array $args The array of post data
+                 */
+                do_action('ai_insert_' . $this->post_type, $result, $args);
+
+                $result = (object)$args;
+
+                /**
+                 * do action ai_insert_post
+                 * @param object $args The object of post data
+                 */
+                do_action('ai_insert_post', $result);
+
+                // localize text for js
+                if (!empty($this->localize)) {
+                    foreach ($this->localize as $key => $localize) {
+                        $a = array();
+                        foreach ($localize['data'] as $loc) {
+                            array_push($a, $result->$loc);
+                        }
+
+                        $result->$key = vsprintf($localize['text'], $a);
+                    }
+                }
+                $result->permalink = get_permalink($result->ID);
+
+                if (current_user_can('manage_options') || $result->post_author == $user_ID) {
+
+                    /**
+                     * featured image not null and should be in array data
+                     */
+                    if (isset($args['featured_image'])) {
+                        set_post_thumbnail($result->ID, $args['featured_image']);
+                    }
+                }
+            }
+
+            return $result;
+        }
+
+        /**
+         * filter tax input args and check existed
+         * @since the beginning of time
+         * @author Sandeep
+         * @return array
+         */
+        function _filter_tax_input($args) {
+            $args['tax_input'] = array();
+            if (!empty($this->taxs)) {
+                foreach ($this->taxs as $tax_name) {
+                    if (is_taxonomy_hierarchical($tax_name)) {
+                        if (isset($args[$tax_name]) && !empty($args[$tax_name])) {
+
+                            /**
+                             * check term existed
+                             */
+                            if (is_array($args[$tax_name])) {
+
+                                // if tax input is array
+                                foreach ($args[$tax_name] as $key => $value) {
+                                    $term = get_term_by('id', $value, $tax_name);
+                                    if (!$term) {
+                                        unset($args[$tax_name][$key]);
+                                    }
+                                }
+                            } else {
+
+                                // if tax input ! is array
+                                $term = get_term_by('id', $args[$tax_name], $tax_name);
+                                if (!$term) {
+                                    unset($args[$tax_name]);
+                                }
+                            }
+
+                            // check term exist
+
+                            /**
+                             * assign tax input
+                             */
+                            if (isset($args[$tax_name])) {
+                                $args['tax_input'][$tax_name] = $args[$tax_name];
+                            }
+                        } else {
+                            $args['tax_input'][$tax_name] = array();
+                        }
+                    } else {
+
+                        /**
+                         * assign tax input
+                         */
+                        if (isset($args[$tax_name])) {
+                            if (is_array($args[$tax_name])) {
+                                $temp = array();
+                                foreach ($args[$tax_name] as $key => $value) {
+                                    if (isset($value['name'])) {
+                                        $temp[] = $value['name'];
+                                    }
+                                }
+                                $args['tax_input'][$tax_name] = $temp;
+                            } else {
+                                $args['tax_input'][$tax_name] = $args[$tax_name];
+                            }
+                        } else {
+                            $args['tax_input'][$tax_name] = array();
+                        }
+                    }
+                }
+            }
+            return $args;
+        }
+
+        /**
+         * filter content insert and skip invalid tag
+         * @param string $content the post content be filter
+         * @return String the string filtered
+         * @author Sandeep
+         * @since the beginning of time
+         */
+        function filter_content($content) {
+            $pattern = "/<[^\/>]*>(&nbsp;)*([\s]?)*<\/[^>]*>/";
+
+            //use this pattern to remove any empty tag '<a target="_blank" rel="nofollow" href="$1">$3</a>'
+
+            $content = preg_replace($pattern, '', $content);
+
+            // $link_pattern = "/<a\s[^>]*href=(\"??)([^\" >]*?)\\1[^>]*>(.*)<\/a>/";
+            $content = str_replace('<a', '<a target="_blank" rel="nofollow"', $content);
+            $content = strip_tags($content, '<p><a><ul><ol><li><h6><span><b><em><strong><br>');
+
+            return $content;
+        }
+
+        /**
+         * update postdata and post metadata to an database
+         # used wp_update_post ,get_postdata
+         # used update_post_meta
+         # used function convert
+         * @param   array $post data
+         # wordpress post fields data
+         # post custom meta data
+         * @return  post object after insert
+         # wp_error object if post data invalid
+         * @author Sandeep
+         * @since the beginning of time
+         */
+        public function update($args) {
+            global $current_user, $user_ID;
+
+            // $args = wp_parse_args($args);
+            // strip tags
+            foreach ($args as $key => $value) {
+                if ((in_array($key, $this->meta) || in_array($key, $this->convert)) && is_string($args[$key]) && $key != 'post_content') {
+                    $args[$key] = strip_tags($args[$key]);
+                }
+            }
+
+            // unset post date
+            if (isset($args['post_date'])) unset($args['post_date']);
+
+            // filter args
+            $args = apply_filters('ai_pre_update_' . $this->post_type, $args);
+            if (is_wp_error($args)) return $args;
+
+            // if missing ID, return errors
+            if (empty($args['ID'])) return new WP_Error('ai_missing_ID', __('Post not found!', ''));
+
+            if (!ae_user_can('edit_others_posts')) {
+                $post = get_post($args['ID']);
+                if ($post->post_author != $user_ID) {
+                    return new WP_Error('permission_deny', __('You can not edit other posts!', ''));
+                }
+
+                /**
+                 * check and prevent user publish post
+                 */
+                if (isset($args['post_status']) && $args['post_status'] != $post->post_status && $args['post_status'] == 'publish') {
+                    unset($args['post_status']);
+                }
+
+            }
+          
+            $args = $this->_filter_tax_input($args);
+
+            // filter post content strip invalid tag
+            $args['post_content'] = $this->filter_content($args['post_content']);
+
+            // update post data into database use wordpress function
+            $result = wp_update_post($args, true);
+
+            /**
+             * update custom field and tax
+             */
+
+            if ($result != false && !is_wp_error($result)) {
+                $this->update_custom_field($result, $args);
+
+                $post = get_post($result);
+
+                if (current_user_can('manage_options') || $post->post_author == $user_ID) {
+
+                    /**
+                     * featured image not null and should be in carousels array data
+                     */
+                    if (isset($args['featured_image'])) {
+                        set_post_thumbnail($post->ID, $args['featured_image']);
+                    }
+                }
+
+                // make an action so develop can modify it
+                do_action('ai_update_' . $this->post_type, $result, $args);
+                $result = $this->convert($post);
+            }
+
+            return $result;
         }
         
         /**
@@ -213,6 +498,34 @@ if(!class_exists('AI_Post')){
                 }
             }
         }
+        
+        /**
+        * delete post from site
+        * @param int $ID post id want to delete
+        * @param bool $force_delete default is false
+        * @author Sandeep
+        * @since Since the beginning of time
+        */
+        public function delete($ID, $force_delete = false) {
+
+            if (!ae_user_can('edit_others_posts')) {
+                global $user_ID;
+                $post = get_post($ID);
+                if ($user_ID != $post->post_author) {
+                    return new WP_Error('permission_deny', __("You do not have permission to delete post.", ''));
+                }
+            }
+
+            if ($force_delete) {
+                $result = wp_delete_post($ID, true);
+            } else {
+                $result = wp_trash_post($ID);
+            }
+            if ($result) do_action('ai_delete_' . $this->post_type, $ID);
+
+            return $this->convert($result);
+        }
+        
         
         /**
         * get postdata
