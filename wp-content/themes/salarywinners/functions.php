@@ -137,7 +137,7 @@ class SW_App extends AI_Base {
      */
     function add_query_vars($vars)
     {
-        array_push($vars, 'something');
+        array_push($vars, 'job_category');
         return $vars;
     }
 }

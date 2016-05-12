@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Description of class-ai-user
  *
@@ -18,7 +17,7 @@ if(!class_exists('AI_User')){
         public static function get_instance() {
             if ( null == self::$instance ) {
 
-                self::$instance = new AE_Users();
+                self::$instance = new AI_Users();
             }
             return self::$instance;
         }
@@ -267,7 +266,7 @@ if(!class_exists('AI_User')){
                 foreach ($this->meta_data as $key => $value) {                
                     // update if meta data exist
                     if (isset($user_data[$value])){
-                      //$usermeta = $this->ai_filter_usermeta($user_data[$value]); //TODO: check whats this for?
+                      $usermeta = $this->ai_filter_usermeta($user_data[$value]); //TODO: check whats this for?
                       update_user_meta($result, $value, $usermeta);  
 //                      $wpdb->insert('user_info_changes', array(
 //                        'timestamp' => time(),
@@ -369,6 +368,20 @@ if(!class_exists('AI_User')){
         /** @todo: complete this function */
         function check_activation_key(){
             
+        }
+        
+        /**
+        * filter  usermeta value
+        *
+        * @param string $usermeta
+        * @return string $usermeta after remove all tag 
+        * @since 1.0
+        * 
+        * @author me
+        */
+        public function ae_filter_usermeta( $usermeta ){
+            $usermeta = wp_strip_all_tags( $usermeta );
+            return apply_filters( 'ai_filter_usermeta', $usermeta);
         }
     }
 }
