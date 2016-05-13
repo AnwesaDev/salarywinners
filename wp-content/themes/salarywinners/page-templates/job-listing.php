@@ -401,7 +401,7 @@
                                 <i class="fa fa-angle-down"></i>-->
 <!--
 -->				<label>Price($):</label>
-<input id="ex2" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10000" data-slider-step="5" data-slider-value="[<?php echo $min_price;?>,<?php echo $max_price;?>]" name="price" >
+<input id="ex2" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10000" data-slider-step="5" data-slider-value="<?php if(!empty($query_args_array['price'])){ ?>[<?php echo $min_price;?>,<?php echo $max_price;?>]<?php } else { ?>[0,0]<?php } ?>" name="price" >
 
 
 <!--								please include bootstrap slider.css and bootstrap-slider.js-->
