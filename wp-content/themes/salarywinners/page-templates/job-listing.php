@@ -55,7 +55,7 @@
             }
             else
             {
-            echo 'no';
+            //echo 'no';
             $args['author__in'] = array();     
             }
         
