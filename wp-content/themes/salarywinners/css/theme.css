@@ -20,7 +20,7 @@ body{overflow-x:hidden; background:#fff !important; font-family: 'Open Sans', sa
 
 .header-section .logo{margin:10px 0 0 60px;}
 .header-section .primery-nav{ background:#fff; display:block; width:100%;min-height: 90px;}
-.header-section .primery-nav ul{list-style:none; margin:0 36px 0 0; padding:0;}
+.header-section .primery-nav ul{list-style:none; margin:0 45px 0 0; padding:0;}
 .header-section .primery-nav ul li{float:left; margin:8px 15px 15px;}
 .header-section .primery-nav ul li a{color:#363636; text-transform:uppercase; text-decoration:none; outline:none;
 	display: inline-block;}
@@ -435,8 +435,9 @@ h3.price b{color:#f87c32; padding-left:10px; font-size:16px;vertical-align: top;
 .footer-section .footer-nav ul li a{ text-decoration:none; text-transform:capitalize; color:#666666; font-size:17px; border-right: 1px solid #666666;padding: 0px 7px 0px;}
 .footer-section .footer-nav ul li:nth-last-child(1) a{border-right: 1px solid transparent;}
 .footer-section .footer-nav ul li a:hover{}
+.footer-section .footer-nav ul li:nth-child(1) a{padding-left:0;}
 
-.footer-section .footer-nav .copyright{margin-top: 10px; text-align:left; font-size:17px;color:#666666; width: 100%;display: inline-block;padding-left: 10px;}
+.footer-section .footer-nav .copyright{margin-top: 10px; text-align:left; font-size:17px;color:#666666; width: 100%;display: inline-block;}
 .footer-section .payment{text-align:right; margin: 24px 0;}
 .footer-section .payment a{ padding:0 4px;}
 .footer-section .payment a:nth-last-child(1){padding:0;}

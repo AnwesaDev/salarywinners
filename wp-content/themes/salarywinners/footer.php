@@ -30,12 +30,14 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                       <div class="payment">
-                       		<a href=""><img src="<?php echo get_template_directory_uri();?>/images/visa.png" alt="" title=""></a>
-                            <a href=""><img src="<?php echo get_template_directory_uri();?>/images/master.png" alt="" title=""></a>
-                            <a href=""><img src="<?php echo get_template_directory_uri();?>/images/payple.png" alt="" title=""></a>
-                            <a href=""><img src="<?php echo get_template_directory_uri();?>/images/american.png" alt="" title=""></a>
-                       </div>
+                       <div class="row">
+							<div class="payment">
+								<a href=""><img src="<?php echo get_template_directory_uri();?>/images/visa.png" alt="" title=""></a>
+								<a href=""><img src="<?php echo get_template_directory_uri();?>/images/master.png" alt="" title=""></a>
+								<a href=""><img src="<?php echo get_template_directory_uri();?>/images/payple.png" alt="" title=""></a>
+								<a href=""><img src="<?php echo get_template_directory_uri();?>/images/american.png" alt="" title=""></a>
+						   </div>
+						</div>
                     </div>
                 </div>
             </div>
