@@ -103,8 +103,8 @@
                                 </select>
                                 <i class="fa fa-angle-down"></i>-->
 <!--
--->								<label>Range:</label>
-                            <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="10000" data-slider-step="5" data-slider-value="[250,450]">
+-->								<label>Price($):</label>
+                            <input id="ex2" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10000" data-slider-step="5" data-slider-value="[250,450]">
 
 
 <!--								please include bootstrap slider.css and bootstrap-slider.js-->
