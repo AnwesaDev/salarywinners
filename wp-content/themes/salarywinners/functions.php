@@ -137,7 +137,7 @@ class SW_App extends AI_Base {
      */
     function add_query_vars($vars)
     {        
-       $vars = array_merge($vars, array('keywords', 'job_category'));
+       $vars = array_merge($vars, array('keywords', 'job_category', 'country', 'price'));
         return $vars;
     }
 }
