@@ -12,8 +12,8 @@ $user_meta = get_user_meta($user_id);
 get_header();
 ?>
      <section class="content-body job-detail-page">
-        	<div class="row">
-            	<div class="container">
+        	<div class="container">
+            	<div class="row">
                     <?php if(have_posts()): ?>
                     <?php while(have_posts()): the_post(); 
                             $post_id = get_the_ID ();
@@ -30,7 +30,7 @@ get_header();
                                         <div class="normal">
                                             <div class="col-md-3 col-sm-3 col-xs-12">
                                                 <?php if(empty($user_meta['avatar'][0])): ?>
-                                                    <figure><img src="<?php echo get_template_directory_uri(); ?>/images/profile-image.png" class="img-circle" alt="" title=""></figure>
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/images/profile-image.png" class="img-circle img-responsive" alt="" title="">
                                                 <?php else: ?>
                                                  <?php $avatar_data = wp_get_attachment_image_src($user_meta['avatar'][0]); ?>
                                                     <figure><img src="<?php echo $avatar_data[0]; ?>" class="img-circle" alt="" title=""></figure>
@@ -72,11 +72,10 @@ get_header();
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
                                                    <div class="row">
-                                                   	<p>
-                                                            <?php the_content();?>
-                                                    </p>
+                                                   		<div class="col-md-12">
+													   		<?php the_content();?>
+													   </div>
                                                    </div>
                                                    <div class="attachment">
                                                        <a href="<?php echo wp_get_attachment_url($post_meta['job_attachment'][0]);?>" target="_blank">
@@ -118,45 +117,47 @@ get_header();
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-4">
-                        	<div class="sidebar">
-                                <div class="submit-proposal">
-                                	<form action="" method="">
-                                    	<div class="input-box form-group">
-                                        	<label for="" class="cover-letter">Cover letter</label>
-                                            <textarea rows="16" placeholder="" class="form-control"></textarea>
-                                        </div>
-                                        <div class="input-box attachment form-group">
-                                            <label><span class="fa fa-paperclip"></span>attachment</label>
-                                            <button class="disabled btn-upload">Choose file</button>
-                                            <input  type="file" value="" class="form-control">
-                                            <small>(Fileformat: PDF, DOC, DOCX, PNG, JPEG)</small>
-                                        </div>
-                                        <div class=" input-box form-group">
-                                        	<h4 class="title">Propose Terms</h4>
-                                        </div>
-                                        <div class="input-box dollar form-group">
-                                        	<label>Bid<small>This is what the client sees</small></label>
-                                            <strong>$</strong>
-                                            <input type="text" value="100.00"> 
-                                        </div>
-                                        
-                                        <div class="input-box dollar form-group">
-                                        	<label>You'll earn<small>Estimated</small></label>
-                                            <strong>$</strong>
-                                            <input type="text" value="90.00"> 
-                                        </div>
-                                        
-                                        <div class="input-box form-group">
-                                        	<h4 class="title">The client's budget is <b>$100.00</b></h4>
-                                        </div>
-                                        
-                                        <div class="input-box form-group">
-                                            <input type="submit" class="form-control" value="Submit proposal"> 
-                                        </div>
+                        	<div class="row">
+								<div class="sidebar">
+									<div class="submit-proposal">
+										<form action="" method="">
+											<div class="input-box form-group">
+												<label for="" class="cover-letter">Cover letter</label>
+												<textarea rows="16" placeholder="" class="form-control"></textarea>
+											</div>
+											<div class="input-box attachment form-group">
+												<label><span class="fa fa-paperclip"></span>attachment</label>
+												<button class="disabled btn-upload">Choose file</button>
+												<input  type="file" value="" class="form-control">
+												<small>(Fileformat: PDF, DOC, DOCX, PNG, JPEG)</small>
+											</div>
+											<div class=" input-box form-group">
+												<h4 class="title">Propose Terms</h4>
+											</div>
+											<div class="input-box dollar form-group">
+												<label>Bid<small>This is what the client sees</small></label>
+												<strong>$</strong>
+												<input type="text" value="100.00">
+											</div>
 
-                                    </form>
-                                </div>
-                            </div>
+											<div class="input-box dollar form-group">
+												<label>You'll earn<small>Estimated</small></label>
+												<strong>$</strong>
+												<input type="text" value="90.00">
+											</div>
+
+											<div class="input-box form-group">
+												<h4 class="title">The client's budget is <b>$100.00</b></h4>
+											</div>
+
+											<div class="input-box form-group">
+												<input type="submit" class="form-control" value="Submit proposal">
+											</div>
+
+										</form>
+									</div>
+								</div>
+							</div>
                         </div>
                     </div>
                     <?php endwhile; ?>

@@ -38,8 +38,8 @@
     get_header();
 ?>
     <section class="content-body job-listing">
-        	<div class="row">
-            	<div class="container">
+        	<div class="container">
+            	<div class="row">
                 	<div class="filter-section">
                             <div class="filter-tab adv-filter"><p>Advanced filters</p></div>
                                 <form name="form-search" id="form-search" method="get" >
@@ -68,7 +68,7 @@
                                             'hierarchical'       => 0, 
                                             'name'               => 'job_category',
                                             'id'                 => 'job_category',
-                                            'class'              => '',
+                                            'class'              => 'form-control',
                                             'depth'              => 0,
                                             'tab_index'          => 0,
                                             'taxonomy'           => 'sw_category',
@@ -220,14 +220,16 @@
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-4">
-                        	<div class="sidebar contact-info">
-                                <ul>
-                                    <li><span class="fa fa-question"></span>FAQ</li>
-                                    <li><span class="fa fa-mobile-phone"></span>02 3000 1234</li>
-                                    <li><span class="fa fa-envelope"></span>hello@asallerywiners.com</li>
-                                    <li><span class="fa fa-headphones"></span>Online chat and ask us to call you</li>
-                                </ul>
-                            </div>
+                        	<div class="row">
+								<div class="sidebar contact-info">
+									<ul>
+										<li><span class="fa fa-question"></span>FAQ</li>
+										<li><span class="fa fa-mobile-phone"></span>02 3000 1234</li>
+										<li><span class="fa fa-envelope"></span>hello@asallerywiners.com</li>
+										<li><span class="fa fa-headphones"></span>Online chat and ask us to call you</li>
+									</ul>
+								</div>
+
                             <div class="sidebar">
                                 <div class="normal">
                                     <h3 class="title">suggested products</h3>
@@ -279,6 +281,7 @@
                                     
                                 </div>
                             </div>
+						</div>
                         </div>
                     </div>
                     
