@@ -39,7 +39,7 @@ function sw_taxonomy_category() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'sw_category', array( 'sw_job' ), $args );
+	register_taxonomy( SW_TX_CATEGORY, array( 'sw_job' ), $args );
 
 }
 add_action( 'init', 'sw_taxonomy_category', 0 );

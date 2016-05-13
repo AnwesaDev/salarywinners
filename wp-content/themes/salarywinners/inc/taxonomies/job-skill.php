@@ -1,10 +1,6 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 // Register Custom Taxonomy
 function sw_taxonomy_skill() {
 
@@ -39,7 +35,7 @@ function sw_taxonomy_skill() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'sw_skill', array( 'sw_job' ), $args );
+	register_taxonomy( SW_TX_SKILL, array( 'sw_job' ), $args );
 
 }
 add_action( 'init', 'sw_taxonomy_skill', 0 );
