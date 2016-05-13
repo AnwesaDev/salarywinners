@@ -22,7 +22,8 @@ body{overflow-x:hidden; background:#fff !important; font-family: 'Open Sans', sa
 .header-section .primery-nav{ background:#fff; display:block; width:100%;min-height: 90px;}
 .header-section .primery-nav ul{list-style:none; margin:0 36px 0 0; padding:0;}
 .header-section .primery-nav ul li{float:left; margin:8px 15px 15px;}
-.header-section .primery-nav ul li a{color:#363636; text-transform:uppercase; text-decoration:none; outline:none;display: inline-block;}
+.header-section .primery-nav ul li a{color:#363636; text-transform:uppercase; text-decoration:none; outline:none;
+	display: inline-block;}
 .header-section .primery-nav ul li:hover a, .header-section .primery-nav ul li.current-menu-item a{color:#ff6913;}
 .header-section .primery-nav ul li a span{display:block;width: 33px;height: 32px; margin:10px auto; background:url(../images/main-navigation.png) no-repeat;}
 .header-section .primery-nav ul li:hover a span, .header-section .primery-nav ul li.current-menu-item a span{background:url(../images/main-navigation-hover.png) no-repeat;}
@@ -301,10 +302,10 @@ form input[type="checkbox"]:checked {background:url(../images/checkbox.png) no-r
 .filter-tab label{width:35%; float:left; line-height:3; text-transform:uppercase; font-size:12px;}
 .filter-tab p{line-height:2;}
 .filter-tab input, .filter-tab select{width:60%; height:34px; border-radius:0; padding-right:20px;}
-.filter-tab select{-moz-appearance:none; -webkit-appearance:none;}
+.filter-tab select{-moz-appearance:none; -webkit-appearance:none; border: 1px solid #ccc;}
 .filter-tab i{position:absolute;right: 20px;top: 7px; padding: 5px;}
 .filter-tab:nth-last-child(1){width:8%; border-right:none;}
-.filter-tab:nth-child(1){width:12%; text-align:center;}
+.filter-tab.adv-filter{width:12%; text-align:center;}
 .filter-tab a{border:solid 1px #eaeaea; padding:4px; border-radius:50%; width:24px; height:24px; display:inline-block; text-align: center; margin-top:6px; color:#eaeaea;}
 .filter-tab a:hover{text-decoration:none; color:#333; border-color:#333;}
 .job-listing .content{margin-top:50px;}
@@ -327,7 +328,7 @@ i.location{width: 30px; height: 28px;display: inline-block;float: left;backgroun
 .job-listing .content p{border:none;}
 .job-listing .tags ul li{ font-size:12px;}
 .job-details{ padding-bottom:30px; border-bottom:solid 1px #e8e8e8; padding-top:30px;}
-.job-listing .btn-work{ margin:0;}
+.job-listing .btn-work{ margin:0; padding: 5px 15px;}
 .job-details h3.title{color:#3fbac3;}
 
 .paginatioon{ width:300px; margin:0 auto; position:relative;}
@@ -531,3 +532,7 @@ a.on-mobile img{width:70%;}
     100%{top: 0px;}
 }
 .contact-frm > .has-feedback > .form-control{padding: 0;}
+
+.slider.slider-horizontal{width:60% !important; margin-top:10px;}
+.slider.slider-horizontal .slider-track{background:#999;}
+.slider-selection{background:#666 !important;}
