@@ -1,10 +1,5 @@
 <?php
 
-/**
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 // Register Custom Post Type
 
 function sw_post_job() {
@@ -13,7 +8,7 @@ function sw_post_job() {
 		'name'                  => _x( 'Jobs', 'Post Type General Name', 'salarywinners' ),
 		'singular_name'         => _x( 'Job', 'Post Type Singular Name', 'salarywinners' ),
 		'menu_name'             => __( 'Job', 'salarywinners' ),
-		'name_admin_bar'        => __( 'Job', 'salarywinners' ),
+		'name_admin_bar'        => __( 'Jobs', 'salarywinners' ),
 		'archives'              => __( 'Job Archives', 'salarywinners' ),
 		'parent_item_colon'     => __( 'Parent Item:', 'salarywinners' ),
 		'all_items'             => __( 'All Jobs', 'salarywinners' ),
@@ -56,7 +51,7 @@ function sw_post_job() {
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
 	);
-	register_post_type( 'sw_job', $args );
+	register_post_type( SW_PT_JOB, $args );
 
 }
 add_action( 'init', 'sw_post_job', 0 );
