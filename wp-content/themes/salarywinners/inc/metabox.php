@@ -77,7 +77,7 @@ function salarywinners_add_metabox_icon_block() {
 	) );
         
         $cmb_job->add_field( array(
-		'name' => __( 'Price', 'salarywinners' ),
+		'name' => __( 'Price ($)', 'salarywinners' ),
 		'id'   => '_price',
 		'type' => 'text',
 	) );

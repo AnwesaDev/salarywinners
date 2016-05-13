@@ -5,9 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$user_id = get_current_user_id();
-$user = get_user_by('id', $user_id);
-$user_meta = get_user_meta($user_id);
+
 
 get_header();
 ?>
@@ -18,7 +16,9 @@ get_header();
                     <?php while(have_posts()): the_post(); 
                             $post_id = get_the_ID ();
                             $post_meta = get_post_meta ( $post_id );
-                            //print_r($post_meta);die();
+                            $user_id = $post->post_author;
+                            $user = get_user_by('id', $user_id);
+                            $user_meta = get_user_meta($user_id);
                     ?>
                     <div class="normal">
                     	<div class="col-md-9 col-sm-8 ">
@@ -67,23 +67,26 @@ get_header();
                                                         	<div class="budget">
                                                                 <span class="dollar-tag"></span>
                                                                 <b>
-                                                                Est. Budget: <span>$<?php echo $post_meta['_min_price'][0].' to $'.$post_meta['_max_price'][0];?></span>
+                                                                Est. Budget: <span>$<?php echo $post_meta['_price'][0];?></span>
                                                                 </b>
                                                             </div>
                                                         </div>
                                                     </div>
                                                    <div class="row">
-                                                   		<div class="col-md-12">
-													   		<?php the_content();?>
-													   </div>
+                                                   	<div class="col-md-12">
+                                                            <?php the_content();?>
+							</div> 
                                                    </div>
+                                                    <?php if(!empty($post_meta['job_attachment'][0]))
+                                                        {
+                                                        ?>
                                                    <div class="attachment">
                                                        <a href="<?php echo wp_get_attachment_url($post_meta['job_attachment'][0]);?>" target="_blank">
                                                         <i class="fa fa-paperclip"></i>
                                                         <span>Open Attachment</span>
                                                         </a>
                                                    </div>
-                                                   
+                                                    <?php } ?>
                                                    
                                                    <div class="row">
                                                    		<div class="tags">

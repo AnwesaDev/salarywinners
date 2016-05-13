@@ -54,8 +54,8 @@
             $job_description = $wpdb->escape(trim($_POST['job-description']));
             $category = $wpdb->escape(trim($_POST['job_category']));
             $skill = $wpdb->escape(trim($_POST['skill']));
-            $min_price = $wpdb->escape(trim($_POST['min-price']));
-            $max_price = $wpdb->escape(trim($_POST['max-price']));
+            $price = $wpdb->escape(trim($_POST['price']));
+            
             //$job_attachment = $_FILES['job_attachment'];
             
             $post_id = wp_insert_post(array (
@@ -71,8 +71,8 @@
                 
             // insert post meta
              
-            add_post_meta($post_id, '_min_price', $min_price);
-            add_post_meta($post_id, '_max_price', $max_price);
+            add_post_meta($post_id, '_price', $price);
+            
             
             // These files need to be included as dependencies when on the front end.
             require_once( ABSPATH . 'wp-admin/includes/image.php' );
@@ -166,12 +166,9 @@ get_header();
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class="input-box dollar form-group has-feedback">
-                                    <label for="">Price Range</label>
-                                    <strong>$</strong><input type="text" value="100.00" class="form-control" name="min-price" id="min-price" data-error="Min price is required" required="">
-                                    <div class="help-block with-errors"></div>
-                                    <em>To</em>  
-                                    <strong>$</strong><input type="text" value="100.00" class="form-control" name="max-price" id="max-price" data-error="Max Price is required" required="">
-                                    <div class="help-block with-errors"></div>
+                                    <label for="">Price</label>
+                                    <strong>$</strong><input type="text" value="100.00" class="form-control" name="price" id="price" data-error="Min price is required" required="">
+                                    <div class="help-block with-errors"></div>                                    
                                 </div>
                                 
                                 <div class="input-box attachment">
