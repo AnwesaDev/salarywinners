@@ -117,7 +117,7 @@ get_header();
 <section class="content-body post-a-job">
         	<div class="container">
             	<div class="row">
-                	<div class="col-md-8 col-sm-8">
+                	<div class="col-md-9 col-sm-8">
                     	<div class="contact-frm">
                             <div class="col-md-12">
                             	<h2 class="title">Post a Job</h2>
@@ -193,46 +193,48 @@ get_header();
 					};
 					</script>
                     <!--Side Bar-->
-                    <div class="col-md-4 col-sm-4">
-                    	<div class="sidebar">
+                    <div class="col-md-3 col-sm-4">
+                    	<div class="row">
+							<div class="sidebar">
                         
-                        	<div class="sidebar-search">
-                            	<form method="" action="">
-                                	<input type="search" placeholder="Search">
-                                    <i class="fa fa-search"></i>
-                                </form>
-                            </div>
-                            
-                            <div class="recent-post">
-                            	<h2 class="title">recent Post</h2>
-                            	<ul>
-                                    <li><a href="">Vivamus vehicula leo scelerisque</a></li>
-                                    <li><a href="">eu pharetra odio interdum.</a></li>
-                                    <li><a href="">Suspendisse nec justo a enim mattis.</a></li>
-                                    <li><a href="">parturient montes, nascetur ridiculus mus.</a></li>
-                                </ul>
-                            </div>
-                            
-                            <div class="recent-comment">
-                            	<h2 class="title">recent Comment</h2>
-                            	<ul>
-                                    <li><span class="fa fa-comment"></span><a href="">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam leo vel risus sodales condimen a molestie libero. Duis lacus est, porttitor vel cursus scelerisque, laoreet et tortor. Suspendisse sagittis massa tellus, sit amet dapibus magna mollis quis.
-                                    </a></li>
-                                </ul>
-                            </div>
-                            
-                            <div class="catagory">
-                            	<h2 class="title">catagories</h2>
-                            	<ul>
-                                    <li><a href="">Lorem ipsum dolor sit amet</a></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet</a></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet</a></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet</a></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet</a></li>
-                                </ul>
-                            </div>
-                        </div>
+								<div class="sidebar-search">
+									<form method="" action="">
+										<input type="search" placeholder="Search">
+										<i class="fa fa-search"></i>
+									</form>
+								</div>
+
+								<div class="recent-post">
+									<h2 class="title">recent Post</h2>
+									<ul>
+										<li><a href="">Vivamus vehicula leo scelerisque</a></li>
+										<li><a href="">eu pharetra odio interdum.</a></li>
+										<li><a href="">Suspendisse nec justo a enim mattis.</a></li>
+										<li><a href="">parturient montes, nascetur ridiculus mus.</a></li>
+									</ul>
+								</div>
+
+								<div class="recent-comment">
+									<h2 class="title">recent Comment</h2>
+									<ul>
+										<li><span class="fa fa-comment"></span><a href="">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam leo vel risus sodales condimen a molestie libero. Duis lacus est, porttitor vel cursus scelerisque, laoreet et tortor. Suspendisse sagittis massa tellus, sit amet dapibus magna mollis quis.
+										</a></li>
+									</ul>
+								</div>
+
+								<div class="catagory">
+									<h2 class="title">catagories</h2>
+									<ul>
+										<li><a href="">Lorem ipsum dolor sit amet</a></li>
+										<li><a href="">Lorem ipsum dolor sit amet</a></li>
+										<li><a href="">Lorem ipsum dolor sit amet</a></li>
+										<li><a href="">Lorem ipsum dolor sit amet</a></li>
+										<li><a href="">Lorem ipsum dolor sit amet</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
                     </div>
                 </div>
             </div>
