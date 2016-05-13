@@ -116,7 +116,6 @@ position: absolute;left: 80%;height: 40px; width: 41px;top: 60px;}
 .sidebar ul li{ margin:10px 0 10px 0;width: 100%; line-height: 34px; color:#fff;}
 .sidebar ul li span{ border:solid 1px #fff; border-radius:50%; text-align:center; display:table-cell; vertical-align:middle; width:34px; height:34px; color:#fff; font-size:20px; float:left; margin-right: 12px; line-height: 34px;}
 .sidebar{ margin-left:30px;}
-.post-a-job .sidebar{ margin-left:0px;}
 .content-body .sidebar.contact-info{border:solid 1px transparent; background:#8bd0bd; margin-top:50px;}
 .content-body .sidebar{background:#fff; border:solid 1px #e8e8e8;}
 .sidebar ul{ list-style:none; padding:20px 20px;}
@@ -342,7 +341,7 @@ i.location{width: 30px; height: 28px;display: inline-block;float: left;backgroun
 .paginatioon span{ position:absolute; top:32px; right:0; font-size:20px; color:#000; font-weight:bold;}
 
 .sugested-prduct{}
-.sidebar h3.title{ text-transform:uppercase; padding:15px; margin:20px 0 20px; font-size:140%; font-weight:bold;}
+.sidebar h3.title{ text-transform:uppercase; padding:15px; margin:20px 0 20px; font-size:130%; font-weight:bold;}
 .sugested-prduct a{ color:#3fbac3; text-align:center;display: block; margin: 10px 0; font-size:18px;}
 .sugested-prduct a:hover{ text-decoration:none;}
 .product-img{text-align:center;}
@@ -359,14 +358,15 @@ i.location{width: 30px; height: 28px;display: inline-block;float: left;backgroun
 .submit-proposal form .attachment label span.fa{padding-right:10px; font-size:22px;}
 .submit-proposal form input, .submit-proposal form textarea{ width:90%; margin: 0 auto; border-radius:2px; padding-left:15px;}
 .submit-proposal input[type="file"]{     width: 120px; height:45px;}
-.submit-proposal .attachment small{display:inline-block; float:none; clear:both; padding-left:15px; color:#999999; border-bottom:solid 1px #e8e8e8; padding-bottom:30px; position:relative; font-size: 12px;}
-.submit-proposal .attachment .btn-upload{top:20px; width:auto; padding: 12px 20px; font-size: 14px; right: 6px; left: auto;}
+.submit-proposal .attachment small{display:inline-block; float:none; clear:both; margin-left:15px; color:#999999; border-bottom:solid 1px #e8e8e8; padding-bottom:30px; position:relative; font-size: 12px;}
+.submit-proposal .attachment .btn-upload{top:28px; width:auto; padding: 12px 20px; font-size: 14px; right: 6px; left: auto;}
 .submit-proposal .attachment{padding-top:30px; padding-bottom:30px; width:100%; margin:0 auto;}
-.submit-proposal label small{display:block;  color:#999999; font-weight:normal; position:absolute;}
+.submit-proposal label small{display:block;  color:#999999; font-weight:normal; position:absolute; font-size: 12px;}
 .dollar strong{float: left;padding: 5px;color: #f87c32;font-family: cursive; line-height:2;}
-.submit-proposal form .dollar label{float:left; width:60%; line-height:1.3;}
-.submit-proposal form .dollar input[type="text"]{ padding-left:10px; width:30%; height:37px; border:solid #e2e2e2; border-width:3px 1px 1px 3px; border-radius:6px;}
+.submit-proposal form .dollar label{float:left; width:65%; line-height:1.3; padding-left: 15px;}
+.submit-proposal form .dollar input[type="text"]{ padding-left:6px; width:25% !important; height:37px; border:solid #e2e2e2; border-width:3px 1px 1px 3px; border-radius:6px;}
 h4.title b{color:#f87c32;}
+.submit-proposal h4.title{padding-left: 15px;}
 .submit-proposal form input[type="submit"]{ width:auto; margin: 30px 15px;; border-radius:6px; height: auto;padding: 5px 15px;}
 .submit-proposal form .input-box:nth-last-child(1) {border-top: solid 1px #e8e8e8;margin-top: 30px}
 input:focus{ outline:none;}
@@ -429,6 +429,7 @@ h3.price b{color:#f87c32; padding-left:10px; font-size:16px;vertical-align: top;
 .footer-section .social a{ text-align:center; color:#3fb9c4;}
 .footer-section .social a span{ background:#fff; border-radius:50%; width:30px; height:30px; padding:7px;}
 
+.footer-row{ max-width: 100%; margin-left: 60px; margin-right: 60px;}
 .footer-section .footer-nav{margin: 24px 0;}
 .footer-section .footer-nav ul{ margin:0; padding:0; list-style:none;}
 .footer-section .footer-nav ul li{ float:left; margin:10px 0 10px;}

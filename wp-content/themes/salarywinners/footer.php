@@ -16,8 +16,7 @@
             	<div class="social">
                 	<?php if ( function_exists('cn_social_icon') ) echo cn_social_icon(); ?>
                 </div>
-                <div class="container">
-					<div class="row">
+                <div class="footer-row">
 						<div class="col-md-6">
 							<div class="row">
 								<div class="footer-nav">
@@ -40,7 +39,6 @@
 							   </div>
 							</div>
 						</div>
-					</div>
 				</div>
             </div>
         </footer>
