@@ -69,7 +69,7 @@ function salarywinners_add_metabox_icon_block() {
         //-----------------Job Post Price Rage----------------------
         $cmb_job = new_cmb2_box( array(
 		'id'           => $prefix . 'job_post_price',
-		'title'        => __( 'Price Range', 'salarywinners' ),
+		'title'        => __( 'Job Price', 'salarywinners' ),
 		'object_types' => array( 'sw_job' ),
 		'context'      => 'normal',
 		'priority'     => 'default',
@@ -77,16 +77,12 @@ function salarywinners_add_metabox_icon_block() {
 	) );
         
         $cmb_job->add_field( array(
-		'name' => __( 'Min Price', 'salarywinners' ),
-		'id'   => '_min_price',
+		'name' => __( 'Price', 'salarywinners' ),
+		'id'   => '_price',
 		'type' => 'text',
 	) );
         
-        $cmb_job->add_field( array(
-		'name' => __( 'Max Price', 'salarywinners' ),
-		'id'   => '_max_price',
-		'type' => 'text',
-	) );
+        
         //---------------Job post attachment-----------------
         $cmb_job_attachment = new_cmb2_box( array(
 		'id'           => $prefix . 'job_post_attachment',

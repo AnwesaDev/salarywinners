@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 // Register Custom Taxonomy
-function sw_taxonomy_category() {
+function sw_taxonomy_product_category() {
 
 	$labels = array(
 		'name'                       => _x( 'Categories', 'Taxonomy General Name', 'salarywinners' ),
@@ -39,7 +39,7 @@ function sw_taxonomy_category() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( SW_TX_CATEGORY, array( SW_PT_JOB ), $args );
+	register_taxonomy( SW_TX_PRODUCT_CATEGORY, array( SW_PT_PRODUCT ), $args );
 
 }
-add_action( 'init', 'sw_taxonomy_category', 0 );
+add_action( 'init', 'sw_taxonomy_product_category', 0 );
