@@ -16,7 +16,7 @@ define(SW_PT_PRODUCT,'sw_product');
 
 define(SW_TX_CATEGORY,'sw_category');
 define(SW_TX_SKILL,'sw_skill');
-
+define(SW_TX_PRODUCT_CATEGORY,'sw_product_category');
 // Include Anwesa Infotech core
 require dirname( __FILE__ ) . '/ai-core/bootstrap.php';
 
@@ -27,9 +27,12 @@ if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/theme-options
 
 // Include Post Types and Taxonomies
     require_once(dirname( __FILE__ ) . '/post-types/job.php');
+    require_once(dirname( __FILE__ ) . '/post-types/product.php');
+    require_once(dirname( __FILE__ ) . '/post-types/profile.php');
     
     require_once(dirname( __FILE__ ) . '/taxonomies/job-category.php');
     require_once(dirname( __FILE__ ) . '/taxonomies/job-skill.php');
+    require_once(dirname( __FILE__ ) . '/taxonomies/product-category.php');
 // Include app classes
 require dirname( __FILE__ ) . '/class/mail.php';
 

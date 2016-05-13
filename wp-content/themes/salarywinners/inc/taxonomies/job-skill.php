@@ -35,7 +35,7 @@ function sw_taxonomy_skill() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( SW_TX_SKILL, array( 'sw_job' ), $args );
+	register_taxonomy( SW_TX_SKILL, array( SW_PT_JOB ), $args );
 
 }
 add_action( 'init', 'sw_taxonomy_skill', 0 );

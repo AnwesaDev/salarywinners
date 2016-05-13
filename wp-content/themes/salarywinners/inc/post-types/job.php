@@ -7,7 +7,7 @@ function sw_post_job() {
 	$labels = array(
 		'name'                  => _x( 'Jobs', 'Post Type General Name', 'salarywinners' ),
 		'singular_name'         => _x( 'Job', 'Post Type Singular Name', 'salarywinners' ),
-		'menu_name'             => __( 'Job', 'salarywinners' ),
+		'menu_name'             => __( 'Jobs', 'salarywinners' ),
 		'name_admin_bar'        => __( 'Jobs', 'salarywinners' ),
 		'archives'              => __( 'Job Archives', 'salarywinners' ),
 		'parent_item_colon'     => __( 'Parent Item:', 'salarywinners' ),
