@@ -19,7 +19,7 @@
     } //if
     //print_r($query_args_array);
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    $args = array('post_type' => 'sw_job');
+    $args = array('post_type' => 'sw_job',);
     if(!empty($query_args_array['job_category']))
     {
        $args['tax_query'] = array(array('taxonomy' => 'sw_category',
@@ -48,15 +48,16 @@
         // query arguments
        
              $authors = implode(',', $lister_ids);
-             print_r($authors);
-             if(!empty($authors))
+             //print_r($authors);
+             if(($authors)!='')
             {
-             $args['author__in'] = $authors; 
+             $args['author'] = $authors; 
+             //echo $args['who'];
             }
             else
             {
-            //echo 'no';
-            $args['author__in'] = array();     
+            $st = 'no';
+              //$args['author'] = 0;  
             }
         
     }
@@ -84,7 +85,12 @@
      
     }
     //print_r($args);
-    $jobs = new WP_Query($args);
+    if($st == 'no')
+    {
+        $args = null;
+    }
+ 
+    $jobs = new WP_Query($args); 
     get_header();
 ?>
     <section class="content-body job-listing">
@@ -420,8 +426,11 @@
                         	<div class="row">
                                 <div class="content">
                                     <?php if($jobs->have_posts()):                                  
-                                    
+                                            $i=0;
                                         while ( $jobs->have_posts() ) : $jobs->the_post(); 
+                                            $i++;
+                                            if($i>0)
+                                            {
                                         $post_id = get_the_ID ();
                                         $post_meta = get_post_meta ( $post_id );
                                         $user_id = $post->post_author;
@@ -482,14 +491,14 @@
                                                    		<div class="tags">
                                                             <span>Skill:</span>
                                                             <?php
-                                                                echo get_the_term_list($post_id, 'sw_skill', '<ul><li>', '</li><li>', '</li></ul>' );
+                                                                echo strip_tags(get_the_term_list($post_id, 'sw_skill', '<ul><li>', '</li><li>', '</li></ul>' ),'<ul><li>');
                                                             ?>
                                                         </div>
                                                         
                                                         <div class="tags">
                                                             <span>Category:</span>
                                                             <?php
-                                                                echo get_the_term_list($post_id, 'sw_category', '<ul><li>', '</li><li>', '</li></ul>' );
+                                                                echo strip_tags(get_the_term_list($post_id, 'sw_category', '<ul><li>', '</li><li>', '</li></ul>' ),'<ul><li>');
                                                             ?>
                                                         </div>
                                                    </div>
@@ -498,7 +507,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                        <?php endwhile;?>
+                                        <?php
+                                            }
+                                            else
+                                            {
+                                                echo "no result found.";
+                                            }
+                                        endwhile;?>
                                     <?php endif;?>
                                     
                                    
@@ -509,7 +524,8 @@
                                 
                                 <div class="paginatioon">                               	
                                    
-                                    <?php echo paginate_links( array('type'=>'plain','prev_text'=>'<','next_text'=>'>')); ?>
+                                    <?php echo paginate_links( array('type'=>'plain','prev_text'=>'<','next_text'=>'>','current' => max( 1, $paged ),
+                'total' => $jobs->max_num_pages)); ?>
                                     
                                 </div>
                             </div>
