@@ -99,14 +99,14 @@ get_header();
                                                                 <li>Adobe Photoshop</li>
                                                             </ul>-->
                                                             <?php
-                                                                echo get_the_term_list($post_id, 'sw_skill', '<ul><li>', '</li><li>', '</li></ul>' );
+                                                                echo strip_tags(get_the_term_list($post_id, 'sw_skill', '<ul><li>', '</li><li>', '</li></ul>' ),'<ul><li>');
                                                             ?>
                                                         </div>
                                                         
                                                         <div class="tags">
                                                             <span>Category:</span>
                                                              <?php
-                                                                echo get_the_term_list($post_id, 'sw_category', '<ul><li>', '</li><li>', '</li></ul>' );
+                                                                echo strip_tags(get_the_term_list($post_id, 'sw_category', '<ul><li>', '</li><li>', '</li></ul>' ),'<ul><li>');
                                                             ?>
                                                         </div>
                                                    </div>
