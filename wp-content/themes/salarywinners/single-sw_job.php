@@ -33,7 +33,7 @@ get_header();
                                                     <img src="<?php echo get_template_directory_uri(); ?>/images/profile-image.png" class="img-circle img-responsive" alt="" title="">
                                                 <?php else: ?>
                                                  <?php $avatar_data = wp_get_attachment_image_src($user_meta['avatar'][0]); ?>
-                                                    <figure><img src="<?php echo $avatar_data[0]; ?>" class="img-circle" alt="" title=""></figure>
+                                                    <figure><img src="<?php echo $avatar_data[0]; ?>" class="img-circle img-responsive" alt="" title=""></figure>
                                                 <?php endif; ?>
                                             </div>
                                             <div class="col-md-9 col-sm-9 col-xs-12">
