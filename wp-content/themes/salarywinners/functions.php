@@ -347,7 +347,7 @@ function wp_bs_pagination($pages = '', $range = 4)
          global $wp_query; 
  
 		 $pages = $wp_query->max_num_pages;
-                  echo $pages;die();
+                  //echo $pages;die();
          if(!$pages)
  
          {
