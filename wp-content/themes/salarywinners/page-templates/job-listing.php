@@ -19,7 +19,9 @@
     } //if
     //print_r($query_args_array);
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    $args = array('post_type' => 'sw_job',);
+    $args = array('post_type' => 'sw_job',
+                  
+        );
     if(!empty($query_args_array['job_category']))
     {
        $args['tax_query'] = array(array('taxonomy' => 'sw_category',
@@ -522,10 +524,13 @@
                                     
                                 </div>
                                 
-                                <div class="paginatioon">                               	
-                                   
-                                    <?php echo paginate_links( array('type'=>'plain','prev_text'=>'<','next_text'=>'>','current' => max( 1, $paged ),
-                'total' => $jobs->max_num_pages)); ?>
+                                <div class="">                               	
+                                   <?php if (function_exists("wp_bs_pagination"))
+                                    {
+                                         //wp_bs_pagination($the_query->max_num_pages);
+                                         wp_bs_pagination($jobs->max_num_pages);
+                                     }
+                                    ?>
                                     
                                 </div>
                             </div>
