@@ -334,9 +334,10 @@ i.location{width: 30px; height: 28px;display: inline-block;float: left;backgroun
 .paginatioon ul{ list-style:none; width:100%; margin-top:30px; text-align:center;display: inline-block;
 }
 
-ul.pagination li.active span{ background:#f87c32; border-color: #f87c32;}
+ul.pagination li.active span{ background:#f87c32; border-color: #f87c32; }
 ul.pagination li.active:hover span{ background:#f87c32;}
-ul.pagination li.disabled span{background: #fff;}
+ul.pagination li.disabled span{background: #fff; color: #333}
+.pagination > li > a{color: #333;}
 
 .sugested-prduct{}
 .sidebar h3.title{ text-transform:uppercase; padding:15px; margin:20px 0 20px; font-size:120%; font-weight:bold;}
