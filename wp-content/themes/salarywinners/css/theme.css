@@ -315,14 +315,14 @@ form input[type="checkbox"]:checked {background:url(../images/checkbox.png) no-r
 .job-author-name b{color:#3fbac3; font-size:18px; line-height:2;}
 .job-location b{line-height:2.5;}
 i.location{width: 30px; height: 28px;display: inline-block;float: left;background: url(../images/sprite.png) no-repeat 0% 22%;}
-.clock{width: 30px; height: 28px;display: inline-block;float: left;background:url(../images/others-icon.png) no-repeat 0% 0%;}
+.clock{width: 30px; height: 28px;display: inline-block;float: left;background:url(../images/others-icon.png) no-repeat -20% 0%;}
 .rating{line-height:2;}
 .rating em{padding:3px 10px; background:#f67c3d; border-radius:5px; color:#fff;}
 .rating span{color:#f67c3d;}
 .date b{font-size:13px; line-height:2;}
 .budget b{font-size:13px; line-height:2;}
 .budget b span{color:#f67c3d;}
-.dollar-tag{width: 30px; height: 28px;display: inline-block;float: left;background:url(../images/others-icon.png) no-repeat 13% 0%;}
+.dollar-tag{width: 30px; height: 28px;display: inline-block;float: left;background:url(../images/others-icon.png) no-repeat 100% 0%;margin-right: 10px;}
 .dollar .help-block{margin-bottom: 0; margin-top: 0;}
 .job-listing .content p{border:none;}
 .job-listing .tags ul li{ font-size:12px;}
@@ -333,15 +333,13 @@ i.location{width: 30px; height: 28px;display: inline-block;float: left;backgroun
 .paginatioon{ width:300px; margin:0 auto; position:relative;}
 .paginatioon ul{ list-style:none; width:100%; margin-top:30px; text-align:center;display: inline-block;
 }
-.paginatioon ul li{ float:left; margin: 0 5px;  padding:3px 5px;}
-.paginatioon ul li.active{ background:#f87c32;}
-.paginatioon ul li.active a{color:#fff;}
-.paginatioon ul li a{color:#666;  padding:3px 5px; text-decoration:none; text-align:center; font-size:20px;}
-.paginatioon ul li a:hover{}
-.paginatioon span{ position:absolute; top:32px; right:0; font-size:20px; color:#000; font-weight:bold;}
+
+ul.pagination li.active span{ background:#f87c32; border-color: #f87c32;}
+ul.pagination li.active:hover span{ background:#f87c32;}
+ul.pagination li.disabled span{background: #fff;}
 
 .sugested-prduct{}
-.sidebar h3.title{ text-transform:uppercase; padding:15px; margin:20px 0 20px; font-size:130%; font-weight:bold;}
+.sidebar h3.title{ text-transform:uppercase; padding:15px; margin:20px 0 20px; font-size:120%; font-weight:bold;}
 .sugested-prduct a{ color:#3fbac3; text-align:center;display: block; margin: 10px 0; font-size:18px;}
 .sugested-prduct a:hover{ text-decoration:none;}
 .product-img{text-align:center;}
@@ -538,3 +536,4 @@ a.on-mobile img{width:70%;}
 .slider.slider-horizontal{width:60% !important; margin-top:10px;}
 .slider.slider-horizontal .slider-track{background:#999;}
 .slider-selection{background:#666 !important;}
+.slider-handle{background: #f67c3d; border: solid 1px transparent;}
