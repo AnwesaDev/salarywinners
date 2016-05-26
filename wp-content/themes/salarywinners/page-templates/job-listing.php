@@ -1,9 +1,6 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/** 
+ * 
  * Template Name: Job Listing
  */
 
@@ -25,6 +22,19 @@
         'post_type' => 'sw_job',
         'paged' => $paged // required for pagination
         ); 
+    
+    if(isset($query_args_array['job_category']) && !empty($query_args_array['job_category'])){
+        $tax_query[] = array(
+            'taxonomy' => 'sw_category',
+            'field' => 'id',
+            'terms' => $query_args_array['job_category']
+        );
+    }
+    
+    if(!empty($tax_query)){
+        $args['tax_query'] = $tax_query;
+    }
+    
     $jobs = new WP_Query($args); 
 
     get_header();
@@ -454,9 +464,9 @@
                                 </div>
                                 
                                 <div class="">                               	
-                                   <?php if (function_exists("wp_bs_pagination"))
+                                   <?php if (function_exists("sw_pagination"))
                                     {
-                                        wp_bs_pagination($jobs->max_num_pages);
+                                        sw_pagination($jobs->max_num_pages);
                                     }
                                     ?>
                                    
