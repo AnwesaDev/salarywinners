@@ -18,12 +18,12 @@ get_header();
                     	<img src="<?php echo get_template_directory_uri();?>/images/or.png" alt="" title="">
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                   	  <div class="c-box">
-                        	<div class="icon-holder">
+                   	<div class="c-box">
+                            <div class="icon-holder">
                             	<img src="<?php echo get_template_directory_uri();?>/images/providers.jpg" alt="" title="">
                             </div>
                             <div class="descrption">
-                            	<h2 class="title">I'm a Service providers/Sellers</h2>
+                            	<h2 class="title">I'm a Service provider/Seller</h2>
                             </div>
                               <a class="btn-work btn" href="<?php echo esc_url(ai_get_page_link('signup-provider')); ?>">work</a>
                         </div>

@@ -65,9 +65,54 @@
         
     }
     
+    $meta_query  = array();
+    $min = $max = 0;
+    if(isset($query_args_array['min']) && !empty($query_args_array['min'])){
+       
+        if(is_numeric($query_args_array['min'])){
+            $min = (int) $query_args_array['min'];
+        }
+        
+        if(isset($query_args_array['max']) && !empty($query_args_array['max'])){
+            if(is_numeric($query_args_array['max'])){
+                $max = (int) $query_args_array['max'];
+            }
+        }
+        
+        if($max > 0 ){
+            // between clause
+            $meta_query = array(
+                        'relation' => 'AND',
+                        array(
+                                'key'     => '_price',
+                                'value'   => array($min,$max),
+                                'compare' => 'BETWEEN',
+                                'type'    => 'numeric'
+                        )
+                );
+            
+        } else {
+            // min
+            $meta_query = array(
+                'relation' => 'AND',
+                array(
+                    'key'   => '_price',
+                    'value' => $min,
+                    'compare' => '>=',
+                    'type'  => 'numeric',
+                ),
+            );
+        }
+    }
+    
     if(!empty($tax_query)){
         $args['tax_query'] = $tax_query;
     }
+    
+    if(!empty($meta_query)){
+        $args['meta_query'] = $meta_query;
+    }
+    
     //print_r($args);
     $jobs = new WP_Query($args); 
 
@@ -79,13 +124,13 @@
                 	<div class="filter-section">
                             <div class="filter-tab adv-filter"><p>Advanced filters</p></div>
                                 <form name="form-search" id="form-search" method="get" >
-                                    <div class="filter-tab">
-                        	<div class="form-group">
-                            	<label>keywords:</label>
-                                <input type="text" placeholder="keywords" value="<?php echo $getKeyword; ?>" name="keywords" id="keywords" class="form-control">
-                                <i class="fa fa-search"></i>
-                            </div>
-                        </div>
+                                <div class="filter-tab">
+                                    <div class="form-group">
+                                    <label>keywords:</label>
+                                        <input type="text" placeholder="keywords" value="<?php echo $getKeyword; ?>" name="keywords" id="keywords" class="form-control">
+                                        <i class="fa fa-search"></i>
+                                    </div>
+                                </div>
                                     <div class="filter-tab">
                         	<div class="form-group">
                             	<label>Category:</label>
@@ -116,8 +161,8 @@
                                 <i class="fa fa-angle-down"></i>
                             </div>
                         </div>
-                                    <div class="filter-tab">
-                        	<div class="form-group">
+                        <div class="filter-tab">
+                            <div class="form-group">
                             	<label>Location:</label>     
                                 <?php sw_dropdown_country(
                                         array(
@@ -127,30 +172,20 @@
                                             'selected' => $selectedCountry,
                                             'blank'=>'Select Country',
                                             )); ?>
-                                <i class="fa fa-angle-down"></i>
+<!--                                <i class="fa fa-angle-down"></i>-->
                             </div>
                         </div>
-                                    <div class="filter-tab">
-                        	<div class="form-group">
-<!--                            	<label>Rating:</label>
-                                <select type="search" placeholder="" class="form-control">
-                                	<option selected>Location</option>
-                                    <option>Location</option>
-                                    <option>Location</option>
-                                    <option>Location</option>
-                                </select>
-                                <i class="fa fa-angle-down"></i>-->
-<!--
--->				<label>Price($):</label>
-<input id="ex2" type="text" class="span2" value="" data-slider-min="0" data-slider-max="10000" data-slider-step="5" data-slider-value="<?php if(!empty($query_args_array['price'])){ ?>[<?php echo $min_price;?>,<?php echo $max_price;?>]<?php } else { ?>[0,0]<?php } ?>" name="price" >
-
-
-<!--								please include bootstrap slider.css and bootstrap-slider.js-->
+                        <div class="filter-tab">
+                            <div class="form-group">
+				<label>Price($):</label>
+                                <input type="number" value="<?php echo $min; ?>" name="min" class="form-control input-range">
+                                <b class="f-left">-</b>
+                                <input type="number" value="<?php echo $max; ?>" name="max" class="form-control input-range">
                             </div>
                         </div>
-                                    <div class="filter-tab">
+                        <div class="filter-tab">
                         	<a href="">X</a>
-                            <small>Clear All</small>
+<!--                            <small>Clear All</small>-->
                         </div>
                                 </form>
                             </div>
@@ -334,7 +369,7 @@
         </section>
 <script>
     jQuery(document).ready(function($){
-        $("#keywords").keypress(function(event) {
+        $("#keywords, .input-range").keypress(function(event) {
             if (event.which == 13) {
             event.preventDefault();
             $("form").submit();

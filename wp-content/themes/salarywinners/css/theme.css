@@ -297,16 +297,19 @@ form input[type="checkbox"]:checked {background:url(../images/checkbox.png) no-r
 .c-box .btn-work{padding:5px 35px;}
 /*Job Listing*/
 .filter-section{width:100%; background:#fff; border:solid 1px #e8e8e8; display:inline-block;}
-.filter-tab{ width:20%; float:left; border-right:solid 1px #e8e8e8; height:45px; position:relative; padding: 5px;}
+.filter-tab{ width:21%; float:left; border-right:solid 1px #e8e8e8; height:45px; position:relative; padding: 5px;}
 .filter-tab label{width:35%; float:left; line-height:3; text-transform:uppercase; font-size:12px;}
 .filter-tab p{line-height:2;}
 .filter-tab input, .filter-tab select{width:60%; height:34px; border-radius:0; padding-right:20px;}
 .filter-tab select{-moz-appearance:none; -webkit-appearance:none; border: 1px solid #ccc;}
 .filter-tab i{position:absolute;right: 20px;top: 7px; padding: 5px;}
-.filter-tab:nth-last-child(1){width:8%; border-right:none;}
+.filter-tab:nth-last-child(1){width:4%; border-right:none;}
 .filter-tab.adv-filter{width:12%; text-align:center;}
 .filter-tab a{border:solid 1px #eaeaea; padding:4px; border-radius:50%; width:24px; height:24px; display:inline-block; text-align: center; margin-top:6px; color:#eaeaea;}
 .filter-tab a:hover{text-decoration:none; color:#333; border-color:#333;}
+.filter-tab .input-range {padding: 0 0 0 10px; width:60px; float: left;}
+.filter-tab .input-range:nth-lats-child(1){float: right !important;}
+.filter-tab b.f-left{float: left; padding: 6px;}
 .job-listing .content{margin-top:50px;}
 .job-listing .content h3.title{ color:#3fbac3;}
 .job-listing .content .normal{margin-top:30px;}
@@ -538,3 +541,6 @@ a.on-mobile img{width:70%;}
 .slider.slider-horizontal .slider-track{background:#999;}
 .slider-selection{background:#666 !important;}
 .slider-handle{background: #f67c3d; border: solid 1px transparent;}
+.filter-tab .select2-container--default .select2-selection--single{height: 34px; border-radius: 0;}
+.filter-tab .select2-container--default .select2-selection--single .select2-selection__rendered{line-height: 23px}
+.filter-tab  .select2-container--default .select2-selection--single .select2-selection__arrow{margin-top: -6px;}

@@ -1,7 +1,5 @@
 <?php
-
 /**
- * 
  * Template Name: Post a Job
  */
     
