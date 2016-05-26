@@ -17,87 +17,16 @@
                     $query_args_array[$query_split[0]] = urldecode($query_split[1]);
             } // foreach
     } //if
-    //print_r($query_args_array);
+    
+    print_r($query_args_array);
+    
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    $args = array('post_type' => 'sw_job'
-                  
-        );
-    if(!empty($query_args_array['job_category']))
-    {
-       $args['tax_query'] = array(array('taxonomy' => 'sw_category',
-                                    'field'  => 'id',
-                                    'terms'  => $query_args_array['job_category'],
-          ) );
-      
-    }
-    if(!empty($query_args_array['keywords']))
-    {
-        $args['search'] = $query_args_array['keywords'];
-       //$args['s'] = 'uk'; 
-    }
-    if(!empty($query_args_array['country']))
-    {        
-        $user_search = new WP_User_Query( array(
-        'meta_key' => 'country' , 
-        'meta_value' => $query_args_array['country']
-        ));
-            $listers = $user_search->get_results();
-            $lister_ids = array();
-            foreach($listers as $lister) {
-                $lister_ids[] = $lister->ID;
-            }
-       //print_r($listers);
-        // query arguments
-       
-             $authors = implode(',', $lister_ids);
-             //print_r($authors);
-             if(($authors)!='')
-            {
-             $args['author'] = $authors; 
-             //echo $args['who'];
-            }
-            else
-            {
-            $st = 'no';
-              //$args['author'] = 0;  
-            }
-        
-    }
-    if(!empty($query_args_array['price']))
-    {
-        $price = explode(',',$query_args_array['price']);
-        $min_price = $price[0];
-        $max_price = $price[1];
-       $args['meta_query'] = 
-                        array(
-                                'relation' => 'AND',
-                                array(
-                                        'key'     => '_price',
-                                        'value'   => array($min_price,$max_price),
-                                        'compare' => 'BETWEEN',
-                                        'type'    => 'numeric'
-                                ),
-//                                array(
-//                                        'key'     => '_price',
-//                                        'value'   => $min_price,
-//                                        'compare' => '=>',
-//                                        'type'    => 'numeric'
-//                                )
-                        );      
-     
-    }
-    //print_r($args);
-    if($st == 'no')
-    {
-        $args = null;
-    }
- 
+    $args = array(
+        'post_type' => 'sw_job',
+        'paged' => $paged // required for pagination
+        ); 
     $jobs = new WP_Query($args); 
-//    $jobs = new WP_Query(array('post_type' => 'sw_job',
-//        's' => 'Mukti',
-//        //'search_columns'  => array('post_title')
-//                  
-//        ));
+
     get_header();
 ?>
     <section class="content-body job-listing">
@@ -527,9 +456,8 @@
                                 <div class="">                               	
                                    <?php if (function_exists("wp_bs_pagination"))
                                     {
-                                         //wp_bs_pagination($the_query->max_num_pages);
-                                         wp_bs_pagination($jobs->max_num_pages);
-                                     }
+                                        wp_bs_pagination($jobs->max_num_pages);
+                                    }
                                     ?>
                                    
                                 </div>
