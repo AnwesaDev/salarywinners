@@ -1,9 +1,7 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * 
  * Template Name: Post a Job
  */
     
@@ -80,15 +78,18 @@
             require_once( ABSPATH . 'wp-admin/includes/media.php' );
             // Let WordPress handle the upload.
             // Remember, 'avatar' is the name of our file input.
-            $attachment_id = media_handle_upload( 'job_attachment', 0 );
+            $attachment_id = media_handle_upload( 'job_attachment', $post_id );
             if ( !is_wp_error( $attachment_id ) ) {
                 add_post_meta($post_id, 'job_attachment', $attachment_id); 
-                $image_data = wp_get_attachment_image_src($attachment_id);
-                if(!is_wp_error($image_data)){
-                    $picture_url = $image_data[0];
+                $attachment_id = wp_get_attachment_url($attachment_id);
+                
+                if($attachment_id){
+                    //
+                } else {
+                    
                 }
             } else {
-                $erroe = true;
+                $error = true;
                 $message = 'problem to upload attachment';
             }
             //print_r($attachment_id);die();
@@ -167,14 +168,14 @@ get_header();
                                 </div>
                                 <div class="input-box dollar form-group has-feedback">
                                     <label for="">Price</label>
-                                    <strong>$</strong><input type="text" value="100.00" class="form-control" name="price" id="price" data-error="Min price is required" required="">
+                                    <strong>$</strong><input type="text" value="0.00" class="form-control" name="price" id="price" data-error="Min price is required" required="">
                                     <div class="help-block with-errors"></div>                                    
                                 </div>
                                 
                                 <div class="input-box attachment">
                                     <strong for=""><span class="fa fa-paperclip"></span>attachment</strong>
                                     <button class="disabled btn-upload">Choose file</button>
-                                    <input  type="file" value="" id="job_attachment" name="job_attachment">
+                                    <input  type="file" value="" id="job_attachment" name="job_attachment" accept=".pdf,.doc, .docs, .png, .jpeg">
                                     <small>(Fileformat: PDF, DOC, DOCX, PNG, JPEG)</small>
                                 </div>
                                 

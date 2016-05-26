@@ -310,8 +310,9 @@ function sw_dropdown_country($args = array()){
     
     echo '<select name="'.$args['name'].'" id="'.$args['id'].'" class="'.$args['class'].'" '.$markMultiselect.' '.$markDisabled.' >';
     if(!empty($args['blank'])){
-        echo '<option>'.$args['blank'].'</option>';
+        echo '<option value="">'.$args['blank'].'</option>';
     }
+    
     foreach($country as $key=>$value){
         $markSelected = '';
         if($key == $args['selected']){
