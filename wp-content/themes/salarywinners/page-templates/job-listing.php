@@ -172,7 +172,6 @@
                                             'selected' => $selectedCountry,
                                             'blank'=>'Select Country',
                                             )); ?>
-<!--                                <i class="fa fa-angle-down"></i>-->
                             </div>
                         </div>
                         <div class="filter-tab">
@@ -313,7 +312,7 @@
                                     <h3 class="title">suggested products</h3>
                                     <div class="sugested-prduct">
                                     	<div class="product-img">
-                                            <a href=""><img src="images/style-report.jpg" alt="" title=""></a>
+                                            <a href=""><img src="<?php echo get_template_directory_uri(); ?>/images/style-report.jpg" alt="" title=""></a>
                                         </div>
                                         <a href="">Personality style report</a>
                                         <div class="rating">
@@ -328,7 +327,7 @@
                                     
                                     <div class="sugested-prduct">
                                     	<div class="product-img">
-                                            <a href=""><img src="images/style-report.jpg" alt="" title=""></a>
+                                            <a href=""><img src="<?php echo get_template_directory_uri(); ?>/images/style-report.jpg" alt="" title=""></a>
                                         </div>
                                         <a href="">Personality style report</a>
                                         <div class="rating">
@@ -343,7 +342,7 @@
                                     
                                     <div class="sugested-prduct">
                                     	<div class="product-img">
-                                            <a href=""><img src="images/style-report.jpg" alt="" title=""></a>
+                                            <a href=""><img src="<?php echo get_template_directory_uri(); ?>/images/style-report.jpg" alt="" title=""></a>
                                         </div>
                                         <a href="">Personality style report</a>
                                         <div class="rating">
