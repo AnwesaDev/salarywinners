@@ -36,6 +36,7 @@ function sw_dropdown_country($args = array()){
         'class' => '',
         'selected' => false,
         'blank' => '',
+        'required' => '',
         'multiselect' => false,
         'disabled'  => false,
         'extra' => ''
@@ -308,7 +309,13 @@ function sw_dropdown_country($args = array()){
         $markDisabled = '';
     }
     
-    echo '<select name="'.$args['name'].'" id="'.$args['id'].'" class="'.$args['class'].'" '.$markMultiselect.' '.$markDisabled.' >';
+    if($args['required']){
+        $markRequired = 'required';
+    } else {
+        $markRequired = '';
+    }
+    
+    echo '<select name="'.$args['name'].'" id="'.$args['id'].'" class="'.$args['class'].'" '.$markMultiselect.' '.$markDisabled.' '.$markRequired.' >';
     if(!empty($args['blank'])){
         echo '<option value="">'.$args['blank'].'</option>';
     }
