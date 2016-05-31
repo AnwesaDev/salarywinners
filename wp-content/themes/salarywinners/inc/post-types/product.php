@@ -33,7 +33,7 @@ function sw_post_product() {
 		'description'           => __( 'Product Description', 'salarywinners' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'excerpt', ),
-		'taxonomies'            => array( 'sw_category', 'sw_skill' ),
+		'taxonomies'            => array( SW_TX_PRODUCT_CATEGORY, 'sw_skill' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,

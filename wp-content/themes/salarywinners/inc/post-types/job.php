@@ -36,7 +36,7 @@ function sw_post_job() {
 		'description'           => __( 'Job Description', 'salarywinners' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'excerpt', ),
-		'taxonomies'            => array( 'sw_category', 'sw_skill' ),
+		'taxonomies'            => array( SW_TX_CATEGORY, SW_TX_SKILL ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
