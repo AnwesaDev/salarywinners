@@ -383,5 +383,56 @@ jQuery(document).ready(function($) {
         }
         
     });
+    ///Price Slider of Job Listing
 	$("#ex2").slider({});
+        
+     ///Create product from provider
+    $('#form-create-product').validator().on('submit',function(e){       
+        if (e.isDefaultPrevented()) {
+            // handle the invalid form...
+            console.log('something is wrong');
+        } else {
+            // everything looks good!
+              // everything looks good!
+//            var data = {
+//                action: 'update_customer_about',
+//                values: $('#form-customer-about').serializeArray(),
+//            };
+            
+            var formData = new FormData($('#form-create-product')[0]);
+
+            $.ajax({
+                url:sw.ajaxurl + '?action=create_product',
+                type: 'POST',
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                success: function(response){
+                    console.log(response);
+                    var notifyClass = 'info';
+                    if(response.success == false){
+                        notifyClass = 'error';
+                        
+                    } else {
+                       
+                        notifyClass = 'success';
+                    }
+                    
+                    $.notifyBar({
+                        cssClass: notifyClass,
+                        html: response.data['message'],
+                        close: true,
+                        delay: 100000,
+                        closeOnClick: false
+                    });
+                },
+                error: function(e){
+
+                }
+            });
+            e.preventDefault();
+        }
+        
+    });
 });

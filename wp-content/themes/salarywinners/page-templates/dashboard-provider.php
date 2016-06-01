@@ -268,9 +268,83 @@ get_header();
                                 <div id="creat_product" class="tab-pane fade">
                                 	<div class="content-head">
                                         <div class="col-xs-8"><h2 class="title">creat a product</h2></div>
-                                        <div class="col-xs-4"><button class="btn btn-edit pull-right">edit</button></div>
+                                        <!--<div class="col-xs-4"><button class="btn btn-edit pull-right">edit</button></div>-->
                                     </div>
-                                    <div class=""></div>
+                                    <div class="contact-frm">
+                                        <form action="" id="form-create-product" method="post" data-toggle="validator" role="form" name="form-create-product">                                          
+                                            <div class="input-box form-group has-feedback">
+                                                <label>Product Title</label>
+                                                <input type="text" placeholder="Product Title" class="form-control" name="product_title" id="product_title" data-error="Product Title is required" required>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                            <div class="input-box form-group has-feedback">
+                                                <label>Product Description</label>
+                                                <textarea placeholder="Product Description" class="form-control" name="product_description" id="product_description" rows="10"   data-error="Product Description is required" required></textarea>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                            <div class="attachment ">
+                                            	<label class="sub-label">Product Image</label>
+                                                <button class="disabled btn-upload" >Choose file</button>
+                                                 <input type="file" placeholder="" name="product_image" id="product_image">
+                                                 <small class="imgae-format">(Fileformat: PNG, JPEG)</small>
+                                            </div>
+                                            
+                                            <div class="input-box form-group has-feedback">
+                                                <label for="">Category</label>
+                                                                <?php
+                                                            $args = array(
+                                                                    'show_option_all'    => '',
+                                                                    'show_option_none'   => 'Select Category',
+                                                                    'option_none_value'  => '-1',
+                                                                    'orderby'            => 'ID', 
+                                                                    'order'              => 'ASC',
+                                                                    'show_count'         => 0,
+                                                                    'hide_empty'         => 0, 
+                                                                    'child_of'           => 0,
+                                                                    'exclude'            => '',
+                                                                    'echo'               => 1,
+                                                                    'selected'           => 0,
+                                                                    'hierarchical'       => 0, 
+                                                                    'name'               => 'product_category',
+                                                                    'id'                 => 'product_category',
+                                                                    'class'              => '',
+                                                                    'depth'              => 0,
+                                                                    'tab_index'          => 0,
+                                                                    'taxonomy'           => SW_TX_PRODUCT_CATEGORY,
+                                                                    'hide_if_empty'      => false,
+                                                                    'value_field'	 => 'term_id',	
+                                                                );
+                                                    wp_dropdown_categories( $args );
+                                                    ?>
+                                            </div>
+                                            <div class="input-box form-group has-feedback">
+                                                <label for="">Keywords</label>
+                                                <input type="text" placeholder="Keywords" name="keywords" id="keywords">
+                                            </div>
+                                            <div class="input-box dollar form-group has-feedback">
+                                                <label for="">Price</label>
+                                                <strong>$</strong><input type="text" value="0.00" class="form-control" name="price" id="price" data-error="Price is required" required="">
+                                                <div class="help-block with-errors"></div>                                    
+                                            </div>
+                                            <div class="input-box form-group has-feedback">
+                                                <label>Country/Countries</label>
+                                                <?php sw_dropdown_country(array(
+                                                    'name' => 'country',
+                                                    'id' => 'country',
+                                                    'class' => 'form-control',
+                                                    'multiselect' => true,
+                                                    'blank' => 'Select Country',
+                                                    'required' => 'required'
+                                                )); ?>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                            
+                                            <div class="input-box end-section form-group">
+                                            	<label></label>
+                                                <input type="submit" value="Save Settings" id="btn-create-product-save" >
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
 
                                 <div id="product" class="tab-pane fade">

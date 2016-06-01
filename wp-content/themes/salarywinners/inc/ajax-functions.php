@@ -472,3 +472,67 @@ function update_provider_about() {
     }
     wp_die();
 }
+
+/*Create Product*/
+add_action('wp_ajax_create_product', 'create_product');
+function create_product() {
+    extract($_POST);
+    global $wpdb;
+    $error = false;
+
+    $message = '';
+    //echo SW_PT_PRODUCT.','.$product_title;die();
+     $post_id = wp_insert_post(array (
+            'post_type' => SW_PT_PRODUCT,
+            'post_title' => $product_title,
+            'post_content' => $product_description,
+            'post_status' => 'publish',            
+            ));
+            if ($post_id) {
+            // insert taxonomies
+                wp_set_post_terms( $post_id, $product_category, SW_TX_PRODUCT_CATEGORY );
+                wp_set_post_terms( $post_id, $keywords, SW_TX_PRODUCT_KEYWORDS );
+                
+            // insert post meta
+             
+            add_post_meta($post_id, '_price', $price);
+            add_post_meta($post_id, '_country', $country);
+            
+            
+            // These files need to be included as dependencies when on the front end.
+            require_once( ABSPATH . 'wp-admin/includes/image.php' );
+            require_once( ABSPATH . 'wp-admin/includes/file.php' );
+            require_once( ABSPATH . 'wp-admin/includes/media.php' );
+            // Let WordPress handle the upload.
+            // Remember, 'avatar' is the name of our file input.
+            $attachment_id = media_handle_upload( 'product_image', $post_id );
+            if ( !is_wp_error( $attachment_id ) ) {
+                add_post_meta($post_id, 'product_image', $attachment_id); 
+                $attachment_id = wp_get_attachment_url($attachment_id);
+                
+                if($attachment_id){
+                    //
+                } else {
+                    
+                }
+            } else {
+                $error = true;
+                $message = 'problem to upload product image';
+            }
+            //print_r($attachment_id);die();
+                $message = 'Your product has been posted successfully';
+            }
+            else
+            {
+                $error = true;
+                $message = 'Sorry!Product not added.Try again';
+            }
+             
+             $results['message'] = $message;
+             if($error){
+            wp_send_json_error($results);
+            } else {
+                wp_send_json_success($results);
+            }
+    wp_die();
+}
