@@ -18,55 +18,72 @@ get_header();
         	<div class="row">
             	<div class="container">
                 	<div class="filter-section">
-                    	<div class="filter-tab"><p>Advanced filters</p></div>
-                        <div class="filter-tab">
-                        	<div class="form-group">
-                            	<label>keywords:</label>
-                                <input type="search" placeholder="" class="form-control">
-                                <i class="fa fa-search"></i>
-                            </div>
-                        </div>
-                        <div class="filter-tab">
+                            <div class="filter-tab adv-filter"><p>Advanced filters</p></div>
+                                <form name="form-search" id="form-search" method="get" >
+                                <div class="filter-tab">
+                                    <div class="form-group">
+                                    <label>keywords:</label>
+                                        <input type="text" placeholder="keywords" value="<?php echo $getKeyword; ?>" name="keywords" id="keywords" class="form-control">
+                                        <i class="fa fa-search"></i>
+                                    </div>
+                                </div>
+                                    <div class="filter-tab">
                         	<div class="form-group">
                             	<label>Category:</label>
-                                <select type="search" placeholder="" class="form-control">
-                                	<option selected>Category</option>
-                                    <option>Category</option>
-                                    <option>Category</option>
-                                    <option>Category</option>
-                                </select>
+                                <?php
+                                    $args = array(
+                                            'show_option_all'    => '',
+                                            'show_option_none'   => 'Select Category',
+                                            'option_none_value'  => '',
+                                            'order'              => 'ASC',
+                                            'show_count'         => 0,
+                                            'hide_empty'         => 0, 
+                                            'child_of'           => 0,
+                                            'exclude'            => '',
+                                            'echo'               => 1,
+                                            'selected'           => $selectedCategory,
+                                            'hierarchical'       => 0, 
+                                            'name'               => 'job_category',
+                                            'id'                 => 'job_category',
+                                            'class'              => 'form-control',
+                                            'depth'              => 0,
+                                            'tab_index'          => 0,
+                                            'taxonomy'           => 'sw_category',
+                                            'hide_if_empty'      => false,
+                                            'value_field'	 => 'term_id',	
+                                        );
+                                    wp_dropdown_categories( $args );
+                                    ?>
                                 <i class="fa fa-angle-down"></i>
                             </div>
                         </div>
                         <div class="filter-tab">
-                        	<div class="form-group">
-                            	<label>Location:</label>
-                                <select type="search" placeholder="" class="form-control">
-                                	<option selected>Location</option>
-                                    <option>Location</option>
-                                    <option>Location</option>
-                                    <option>Location</option>
-                                </select>
-                                <i class="fa fa-angle-down"></i>
+                            <div class="form-group">
+                            	<label>Location:</label>     
+                                <?php sw_dropdown_country(
+                                        array(
+                                            'name'=>'country',
+                                            'id' => 'select-country',
+                                            'class' => 'form-control',
+                                            'selected' => $selectedCountry,
+                                            'blank'=>'Select Country',
+                                            )); ?>
                             </div>
                         </div>
                         <div class="filter-tab">
-                        	<div class="form-group">
-                            	<label>Rating:</label>
-                                <select type="search" placeholder="" class="form-control">
-                                	<option selected>Location</option>
-                                    <option>Location</option>
-                                    <option>Location</option>
-                                    <option>Location</option>
-                                </select>
-                                <i class="fa fa-angle-down"></i>
+                            <div class="form-group">
+				<label>Price($):</label>
+                                <input type="number" value="<?php echo $min; ?>" name="min" class="form-control input-range">
+                                <b class="f-left">-</b>
+                                <input type="number" value="<?php echo $max; ?>" name="max" class="form-control input-range">
                             </div>
                         </div>
                         <div class="filter-tab">
                         	<a href="">X</a>
-                            <small>Clear All</small>
+<!--                            <small>Clear All</small>-->
                         </div>
-                    </div>
+                                </form>
+                            </div>
                     <!--end filter button section-->
                     
                     <div class="normal">
