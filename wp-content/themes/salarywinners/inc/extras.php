@@ -298,7 +298,7 @@ function sw_dropdown_country($args = array()){
     );
     
     if($args['multiselect']){
-        $markMultiselect = 'multiselect';
+        $markMultiselect = 'multiple';
     } else {
         $markMultiselect = '';
     }

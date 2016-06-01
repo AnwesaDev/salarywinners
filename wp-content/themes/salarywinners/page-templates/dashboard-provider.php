@@ -271,7 +271,7 @@ get_header();
                                         <!--<div class="col-xs-4"><button class="btn btn-edit pull-right">edit</button></div>-->
                                     </div>
                                     <div class="contact-frm">
-                                        <form action="" id="form-create-product" method="post" data-toggle="validator" role="form" name="form-create-product">                                          
+                                        <form action="" id="form-create-product" method="post" data-toggle="validator" role="form" name="form-create-product" enctype="multipart/form-data">                                          
                                             <div class="input-box form-group has-feedback">
                                                 <label>Product Title</label>
                                                 <input type="text" placeholder="Product Title" class="form-control" name="product_title" id="product_title" data-error="Product Title is required" required>
@@ -331,7 +331,7 @@ get_header();
                                                 <?php sw_dropdown_country(array(
                                                     'name' => 'country',
                                                     'id' => 'country',
-                                                    'class' => 'form-control',
+                                                    'class' => 'form-control chosen-select',
                                                     'multiselect' => true,
                                                     'blank' => 'Select Country',
                                                     'required' => 'required'
@@ -463,6 +463,7 @@ jQuery(document).ready(function($){
         $("#btn-profile-image").attr("disabled", false);
         $("#btn-about-save").attr("disabled", false);
     });
+     $(".chosen-select").select2();
 });
 
 </script>

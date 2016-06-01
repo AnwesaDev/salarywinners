@@ -163,6 +163,7 @@ get_header();
                                                                 echo strip_tags(get_the_term_list($post_id, SW_TX_PRODUCT_CATEGORY, '<ul><li>', '</li><li>', '</li></ul>' ),'<ul><li>');
                                                             ?>
                                                         </div>
+                                                       <?php echo $post_meta['_country'][0];?>
                                                    </div>
                                                    
                                                 </div>

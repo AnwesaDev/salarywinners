@@ -100,4 +100,33 @@ function salarywinners_add_metabox_icon_block() {
                 'context' => 'normal',
                 'priority'=> 'default',
 	) );
+         //-----------------Product Details----------------------
+        $cmb_product = new_cmb2_box( array(
+		'id'           => $prefix . 'product',
+		'title'        => __( 'Details', 'salarywinners' ),
+		'object_types' => array( SW_PT_PRODUCT ),
+		'context'      => 'normal',
+		'priority'     => 'default',
+                
+	) );
+        
+        $cmb_product->add_field( array(
+		'name' => __( 'Price ($)', 'salarywinners' ),
+		'id'   => '_price',
+		'type' => 'text',
+	) );
+        $cmb_product->add_field( array(
+		'name' => __( 'Country', 'salarywinners' ),
+		'id'   => '_country',
+		'type' => 'text',
+	) );
+        $cmb_product->add_field( array(
+		'name'    => __( 'Product Image', 'salarywinners' ),
+		'desc'    => __( '(Fileformat: PDF, DOC, DOCX, PNG, JPEG)', 'salarywinners' ),
+		'id'      => 'product_image',
+		'type'    => 'file',
+                'context' => 'normal',
+                'priority'=> 'default',
+       ) );
+
 }
