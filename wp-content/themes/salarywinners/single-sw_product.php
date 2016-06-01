@@ -109,62 +109,6 @@ get_header();
       </div>
     </div>
   </section>
-<section class="gallery">
-          <div class="row">
-              <div class="gallery-box">
-                  <div class="thumb">
-                  	<img src="images/img-thumb1.jpg" alt="" title="">
-                  </div>
-                  <div class="thumb-content">
-                  	<h3 class="title">Hi, this is title</h3>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus neque.
-                    </p>
-                    <i></i>
-                  </div>
-              </div>
-              
-              <div class="gallery-box">
-                  <div class="thumb">
-                  	<img src="images/img-thumb2.jpg" alt="" title="">
-                  </div>
-                  <div class="thumb-content">
-                  	<h3 class="title">Hi, this is title</h3>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus neque.
-                    </p>
-                    <i></i>
-                  </div>
-              </div>
-              
-              <div class="gallery-box">
-                  <div class="thumb-content">
-                  	<h3 class="title">Hi, this is title</h3>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus neque.
-                    </p>
-                    <i></i>
-                  </div>
-                   <div class="thumb">
-                  	<img src="images/img-thumb3.jpg" alt="" title="">
-                  </div>
-              </div>
-              
-              <div class="gallery-box">
-                  <div class="thumb-content">
-                  	<h3 class="title">Hi, this is title</h3>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacus neque.
-                    </p>
-                    <i></i>
-                  </div>
-                   <div class="thumb">
-                  	<img src="images/img-thumb4.jpg" alt="" title="">
-                  </div>
-              </div>
-            
-              
-           </div>
-        </section>
+<?php get_template_part('template-parts/block', 'post-gallery'); ?>
 <?php 
 get_footer();
