@@ -125,7 +125,7 @@ get_header();
                                                 </div>
                                                 <div class="col-xs-6">
                                                 	<div class="button">
-                                                    <a href="<?php the_permalink();?>" class="btn btn-work pull-right">View Details</a>
+                                                    <a href="<?php the_permalink();?>" class="btn btn-work pull-right" target="_blank">View Details</a>
                                                     <a href="" class="btn btn-work pull-right"><span class="cart"></span>Cart</a>
                                                     </div>
                                                 </div>
